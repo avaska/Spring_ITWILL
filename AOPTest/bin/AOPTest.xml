@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+        
+<beans>
+	<!-- 객체 생성 : Calculator -->
+	<!-- LoggingAdvice 적용될 클래스(객체) -->
+	<bean id="calcTarget" class="com.itwillbs.ex.Calculator"/>
+	
+	<!-- 객체 생성 : LoggingAdvice -->
+	<bean id="logAdvice" class="com.itwillbs.ex.LoggingAdvice"/>	
+	
+	
+	<!-- AOP 사용해서 실제 사용객체 CalcTest에서 적용시킬 객체 -->
+	<bean id="proxyCal" class="org.springframework.aop.framework.ProxyFactoryBean">	
+		<!-- 속성을 정의 -->
+		<!-- 기능하는 객체를 지정(계산기) -->
+		<property name="target" ref="calcTarget"/>
+		
+		<!-- 보조기능들을 지정(로깅) -->
+		<property name="interceptorNames">		
+			<list>
+				<value>logAdvice</value>
+			</list>
+		</property>
+		
+		
+	</bean>
+
+</beans>
+
+<!-- class proxyCal{
+
+	object target;
+	
+	set(){
+		target = calcTarget;
+	}
+} -->
+
