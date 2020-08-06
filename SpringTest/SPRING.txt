@@ -107,6 +107,10 @@
    3. Maven - Update Project 후 jdk 버전 1.8으로 재설정
     - Java compiler
     - Project Facets
+    
+    
+    * root-context.xml : 웹과 관련된 설정을 제외한 모든 설정을 처리하는 파일(전체 프로젝트에 영향을 준다)
+    * servlet-context.xml : 웹과 관련된 설정을 지정하는 파일
 
 
 

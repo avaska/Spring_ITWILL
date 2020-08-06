@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+  
+<!-- xml 파일은 태그 형태로 여러가지 데이터를 저장하고 처리하는 타입이다. -->
+<!-- 사용 목적에 맞춰서 사용하기 위해선 DTD/XML스키마 지정 -->
+
+
+<configuration>
+
+
+
+</configuration>
