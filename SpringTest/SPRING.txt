@@ -111,6 +111,42 @@
     
     * root-context.xml : 웹과 관련된 설정을 제외한 모든 설정을 처리하는 파일(전체 프로젝트에 영향을 준다)
     * servlet-context.xml : 웹과 관련된 설정을 지정하는 파일
+    
+    
+    
+    
+모델2(MVC 패턴)
+=> 화면과 데이터를 분리해서 처리(코드의 재활용)
+=> 위임(FC-Front Controller)받은 컨트롤러가 동작 제어(view 이동 처리)
+
+
+	FC  -  Controller  - Service - DAO - MyBatis(Mapper) - MySql
+	 |
+    View
+    
+    * 스프링 MVC가 처리하는 작업
+     - URI(맵핑할 주소) 분석해서 적절한 컨트롤러 이동
+     - 컨트롤러에 필요한 메서드 호출
+     - 컨트롤러에 결과를 데이터로 저장해서 view로 전달
+     - 적절한 view 페이지 이동    
+    
+    * 개발자가 처리해야하는 작업
+     - 특정 URI에 동작하는 컨트롤러 설계
+     - 서비스 객체 생성 
+     - DAO 객체 생성
+     - 컨트롤러에서 필요한 사용자 정의 기능 구현
+     - view에서 전달 받은 결과 출력/사용
+    
+    * 스프링 MVC 컨트롤러
+     - 파라미터값 수집 ( DTO/VO(Value Object) 자동으로 처리) 
+        -> request의 parameter,attribute 바인딩 값
+     - @Controller 어노테이션 사용 -> 쉽게 설정 가능 : request, response 처리 가능
+     - 각각의 메서드마다 특정 주소를 매핑해서 처리가능(처리 로직에 집중)
+     - 스프링 사용 테스트가 쉽다.
+     => servlet-context.xml 파일에 설정값들이 지정됨
+     
+     
+
 
 
 

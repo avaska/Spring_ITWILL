@@ -7,22 +7,27 @@
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- servlet-context.xml : 웹과 관련된 설정을 지정하는 파일 -->
-
+	
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<!-- servlet-context.xml : 웹과 관련된 설정을 지정하는 파일 -->
+	
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
+	<!-- 어노테이션을 사용해서 컨트롤러 생성 -->
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
+	<!-- 이미지, CSS, JavaScript 파일 추가 -->
 	<resources mapping="/resources/**" location="/resources/" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<!-- 컨트롤러가 해당 뷰 페이지를 쉽게 찾아가도록 처리 -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	<!-- 해당 패키지의 내용을 읽어서 처리하겠다. -->
 	<context:component-scan base-package="com.itwillbs.test" />
 	
 	
