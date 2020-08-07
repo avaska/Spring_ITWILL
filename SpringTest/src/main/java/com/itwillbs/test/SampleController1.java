@@ -32,6 +32,11 @@ public class SampleController1 {
 	}
 	//주소창에 http://localhost:8090/test/doB   로 요청
 	
+	//http://localhost:8090/test : 패키지명(com.itwillbs.test)로 접근
+	//나중에 패키지명을 없애고 root로 바로 접속할 수 있도록 만들것이라고 함
+	//root로 접속한다는 것은 서버(톰캣)에서 돌아가고 있는 프로젝트가 1개뿐이라는 것.
+	//jsp에서 root/프로젝트명으로 접속했던 것은 돌아가고 있는 프로젝트가 여러개이기 때문
+	
 	
 	//ctrl + s로 저장하면 서버 동기화 -> 완료되면 페이지 요청해보기
 	

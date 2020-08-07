@@ -24,6 +24,7 @@ public class MyBatisTest {
 	//root-context.xml에서 만들어지는 bean 객체(의존 주입할 객체) 
 	// => SqlSessionFactoryBean : SqlSessionFactory 인터페이스를 상속하는 하위 객체
 	//    상위 인터페이스인 SqlSessionFactory 레퍼런스로 의존 주입을 받아서 upcasting
+	//auto-wiring에 의해 root-context.xml.로부터 injection
 	
 	
 	

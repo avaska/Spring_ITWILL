@@ -24,6 +24,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	
 	//@WebServlet 어노테이션과 같은 효과
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
@@ -37,6 +38,7 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "home";
+		//루트경로(http://localhost:8090/test/) 접속하면 home.jsp 실행
 	}
 	
 }
