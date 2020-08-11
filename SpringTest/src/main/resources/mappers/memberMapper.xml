@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
+<!-- member 테이블 관련 SQL 구문만 처리 -->
+<!-- namespace:외부에서 해당 파일을 구분할 수 있도록 하는 값 -->
+<mapper namespace="com.itwillbs.mapper.MemberMapper">
+	
+	<!-- getTime 아이디값을 통해서 해당 쿼리를 실행 
+		 결과값을 string 타입으로 리턴
+	-->
+	<select id="getTime" resultType="string">
+		select now()
+	</select>
+	
+	
+	<!-- 회원가입 처리 SQL -->
+	<!-- 띄어쓰기 주의 -->
+	<insert id="insertMember">
+    	insert into tbl_member(userid,userpw,username,email) 
+    	values(#{userid},#{userpw},#{username},#{email})  
+  	</insert>
+	
+	
+	
+</mapper>
