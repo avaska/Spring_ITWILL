@@ -160,7 +160,77 @@ https://m.blog.naver.com/sim4858/220924984480
      => servlet-context.xml 파일에 설정값들이 지정됨
      
      
+     * 스프링  + MyBatis
+     1) XML파일을 사용해서 SQL 구문 작성, DAO에서 xml을 읽어서 사용하게 하는 방식
+     - SQL 구문(xml 파일)을 수정, 유지보수 처리가 쉽다. (별도로 만들어진 파일이므로)     
+     - 개발 시 코드의 양 증가, 복잡도 증가(파일의 양이 많아지므로)
+     - 관리자 입장에서 가장 좋은 방식.(코드의 양이 증가하는 것은 개발자의 몫이고 관리자와 상관 없기 때문)
+     
+     2) 어노테이션, 인터페이스 객체를 사용해서 SQL 구문을 사용하는 방법
+     - 별도의 DAO 없이 개발이 가능 => 생산성 증가
+     - 어노테이션으로 SQL구문 작성, 수정 시 매번 컴파일이 필요함.
+     
+     3) 인터페이스와 XML파일을 사용해서 SQL 구문을 사용하는 방법
+     - 간단한 쿼리는 인터페이스(어노테이션), 복잡한 구문은 XML 처리 가능 => 유연한 대처
+     - 개발자의 능력에 따른 차이가 발생하기 때문에, 팀플에 부적합.
+     
+     
+   * MyBatis -> XML(SQL) -> DAO처리
+  
+   - 테이블 생성 및 디비 생성
+   - 도메인 객체를 생성(자바빈)
+   - DAO 인터페이스를 구현
+   - 실제로 처리할 동작을 추상 메서드로 구현
+   - XML 파일을 사용해서 Mapper생성, SQL 구문작성
+   - MyBatis에서 XML파일을 인식 
+   - DAO 인터페이스를 구현한 객체 생성
+   - 스프링 테스트를 통해서 실제 동작을 구현 
+   
+   Java Resources : domain(VO) - persistence(DAO) - web(Controller) 3가지로 구분할 것
+   
+   Mabatis mapper를 만드는 방법
+   https://mybatis.org/mybatis-3/ko/getting-started.html
+   -> 매핑된 SQL 구문 살펴보기
+   
+   root-context.xml : 스프링에서 웹에관련된 설정을 제외한 모든 설정을 하는 파일
+   
+   CREATE TABLE `springdb`.`tbl_member` (
+  `userid` VARCHAR(50) NOT NULL,
+  `userpw` VARCHAR(45) NOT NULL,
+  `username` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(200) NULL,
+  `regdate` TIMESTAMP NULL DEFAULT now(),
+  `updatedate` TIMESTAMP NULL DEFAULT now(),
+  PRIMARY KEY (`userid`));
+  
+  
+  * 도메인 : 개발프로젝트에서 가장 중요한 용어(단어)를 도메인(명사)
+ 	             물리적인 기준으로 분리 가능한 단위(DB 테이블로 나누어지는 상태)
+  	ex) 쇼핑몰  		
+  	  1차 도메인- 회원, 결제, 주문, 상품, 리뷰, 게시판,....
+   	  2차 도메인- 회원 -> 회원 가입, 수정,삭제	
+	  ....  
 
+
+
+--------------------------------------------------------------------------------------------------------
+**팀프로젝트 소스 DB 오류 발생할 때
+HTTP Status 500 - org.apache.commons.dbcp.SQLNestedException
+ :Cannot create PoolableConnectionFactory 
+ (Access denied for user 'itwillbs8'@'localhost' (using password: YES))
+- 발표 시 사용했던 웹서버 계정과 로컬 서버와의 차이 때문일 수 있다고 함
+- MySQL에 해당 계정을 만들어주거나
+- META-INF/context.xml, DAO 설정 바꿔보라고 함
+
+
+-----------------------------------------------------------------------------------------------------------
+
+**팀프로젝트
+1. 버전 통일
+2. 테이블 짜기(각자 구현하고자 하는)
+3. 소스 관리(git,카톡 등)
+4. 저작권 주의(폰트,이미지)
+5. 파트 나눠서 2명씩 분담
 
 
 
