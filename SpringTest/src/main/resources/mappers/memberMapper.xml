@@ -2,10 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- mapper dtd를 통해  mapper태그 사용 가능해짐 -->
 
 <!-- https://mybatis.org/mybatis-3/ko/getting-started.html -->
 <!-- member 테이블 관련 SQL 구문만 처리 -->
 <!-- namespace:외부에서 해당 파일을 구분할 수 있도록 하는 값 -->
+<!-- 원래는 "com.itwillbs.mappers.memberMapper"지만 namespace로 다른 경로처럼 설정할 수 있는 듯? -->
 <mapper namespace="com.itwillbs.mapper.MemberMapper">
 	
 	<!-- getTime 아이디값을 통해서 해당 쿼리를 실행 
@@ -22,7 +24,33 @@
     	insert into tbl_member(userid,userpw,username,email) 
     	values(#{userid},#{userpw},#{username},#{email})  
   	</insert>
+  	
+  	<!-- ID에 해당하는 회원 정보 검색 SQL -->
+  	<select id="getMember" resultType="com.itwillbs.domain.MemberVO">
+  		<!-- select태그는 반환타입을 반드시 명시해야 한다!! -->
+  		
+  		select * 
+  		from tbl_member 
+  		where userid = #{userid}
+  		
+  	</select>
+  	
+  	
+  	<!-- ID, PW 정보를 확인해서 본인 정보 호출하는 SQL -->
+  	<select id="getMemberIdPw" resultType="com.itwillbs.domain.MemberVO">
+  		<!-- map에 key를 컬럼명에 맞춰서 넣어주면 스프링이 알아서 map객체로부터 데이터를 꺼내서 처리해줌-->
+  	
+  		select * from tbl_member  
+  		where userid = #{userid} and userpw = #{userpw}
+  	</select>
 	
+	
+	<!-- 
+		#{ } 
+		- get(), set() 역할
+		- 전달되는 파라미터가 하나인 경우 그대로 처리(기본형, 문자열)
+		- PreparedStatement 객체 역할을 처리	
+	 -->
 	
 	
 </mapper>

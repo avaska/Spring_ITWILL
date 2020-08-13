@@ -43,7 +43,7 @@ public class MemberDAOTest {
 	}
 	
 	// 회원 가입 처리하는 동작(테스트)
-	@Test
+	//@Test
 	public void testInsertMember() throws Exception {
 		// MemberDAO 회원가입 메서드 호출
 		
@@ -54,7 +54,8 @@ public class MemberDAOTest {
 		
 		//ID 컬럼에 PK 걸려 있으므로 매번 다른 ID로 만들어줘야함!!
 		//kim.setUserid("admin");
-		kim.setUserid("itwillbs1");
+		//kim.setUserid("itwillbs1");
+		kim.setUserid("itwillbs2");
 		kim.setUserpw("1234");
 		kim.setUsername("관리자");
 		kim.setEmail("admin@itwill.co.kr");
@@ -65,9 +66,45 @@ public class MemberDAOTest {
 		
 		System.out.println("DAO 객체 사용해서 회원가입 메서드 호출");
 		
-		mdao.insertMember(kim);	
+		//mdao.insertMember(kim);	
+		//id pk 걸려있어서 중복이면 에러남 
 		
 		System.out.println("회원가입 테스트 완료!");
+		
+		
+	}
+	
+	
+	//@Test
+	public void getMember() throws Exception {
+		
+		System.out.println("----------------------------------------------------");
+		System.out.println("@@@@ TEST : 회원 정보 호출 실행 @@@@@");
+		
+		MemberVO vo = mdao.getMember("admin");
+		
+		System.out.println("@@@@ TEST : DAO 호출  완료 결과 확인");
+		System.out.println(vo);
+	}
+	
+	@Test
+	public void getMemberWithIDPW() throws Exception{
+		
+		System.out.println("------------------------------------------------------");
+		System.out.println("@@@@ TEST : ID, PW 사용 본인정보 호출");
+		System.out.println("@@@@ TEST : DAO 객체 사용 접근(의존 주입)");
+		System.out.println("@@@@ TEST : DAO 안에 있는 처리 메서드  호출");
+		
+		//MemberVO vo = mdao.getMemberWithIdPw("admin", "1234");
+		MemberVO vo = mdao.getMemberWithIdPw("admin", "12345678");
+		
+	
+		System.out.println("@@@@ TEST : DAO에서 처리 완료 ! ");
+		System.out.println("@@@@ TEST : 결과 확인 ");
+		System.out.println(vo);
+		
+		if(vo == null)
+			System.out.println("@@@@ TEST : ID 혹은 PW가 잘못되었습니다.");
 		
 		
 	}

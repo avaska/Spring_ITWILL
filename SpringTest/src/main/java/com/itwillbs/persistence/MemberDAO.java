@@ -15,5 +15,14 @@ public interface MemberDAO {
 	// 회원 가입 처리 메서드
 	public void insertMember(MemberVO VO);
 	
+	// ID에 해당하는 회원 정보 모두를 가져오는 메서드
+	public MemberVO getMember(String id);
+	
+	// ID/PW를 사용해서 본인 회원 정보를 가져오는 메서드
+	public MemberVO getMemberWithIdPw(String id, String pw);
+	
+	
+	
+	
 	
 }

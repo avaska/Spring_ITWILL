@@ -1,5 +1,8 @@
 package com.itwillbs.persistence;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,6 +15,7 @@ import com.itwillbs.domain.MemberVO;
 
 @Repository
 public class MemberDAOImpl implements MemberDAO{
+	// 인터페이스를 구현한 implement 객체
 
 	// DAO(Data Access Object) 처리
 	
@@ -66,8 +70,58 @@ public class MemberDAOImpl implements MemberDAO{
 		System.out.println("DAOImpl : 회원 저장 완료! Test 파일로 이동");
 		
 	}
+
+	@Override
+	public MemberVO getMember(String id) {
+		
+		//매개변수  id값을 가지고  mapper로 이동
+		
+		System.out.println("@@@@ DAO : TEST 파일에서 메서드 호출 @@@@");
+		
+		System.out.println("@@@@ DAO : MyBatis 사용 memberMapper로 이동 @@@@");
+		
+		//selectOne() : 가지고 올 데이터가 하나일 때 사용
+		//com.itwillbs.mapper.MemberMapper.getMember
+		MemberVO vo 
+			= sqlSession.selectOne(namespace + ".getMember", id);
+		
+		System.out.println("@@@@ DAO : Mapper에서 SQL 구문 실행 완료");
+		System.out.println("@@@@ DAO : 결과를 저장해서 TEST 페이지로 이동 ");		
+		
+		return vo;
+	}
+
+	@Override
+	public MemberVO getMemberWithIdPw(String id, String pw) {
+		// 회원 정보(ID/PW)에 해당하는 회원 정보 가져오기 메서드
+		
+		System.out.println("@@@@ DAO : TEST에서 메서드 호출 !");
+		System.out.println("@@@@ DAO : DB 연결 준비(의존 주입 - sqlSession)");
+		System.out.println("@@@@ DAO : MyBatis 사용 Mapper 이동해서 SQL 호출");
+		
+		System.out.println("@@@@ DAO : 파라미터값 2개 전달하기위해서 Map 객체 생성");
+		Map<String, Object> paramMap
+		 = new HashMap<String, Object>();
+		
+		//저장할 때 키값을 테이블의 컬럼명으로 저장
+		// -> mapper에서 바로 전달될 수 있도록 처리
+		// -> 스프링이 알아서 map객체로부터 데이터를 꺼내서 처리해줌
+		paramMap.put("userid", id);
+		paramMap.put("userpw", pw);		
+		
+		//com.itwillbs.mapper.MemberMapper.getMemberIdPw
+		MemberVO vo = sqlSession.selectOne(namespace + ".getMemberIdPw", paramMap);
+				
+				
+		System.out.println("@@@@ DAO : SQL 구문 실행 완료!");
+		System.out.println("@@@@ DAO : 결과 저장해서 다시 테스트 페이지 이동");		
+		
+		return vo;
+	}
 	
 	
+	// 실무에서 시스템콜(sysout 등) 사용하지 말 것 -> 속도 저하 원인
+	// 대신  logger 사용
 	
 
 }
