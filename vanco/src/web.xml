@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>vc</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>main.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+   
+   
+   <servlet>
+  	<servlet-name>linkServlet</servlet-name>
+  	<servlet-class>linkControl.linkServlet</servlet-class>
+  </servlet>    
+  <servlet-mapping>
+ 	<servlet-name>linkServlet</servlet-name>
+  	<url-pattern>*.vc</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>MemberServlet</servlet-name>
+  	<servlet-class>member.MemberServlet</servlet-class>
+  </servlet>    
+  <servlet-mapping>
+ 	<servlet-name>MemberServlet</servlet-name>
+  	<url-pattern>*.me</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>neiBoardServlet</servlet-name>
+  	<servlet-class>neighborComm.neiBoardServlet</servlet-class>
+  </servlet>    
+  <servlet-mapping>
+ 	<servlet-name>neiBoardServlet</servlet-name>
+  	<url-pattern>*.ne</url-pattern>
+  </servlet-mapping>
+  
+   
+   <servlet>
+  	<servlet-name>dmServlet</servlet-name>
+  	<servlet-class>dm.dmServlet</servlet-class>
+  </servlet>    
+  <servlet-mapping>
+ 	<servlet-name>dmServlet</servlet-name>
+  	<url-pattern>*.dm</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>storeServlet</servlet-name>
+  	<servlet-class>store.storeServlet</servlet-class>
+  </servlet>    
+  <servlet-mapping>
+ 	<servlet-name>storeServlet</servlet-name>
+  	<url-pattern>*.st</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+  	<servlet-name>timeLineServlet</servlet-name>
+  	<servlet-class>timeLine.timeLineServlet</servlet-class>
+  </servlet>    
+  <servlet-mapping>
+ 	<servlet-name>timeLineServlet</servlet-name>
+  	<url-pattern>*.ti</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  	<servlet>
+		<servlet-name>ControllerAction</servlet-name>
+		<servlet-class>com.controller.action.ControllerAction</servlet-class>
+	</servlet>
+	<servlet-mapping>
+	<servlet-name>ControllerAction</servlet-name>
+		<url-pattern>*.do</url-pattern>
+		<url-pattern>*.co</url-pattern>
+		<url-pattern>*.bo</url-pattern>
+	</servlet-mapping>
+  
+  
+  
+  
+  
+  
+</web-app>

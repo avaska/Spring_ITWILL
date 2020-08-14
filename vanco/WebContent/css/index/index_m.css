@@ -1,0 +1,140 @@
+@CHARSET "UTF-8";
+
+
+/************************* bodyWrapLeft 영역 ***************************/
+
+/* 메인 슬라이드 */
+.mainSlideWrapper{width:100%; height:auto; border-radius: 0px;}
+.mainSlide{width:100%; height:auto; border-radius: 0px; overflow: hidden; /* position:relative; */}
+.mainSlide img{width:100%; height:auto; overflow:hidden; border-radius: 0px;}
+.mainSliderTitle{display:none;}
+
+
+/* 위클리 인기 갤러리 */
+.weeklyPop{width:660px; height:245px;}
+.weeklyPop >div {display:inline-block; float:left; width:150px; height:210px; padding-left: 20px; position:relative;}
+.weeklyPop >div:FIRST-CHILD{padding-left:0;}
+
+.weeklyPop .weeklyImgWrap{display: inline-block; width:150px; height:150px; border-radius: 7px; overflow:hiden;}
+.weeklyPop img{width:150px; height:150px; border-radius: 7px;}
+.weeklyPop .weeklyTit{font-size:14px; height:20px; color:#222; letter-spacing:-0.5; margin-top:10px;
+	/* 게시판 글자 넘어가면 말줄임표... */ width: 150px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+.weeklyPop .weeklyNick{display:inline-block; font-size:12px; color:#64B9FF; letter-spacing:-0.5; margin: 0;}
+.weeklyPop .weeklyHeart{display:inline-block; margin-left:19px;}
+.weeklyPop .weeklyHeartNum{display:inline-block;}
+.popDogPic >div{width:20px; height:20px; border-radius:50px; background:#64B9FF; position:absolute; top:5px; left:25px;}
+.weeklyPop >div:FIRST-CHILD >div{position:absolute; left:5px;}
+.popDogPic >div >span{display:inline-block; width:20px; height:20px; line-height:20px; text-align:center; color:#fff;}
+ 
+.weeklyPop >span{display:inline-block; margin-top:13px; color:#999}
+
+
+
+
+/* 행동교정 매거진 */
+.mainMagazine{display:inline-block; width:660px; height:200px; position:relative;}
+.mainMagazine >a{display:inline-block; width:415px; height:200px; border-radius: 10px; overflow:hidden;}
+.mainMagazine img{width:415px; height:auto; }
+.mainMagazine .magazineText{display:inline-block; width:240px; height:200px; position:absolute;}
+
+.mainMagazine .magazineText .magazineTextTit{font-size:18px; letter-spacing: -0.5px; width:200px; height:43px; padding:17px 15px 34px 24px;}
+.mainMagazine .magazineText .magazineTextSub{font-size:14px; letter-spacing: -0.5px; color:#999; padding:0px 15px 37px 24px;}
+
+.mainMagazine .magazineText .magazineTextBtn{display:inline-block; width:90px; height:35px; background:#FF335F; border-radius:7px; margin:32px 130px 20px 24px;}
+.mainMagazine .magazineText .magazineTextBtn >a{display:inline-block; width:90px; text-align:center; font-size:14px; font-weight:bold; line-height:35px; color:#fff; }
+
+
+/* 견종별 커뮤니티 */
+
+.dogKindBoard{display:inline-block; width:660px; height:300px;}
+
+.dogKindBoard .dogKindPic{display:inline-block; width:320px; height:75px; border-radius: 7px; margin:0 0 25px 17px; position:relative;
+	box-shadow:5px 5px 10px 7px #E6E6E6}
+.dogKindBoard .dogKindPic:nth-child(2n-1){margin-left:0}
+
+.dogKindBoard .dogKindPic img{display:inline-block; width:95px; height:75px; border-radius:7px 0 0 7px;}
+.dogKindBoard .dogKindPic .kindBoardTit{display:inline-block; font-size:16px; letter-spacing:-0.5px; position:absolute; top:8px; ;left:117px;}
+.dogKindBoard .dogKindPic .kindBoardRank{display:inline-block;font-size:12px; letter-spacing:-0.5px; color:#64B9FF; position:absolute; top:34px; ;left:117px;}
+.dogKindBoard .dogKindPic .kindBoardNum{display:inline-block; font-size:11px; letter-spacing:-0.5px; color:#999999; position:absolute; top:53px; ;left:117px;}
+
+.dogKindBoard .dogKindPic .starIconOn, 
+.dogKindBoard .dogKindPic .starIconOff{position:absolute; top:28px; left:280px;}
+
+
+/* 오늘의 조회수 베스트*/
+.bestClick{display:block; width:660px; height:420px; float:left;}
+.bestClickWrap{display:inline-block;width:300px; height:57px;  padding:12px 0 15px 25px; position:relative;}
+.bestClick .bestClickWrap:FIRST-CHILD{border-top:1px solid #ECECEC; }
+.bestClick .bestClickWrap:NTH-CHILD(2){border-top:1px solid #ECECEC; }
+ .bestClickLine{width:300px; height:73px;border-bottom:1px solid #ececec; }
+
+.bestClickWrap .bestClicktTit{font-size: 16px; letter-spacing:-0.5px;
+	/* 제목 글자 넘어가면 말줄임표... */width: 250px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+
+.bestClickWrap .cameraIcon{display:inline-block; margin:auto auto 4px 3px;}
+
+.bestClickWrap .bestClicktNick >a{display:inline-block; font-size: 12px; letter-spacing:-0.5px; color:#64B9FF !important;}
+.bestClickWrap .bestClickInfo{display:inline-block; letter-spacing:-0.5px;}
+
+.bestClickWrap .bestClickRank{display:inline-block; width:18px; height:18px; border-radius:50px; background:#FF335F; position:absolute;top:15px; left:0; }
+.bestClickWrap .bestClickRank >span{display:inline-block; width:18px;height:18px; text-align:center; font-size:12px; color:#fff; line-height:18px;
+ /* position:absolute;top:0px;  */}
+ 
+	/* 순위 4번째 이후 동그란 써클 없애기 */
+.bodyWrapLeft .bestClick .bestClickWrap:NTH-CHILD(n+5) .bestClickRank{background:#fff;}
+.bodyWrapLeft .bestClick .bestClickWrap:NTH-CHILD(n+5) .bestClickRank >span{color:#222; font-size:16px;}
+
+
+/* 스토어 스테디 셀러*/
+.steadySeller{width:660px; /* height:290px;  *//* float:left; */ display:block;}
+.steadySeller .productWrap{display:inline-block; width:150px; height:auto; margin-left:17px; position:relative;}
+.steadySeller .productWrap:FIRST-CHILD{margin-left:0;}
+.steadySeller .productWrap >a >img{width:150px; height:200px; border-radius:7px;}
+
+.steadySeller span:NTH-CHILD(2){display:inline-block; font-size:14px; letter-spacing: -0.5px; color:#222;position:absolute;top:210px; left:0;
+	width: 150px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block; }
+.steadySeller span:NTH-CHILD(3){display:inline-block; font-size:12px; letter-spacing: -0.5px; color:#64b9ff;position:absolute;top:236px; left:0;}
+.steadySeller span:NTH-CHILD(4),
+ .steadySeller span:NTH-CHILD(5){display:inline-block; width:80px; font-size:12px; color:#222;}
+
+.steadySeller span:NTH-CHILD(4){text-decoration:line-through;position:absolute;top:256px; left:70px; text-align:right;}
+.steadySeller span:NTH-CHILD(5){text-decoration:underline; position:absolute;top:273px; left:70px; text-align:right;}
+
+
+
+
+/************************* bodyWrapRight 영역 ***************************/
+/* 최신글 */
+.todayPost{display:block;width:320px; height:57px; padding:12px 0 15px 5px; border-top:1px solid #ECECEC;}
+.todayPost .todayPostTit{font-size: 16px; letter-spacing:-0.5px;
+	/* 제목 글자 넘어가면 말줄임표... */width: 315px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+.todayPost .todayPostNick >a{display:inline-block; width:320px; font-size: 12px; letter-spacing:-0.5px; color:#64B9FF;}
+.todayPost .todayPostInfo >a{display:inline-block; width:320px;letter-spacing:-0.5px;}
+
+
+/* 오늘의 인기 갤러리 */
+
+/* .h2TitleLeft{width:320px; height:auto;} */
+
+.todayPic{width:320px; height:98px; border-top:1px solid #ECECEC; float:left; position:relative;}
+.todayPic .todayPicWrap1{display:inline-block; width:115px; height:98px; position:absolute; top:0; left:0;}
+/* .todayPic .todayPicWrap1 >a {display:inline-block; width:75px; height:75px;} */
+.todayPic .todayPicWrap1 >a >img{display:inline-block; width:75px; height:75px; border-radius:10px; margin-top:12px; }
+.todayPic .todayPicWrap1 >div{display:block; width:16px; height:16px; border-radius:50px; background:#FF335F; position:absolute;top:22px; left:92px;}
+.todayPic .todayPicWrap1 >div >span{display:inline-block; width:16px;height:16px; text-align:center; font-size:10px;color:#fff; line-height:16px;
+	position:absolute;top:0px;}
+
+	/* 4번째 이후 동그라미 랭킹순위 없애기 */
+.todayPicWrap .todayPic:NTH-CHILD(n+4) .todayPicWrap1>div{background:#FFF;}
+.todayPicWrap .todayPic:NTH-CHILD(n+4) .todayPicWrap1>div >span{color:#222; font-size:16px;} 
+
+.todayPic .todayPicWrap2{display:inline-block; width:200px; height:98px; border-bottom:1px solid #ECECEC; position:absolute; top:0; right:0;}
+.todayPic .todayPicWrap2 .todayTitle{dispaly:inline-block; width:200px; font-size: 16px; letter-spacing:-0.5px; color:#222222;
+	overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block; position:absolute; left:0; top:18px;}
+.todayPic .todayPicWrap2 .todayNick{dispaly:inline-block; width:200px; font-size:12px; letter-spacing:-0.5px; position:absolute; left:0; top:45px;}
+.todayPic .todayPicWrap2 .todayNick >a{color:#64B9FF;}
+.todayPic .todayPicWrap2 .todayFavo{dispaly:inline-block; width:200px; font-size:12px; letter-spacing:-0.5px; position:absolute; left:0; top:66px;}
+
+
+
+

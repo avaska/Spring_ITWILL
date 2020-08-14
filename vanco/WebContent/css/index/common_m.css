@@ -1,0 +1,156 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+/* Reset */
+ * {outline:0 !important;}   
+ /* 웹에서는 적용 안하고, 모바일에서만 사용!! 모바일에서 클릭시 외각에 선 생김 방지 */
+ 
+html,body,h1,h2,h3,h4,h5,h6,div,p,blockquote,pre,code,address,ul,ol,li,menu,nav,section,article,aside,
+dl,dt,dd,table,thead,tbody,tfoot,label,caption,th,td,form,fieldset,legend,hr,input,button,textarea,object,figure,figcaption {margin:0;padding:0;}
+html, body{width:100%;}
+html{-webkit-touch-callout:none; -webkit-user-select:none; -webkit-tap-highlight-color:rgba(0, 0, 0, 0);}
+body{width:100%; background:#fff; min-width:320px; -webkit-text-size-adjust:none;word-wrap:break-word;word-break:break-all;}
+body,input,select,textarea,button {border:none;font-size:12px; font-family:'Noto Sans KR', sans-serif;color:#727272;}
+ul,ol,li{list-style:none;}
+table{width:100%;border-spacing:0;border-collapse:collapse;}
+img,fieldset, button{border:0;}
+address,cite,code,em{font-style:normal;font-weight:normal;}
+label,img,input,select,textarea,button{vertical-align:middle;}
+.hide,caption,legend{line-height:0;font-size:1px;overflow:hidden;}
+/* hr{display:none;} */
+hr{border: 1px solid #e6e6e6; width=90%;}
+main,header,section,nav,footer,aside,article,figure{display:block;}
+a{color:#222;text-decoration:none;}
+ 
+/* Form */
+textarea { border:1px solid #dbdbdb;}
+select { height:32px; font-size:13px; color:#373737; border:1px solid #e9e9e9; background:#fff;border-radius: 5px;}
+input[type=tel],
+input[type=time],
+input[type=text],
+input[type=password],
+input[type=search],
+input[type=email],
+input[type=file],
+input[type=url],
+input[type=number],
+input[type=date],textarea {background:#f7f7f7;text-indent:20px;/* font-size:13px; color:#373737;  *//* border:1px solid #64b9ff;  */ /* border-radius: 5px; */ transition: all 0.5s; vertical-align:middle;}
+input::-webkit-input-placeholder{color:#ddd; font-size:14px; line-height:100%;}
+textarea { padding:5px 0;}
+
+/* 인풋태크 촛점 발생 시 일괄 반응 디자인 영역 */
+select:focus,
+textarea:focus,
+input:focus {/*  border: 3px solid; border-color: rgba(100, 185, 255, 0.5) */ }
+
+input[type=tel][readonly],
+input[type=text][readonly],
+input[type=password][readonly],
+input[type=email][readonly], 
+input[type=search][readonly], 
+input[type=tel][disabled],
+input[type=text][disabled],
+input[type=password][disabled],
+input[type=search][disabled],
+input[type=email][disabled]{border-color:#c0c0c0; color:#666; -webkit-appearance:none;font-size:16px;}
+input[type=text]::-ms-clear {display: none;} 
+
+textarea[readonly],
+textarea[disabled]{padding:11px; font-size:16px; color:#666; font-weight:normal; line-height:140%; height:78px; background:#eaeaea;border:1px solid #c0c0c0;}
+
+
+
+.clear {clear:both;}
+.clear:after { content:" "; display:block; clear:both;}
+.skip{position:absolute; left:0; top:-200px; width:100%; height:50px; line-height:50px; background: #000; color: #fff; 
+		text-align: center;font-size: 14px;transition:all 0.5s;}
+.skip:focus{top:0;}
+
+
+/* /////////////////////내가 추가한 기본 common css ////////////////////////////*/
+
+/* 전체 레이아웃 잡아주는 div태그 */
+.bodyWrap{display:block; width:100%; margin:0 auto;height:auto; position:relative;margin-top:120px;} /*  홈페이지 모든 섹션의 가로 1100px지정, 시작에 클래스명 줘야 함 */
+.bodyWrapLeft{width:100%;margin:0; padding:0; } 
+.bodyWrapRight{width:320px; margin:0; padding:0; position:absolute;top:0;right:0; display:none;}
+
+.wrapTitle{margin-bottom: 13px; font-size: 20px; font-weight: 700; color: #333;} /* 홈페이지 메인 중간메뉴 */
+.vcSec{width:1100px; margin:0 auto; height:auto;}  
+
+footer{width:1100px; height:200px; text-align:center;margin:0 auto;}
+footer span{display:inline-block; margin-top:150px; font-size:12px; /* font-weight: 300; */}
+
+
+.h2Title, 
+.h2TitleLeft{display:inline-block; height:135px; }
+.h2Title h2, 
+.h2TitleLeft h2{display:inline-block; float:left; font-size:24px; font-weight: 500; letter-spacing:-1px; color:#222; margin:74px 0 25px 0;}
+.h2Title a, 
+.h2TitleLeft a{display:inline-block; float:right; font-size:14px; font-weight: 500; letter-spacing:-0.5px; color:#FF335F; margin:85px 0 auto auto; }
+
+.h2Title{width:660px;}
+.h2TitleLeft{width:320px;}
+
+.mainSliderTitle{display:none;}
+
+/* 로고와 아이콘 */
+.vcLogo{display:inline-block; width:164px;height:40px; color:transparent; background:url(/vc/images/icons.png) no-repeat -8px -5px;}
+.heartIcon{display:inline-block; width:14px; height:14px; background:url(/vc/images/icons.png) no-repeat -181px -11px;}
+.replyIcon{display:inline-block; width:14px; height:13px; background:url(/vc/images/icons.png) no-repeat -309px -27px;}
+.cameraIcon{display:inline-block; width:18px; height:15px; background:url(/vc/images/icons.png)  no-repeat -285px -22px;}
+.picUploaded{display:inline-block; width:70px; height:70px; background:url(/vc/images/icons.png)  no-repeat -182px -51px;}
+.deleteBin{display:inline-block; width:13px; height:13px; background:url(/vc/images/icons.png)  no-repeat -272px -103px;}
+.colorCamera25{display:inline-block; width:26px; height:26px; background:url(/vc/images/icons.png)  no-repeat -181px -124px;}
+.colorCamera30{display:inline-block; width:30px; height:31px; background:url(/vc/images/icons.png)  no-repeat -179px -154px;}
+.colorCamera45{display:inline-block; width:45px; height:47px; background:url(/vc/images/icons.png)  no-repeat -222px -136px;}
+
+.starIconOn, .starIconOff
+	{position:absolute; left:216px; top:30px; width:21px; height:21px;}
+.starIconOn{background:url(/vc/images/icons.png) no-repeat -231px -18px;}
+.starIconOff{background:url(/vc/images/icons.png) no-repeat -259px -18px;}
+
+.xBox1{display:inline-block; width:20px; height:20px; background:url(/vc/images/icons.png)  no-repeat -269px -51px; }
+.replyAngle{display:inline-block; width:22px; height:22px; background:url(/vc/images/icons.png)  no-repeat -333px -48px; }
+
+
+/* 프로필 사진 */
+.profilePhoto35{display:inline-block; width:35px; height:35px; border-radius:50px;}
+.profilePhoto40{display:inline-block; width:40px; height:40px; border-radius:50px;}
+.profilePhoto50{display:inline-block; width:50px; height:50px; border-radius:50px;}
+
+
+/* 버튼 */
+
+.btn60_35{cursor:pointer; display:inline-block; width:60px; height:35px; border-radius:7px; line-height:35px; font-size:14px;
+color:#fff; background:#64B9FF;letter-spacing:1px; text-align:center; }
+
+.btn60_30{cursor:pointer; display:inline-block; width:60px; height:30px; border-radius:7px; line-height:30px; font-size:14px;
+color:#fff; background:#64B9FF;letter-spacing:1px; text-align:center; }
+							 
+body{background: #f7f7f7}
+
+/* 마우스 올리면 커서가 손모양으로 바뀌게 하기(이미지에 a태그 안주기 위함) */
+.mouseHand {cursor:pointer;}
+
+
+/* 디스플레이 껐다 켜기 */
+.dpNone{display:none;}
+.dpBlock{display:block;}
+
+:placeholder{color:#999}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

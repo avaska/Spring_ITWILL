@@ -1,0 +1,333 @@
+@CHARSET "UTF-8";
+
+/* 우리동네 소통광장*/
+.neiBoard{display:block; width:660px; height:500px;	 float:left; position:relative;}
+.neiBoardWrap{display:block; width:580px; height:75px; padding:12px 0px 3px 20px; border-bottom:1px solid #ececec;}
+.neiBoardWrap:FIRST-CHILD{border-top:1px solid #ECECEC; }
+
+.neiBoardWrap .neiBoardTit{font-size: 16px; text-indent:-0.5px;
+	/* 제목 글자 넘어가면 말줄임표... */width: 450px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+	
+.neiBoardWrap .neiBoardProf{position:relative;}
+.neiBoardWrap .neiBoardProf .neiBoardNick{display:inline-block; font-size: 14px; text-indent:-0.5px; color:#64B9FF !important; 
+	position:absolute;top:0; left:44px;}
+.neiBoardWrap .neiBoardProf .neiBoardInfo{display:inline-block; text-indent:-0.5px; position:absolute;top:19px;left:44px; color:#222}
+.neiBoardWrap .neiBoardProf .writeTime{display:inline-block; text-indent:-0.5px; position:absolute;top:19px;right:120px; color:#FF335F}
+
+.neiBoardWrap .neiBoardPic{width:75px; height:75px; border-radius:7px; position:absolute;top:-32px; right:0px; overflow:hidden;
+	  
+	  /*display: flex; align-items: center; justify-content: center;  background:#e2e2e2; */}
+.neiBoardWrap .neiBoardPic img{display:inline-block; border-radius:7px; width:auto; height:100%;}
+
+
+	/* 페이지 설정 */
+.neiBoardPaging{width:350px; height:35px; margin:0 auto; text-align:center; margin-top:20px;}
+.neiBoardPaging a{display:inline-block; width:23px; height:23px; border-radius:5px; text-align:center; line-height:23px; margin:0 1px 0 1px; font-size:13px;/* background:#64B9FF; */}
+.neiBoardPaging a:active, 
+	.neiBoardPaging a:hover, 
+	.neiBoardPaging a:target,
+	.neiBoardPaging a:FOCUS{background:#64B9FF;color:#fff; opacity: 0.5;}
+
+
+	/* 글쓰기 버튼 설정 */
+.h2Title{position: relative;}
+.neiBoardWrite{display:inline-block; position:absolute; bottom:25px; right:60px;}
+
+
+
+/* 소통광장 글쓰기 페이지*/	
+.writeBackground{width:100%; height:100%;}
+.writeTop{width:900px; height:80px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2; position:relative;}
+.writeTop .picUploadedWrap{position:absolute; left:0px;}
+
+	/* 사진 나오는 박스 */
+.writeTop .picUploadedWrap span{display:inline-block;}
+.writeTop .picUploadedWrap .imageInput{width:70px; height:70px; opacity:0; z-index:100;}
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(1){position:absolute;left:90px; top:5px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(2){position:absolute;left:90px; top:5px;}  
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(3){position:absolute;left:175px; top:5px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(4){position:absolute;left:175px; top:5px;}  
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(5){position:absolute;left:260px; top:5px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(6){position:absolute;left:260px; top:5px;}  
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(7){position:absolute;left:345px; top:5px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(8){position:absolute;left:345px; top:5px;}  
+
+.writeTop span img{ width:70px; height:70px; border-radius:7px;}
+
+	/* / / */
+
+.writeTop .wordCount{font-size:12px; font-weight:300; position:absolute;right:145px; bottom:22px;}
+
+/* .writeTop .picUploadBtn{diaplsy:inline-block !important; width:90px; height:40px; border-radius:7px;background:#64B9FF; color:#fff; font-size:16px; 
+	 position:absolute;right:40px; bottom:21px;text-align:center; line-height:40px;} */
+
+.writeTop button{diaplsy:inline-block; width:85px; height:40px; border-radius:7px;background:#64B9FF; color:#fff; font-size:16px; position:absolute;right:40px; bottom:21px;}
+
+
+.writeBody{width:900px; height:800px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2;}
+
+.writeBody input{display:block; width:690px; height:150px;margin:0 auto; border:0px; border-bottom:1px solid #f2f2f2; font-size:32px; color:#999; 
+	line-height:150px;text-indent:0;padding-left:30px;background:#fff;}
+.writeBody input::placeholder{font-size:32px; color:#999;}
+
+.writeBody textarea{display:block; width:690px; height:500px;margin:0 auto; border:0px; padding-top:42px; padding-left:30px;
+	font-size:16px; color:#999; text-indent:0; line-height:34px; background:#fff;}
+.writeBody textarea::placeholder{font-size:16px; color:#999; }
+
+
+
+/* ////////////소통광장 글수정하기 페이지////////////// */	
+.modifyBackground{width:100%; height:100%;}
+.modifyTop{width:900px; height:80px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2; position:relative;}
+.modifyTop .picUploadedWrap{position:absolute; left:0px;}
+
+	/* 수정된 사진 가장 위로 나오도록 */
+.modifyTop .picUploadedWrap	>span >img{position:absolute; z-index:800;}
+
+	/* 사진 나오는 박스 */
+.modifyTop .picUploadedWrap img{display:inline-block; width:70px; height:70px; border-radius:10px;}
+.modifyTop .picUploadedWrap .imageInput{width:70px; height:70px; opacity:0; z-index:1000;}
+
+.modifyTop .picUploadedWrap .imageInput:NTH-CHILD(1){position:absolute;left:90px; top:5px;}
+.modifyTop .picUploadedWrap span:NTH-CHILD(2){position:absolute;left:90px; top:5px;}  
+.modifyTop .picUploadedWrap img:NTH-CHILD(3){position:absolute;left:90px; top:5px;}  
+
+
+.modifyTop .picUploadedWrap .imageInput:NTH-CHILD(4){position:absolute;left:175px; top:5px;}
+.modifyTop .picUploadedWrap span:NTH-CHILD(5){position:absolute;left:175px; top:5px;} 
+.modifyTop .picUploadedWrap img:NTH-CHILD(6){position:absolute;left:175px; top:5px;}  
+
+.modifyTop .picUploadedWrap .imageInput:NTH-CHILD(7){position:absolute;left:260px; top:5px;}
+.modifyTop .picUploadedWrap span:NTH-CHILD(8){position:absolute;left:260px; top:5px;}  
+.modifyTop .picUploadedWrap img:NTH-CHILD(9){position:absolute;left:260px; top:5px;} 
+
+.modifyTop .picUploadedWrap .imageInput:NTH-CHILD(10){position:absolute;left:345px; top:5px;}
+.modifyTop .picUploadedWrap span:NTH-CHILD(11){position:absolute;left:345px; top:5px;} 
+.modifyTop .picUploadedWrap img:NTH-CHILD(12){position:absolute;left:345px; top:5px;}  
+
+.modifyTop .wordCount{font-size:12px; font-weight:300; position:absolute;right:145px; bottom:22px;}
+
+.modifyTop button{diaplsy:inline-block; width:85px; height:40px; border-radius:7px;background:#64B9FF; color:#fff; font-size:16px; position:absolute;right:40px; bottom:21px;}
+
+.modifyBody{width:900px; height:800px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2;}
+
+.modifyBody input{display:block; width:690px; height:150px;margin:0 auto; border:0px; border-bottom:1px solid #f2f2f2; font-size:32px; color:#999; 
+	line-height:150px;text-indent:0;padding-left:30px;background:#fff;}
+.modifyBody input::placeholder{font-size:32px; color:#999;}
+
+.modifyBody textarea{display:block; width:690px; height:500px;margin:0 auto; border:0px;/* border-bottom:1px solid #f2f2f2; */ padding-top:42px; padding-left:30px;
+	font-size:16px; color:#999; text-indent:0; line-height:34px; background:#fff;}
+.modifyBody textarea::placeholder{font-size:16px; color:#999; }
+
+
+/* 소통광장 글읽기*/
+.contentHead{width:720px; padding-bottom:20px;; border-bottom:1px solid #ECECEC; position:relative;}	
+
+.contentHead .neiContentTit{display:block; width: 720px; font-size:32px; margin:90px 0 35px 0;; }
+
+.contentHead .neiContentProf{position:relative;}
+.contentHead .profilePhoto40{}
+
+.contentHead .neiContentNick{display:inline-block; font-size: 14px; font-weight:bold;; 
+	position:absolute;top:0px; left:50px;}
+.contentHead .neiContentInfo{display:inline-block; letter-spacing::-0.5px; position:absolute; top:20px;left:50px; font-size:14px; color:#9e9e9f;font-weight:200px;}
+.contentHead .neiContenBtn{position:absolute;right:0px; bottom:0px;}
+.contentHead .neiContenBtn >a{display:inline-block; font-size:14px; color:#9e9e9f; margin:0 0 15px 15px; }
+.contentHead .neiContenBtn >a:hover{color:#64B9FF; font-weight: bold;}
+.contentBody >span{display:block; width:720px; font-size:17px; color:#222;margin-top:40px; line-height:30px; font-weight:350;letter-spacing:-0.25px;}
+.contentBody img{display:block; width:500px; height:100%; margin:30px auto 0 auto; border-radius:5px; box-shadow:5px 5px 10px 7px #E6E6E6;}
+
+/* 댓글쓰기*/
+
+.writeReplyWrap{width:720px; height:300px; border-top: 1px solid #ececec;border-bottom: 1px solid #ececec; margin-top:70px;}
+
+.writeReplyWrap .writeReply{width:674px; height:87px; padding:18px 20px 15px 26px; margin-top:80px;box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;}
+
+.writeReplyWrap .writeReply >span:NTH-CHILD(1){display:block;font-size:14px;font-weight:bold; }
+.writeReplyWrap .writeReply >span:NTH-CHILD(2){display:block;color:#999999 ;font-size:12px;font-weight:lighter; margin-top:4px; }
+.writeReplyWrap .writeReply >span:NTH-CHILD(3){display:inline-block;font-size:12px;font-weight:lighter; position:absolute; bottom:18px; right:123px;}
+
+
+.writeReplyWrap .writeReply .reTyping{display:inline-block; width:535px; height:25px; border-bottom: 1px solid #ececec; margin-top:20px; text-indent:0;
+	letter-spacing:1.2px; font-size:14px; background:#f7f7f7;}
+.writeReplyWrap .writeReply .reTyping:placeholder{color:#999 }
+.writeReplyWrap .writeReply	.btn60_35{margin: 10px 0 0 60px; text-align:center;}
+
+
+/* 대댓글쓰기*/
+.writeReply2{width:674px; height:87px; padding:18px 20px 15px 26px; margin-top:0px;box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;z-index:200;}
+
+.writeReply2 >span:NTH-CHILD(1){display:block;font-size:14px;font-weight:bold; }
+.writeReply2 >span:NTH-CHILD(2){display:block;color:#999999 ;font-size:12px;font-weight:lighter; margin-top:4px; }
+.writeReply2 >span:NTH-CHILD(3){display:inline-block;font-size:12px;font-weight:lighter; position:absolute; bottom:18px; right:123px;}
+.writeReply2 >span:NTH-CHILD(4){position:absolute; top:15px; right:27px;}
+
+.writeReply2 .reTyping{display:inline-block; width:535px; height:25px; border-bottom: 1px solid #ececec; margin-top:20px; text-indent:0;
+	letter-spacing:1.2px; font-size:14px; background:#f7f7f7;}
+.writeReply2 .reTyping:placeholder{color:#999; }
+.writeReply2	.btn60_35{margin: 10px 0 0 60px; text-align:center;}
+
+
+
+/* 댓글보기*/
+.replyWrap{}
+.replyContent{width:720px; padding-bottom:20px;  border-bottom:1px solid #e2e2e2;position:relative;}
+
+.replyContent .seeReply >img{position: absolute; top:15px;left:0;}
+.replyContent .seeReply >span{display:inline-block;}
+.replyContent .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:50px; font-size:14px;}
+.replyContent .seeReply >span:NTH-CHILD(3){display:inline-block;  margin:40px 0 0 50px; line-height:20px; width:450px; height:auto; /* position: absolute;top:20px;left:50px; */font-size:14px;}
+.replyContent .seeReply >span:NTH-CHILD(3)>b{color:#FF335F;}
+
+.replyContent .seeReply .deleteBin{display: inline-block; margin-left:7px;}
+
+.replyContent .replyInfo{width:120px; height:auto; position:absolute;top:0; right:0;}
+.replyContent .replyInfo >span:FIRST-CHILD {display:inline-block; width:100px; height:12px; margin:18px 0 12px 20px;; color:#999; font-weight: 300px;}
+.replyContent .replyInfo >span:NTH-CHILD(2), 
+	.replyContent .replyInfo >span:NTH-CHILD(3)>a{display:inline-block; height:14px; font-size:14px; color:#999; font-weight: 300px;margin:3px 0 0 30px; }
+
+.replyContent .replyInfo >span:NTH-CHILD(2):hover,
+	.replyContent .replyInfo >span:NTH-CHILD(3):hover>a{color:#64B9FF; font-weight: bold;}
+
+	/* 대댓글 들여쓰기용 CSS */
+.replyContent2{width:720px; padding-bottom:20px;  border-bottom:1px solid #e2e2e2;position:relative;}
+
+.replyContent2 .replyAngle{position:absolute; top:18px; left:18px;}
+
+.replyContent2 .seeReply >img{position: absolute; top:15px;left:0;}
+.replyContent2 .seeReply >span{display:inline-block;}
+.replyContent2 .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:50px; font-size:14px;}
+.replyContent2 .seeReply >span:NTH-CHILD(3){display:inline-block; margin:40px 0 0 50px; line-height:20px; width:450px; height:auto; /* position: absolute;top:20px;left:50px; */font-size:14px;}
+.replyContent2 .seeReply >span:NTH-CHILD(3)>b{color:#FF335F;}
+
+.replyContent2 .seeReply .deleteBin{display: inline-block; margin-left:7px;}
+
+.replyContent2 .replyInfo{width:120px; height:100%; position:absolute;top:0; right:0;}
+
+.replyContent2 .replyInfo span:FIRST-CHILD {display:inline-block; width:100px; height:12px; margin:18px 0 12px 20px;; color:#999; font-weight: 300px;}
+.replyContent2 .replyInfo span:NTH-CHILD(2),
+	.replyContent2 .replyInfo span:NTH-CHILD(3) >a {display:inline-block; height:14px; font-size:14px; color:#999; font-weight: 300px;margin-left:10px;margin:3px 0 0 30px;}
+
+.replyContent2 .replyInfo span:NTH-CHILD(2):hover,
+	.replyContent2 .replyInfo span:NTH-CHILD(3) >a:hover{color:#64B9FF; font-weight: bold;}
+
+.replyContent2 .seeReply >img{position: absolute; top:15px;left:50px;}
+.replyContent2 .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:100px; font-size:14px;}
+.replyContent2 .seeReply {margin-left:50px;}
+
+
+
+/*///////////// 우리동네 조회수 베스트 ///////////////////////*/
+.neiBestClickWrap{height: 685px;}
+.neiBestClick{display:block; position:relative;width:320px; height:98px; border-top:1px solid #ECECEC;border-bottom:1px solid #ECECEC;}
+
+.neiBestWrap1{display:inline-block; width:115px; height:98px; position:absolute; top:0;right:0;}
+.neiBestWrap1 >a {display:inline-block; width:75px; height:75px; border-radius:10px; margin-top:12px;position:absolute; top:0;right:0;overflow:hidden;}
+
+
+.neiBestWrap2{display:inline-block; width:205px; height:98px; position:absolute;top:0;left:0;}
+.neiBestWrap2 .neiBestRankWrap{display:block; width:16px; height:16px; border-radius:50px; background:#FF335F; position:absolute;top:20px; left:0px; }
+.neiBestWrap2 .neiBestRankWrap >span{display:inline-block; width:16px;height:16px; text-align:center; font-size:10px;color:#fff; line-height:14px;
+position:absolute;top:1px;}
+
+.neiBestWrap2 .neiBestTitle{dispaly:inline-block; width:220px; font-size: 15px; letter-spacing:-0.5px; color:#222222; margin:0;	position:absolute;top:17px;left:23px; font-weight:300px;
+	overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+.neiBestWrap2 .profilePhoto35{position:absolute;top:48px;left:5px;}
+.neiBestWrap2 .neiBestNick{dispaly:inline-block;  font-size:12px; letter-spacing:-0.5px; margin-top:0px;
+	position:absolute; left:48px; top:48px;color:#64B9FF;}
+.neiBestWrap2 .neiBestFavo{dispaly:inline-block;  font-size:12px; letter-spacing:-0.5px; margin-top:0px;
+	position:absolute; left:48px; top:64px;}
+	
+.algoMent{display:inline-block; /* width:320px; */ margin-top:13px; color:#999; /* text-align: right; */}
+
+
+
+
+/* .todayPic .todayPicWrap1 >a {display:inline-block; width:75px; height:75px;} */
+.todayPic .todayPicWrap1 >a >img{display:inline-block; width:75px; height:75px; border-radius:10px; margin-top:12px;}
+.todayPic .todayPicWrap1 >div{display:block; width:16px; height:16px; border-radius:50px; background:#FF335F; position:absolute;top:22px; left:92px;}
+.todayPic .todayPicWrap1 >div >span{display:inline-block; width:16px;height:16px; text-align:center; font-size:10px;color:#fff; line-height:16px;
+	position:absolute;top:0px;}
+
+	/* 4번째 이후 동그라미 랭킹순위 없애기 */
+.todayPicWrap .todayPic:NTH-CHILD(n+4) .todayPicWrap1>div{background:#FFF;}
+.todayPicWrap .todayPic:NTH-CHILD(n+4) .todayPicWrap1>div >span{color:#222; font-size:16px;} 
+
+
+.todayPic .todayPicWrap2 .todayFavo{dispaly:inline-block; width:200px; font-size:12px; letter-spacing:-0.5px; position:absolute; left:0; top:66px;}
+
+
+
+/*///////////// 우리동네 소모임 ///////////////////////*/
+.neiGatherWrap{display:block; width:660px; }
+
+.neiGather{display:block; width:650px; height:100px;margin-bottom: 20px; position: relative;/*  background: gray;  */}
+.neiGather span, .neiGather a{display:block;}
+
+.neiGatherLeft{display:inline-block; width:650px; height:100px; border-radius:7px; position:absolute;top:0px;
+	box-shadow:5px 5px 10px 7px #E6E6E6; }
+.neiGatherLeft .neiGatherPic{display:inline-block; width:100px;height:100px; border-radius: 7px 0 0 7px;}	
+.neiGatherLeft a:NTH-CHILD(2){height:18px;line-height:14px; font-size: 16px; color:#222; letter-spacing: -0.5px; padding-left: 5px; border-left: 3px solid #64B9FF;
+	position: absolute;left:110px; top:23px;font-weight: bold;
+	/* 제목 글자 넘어가면 말줄임표... */width:300px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+.neiGatherLeft span:NTH-CHILD(3){height:14px;line-height:14px; font-size: 14px; color:#64B9FF; letter-spacing: -0.5px; position: absolute;right:50px; top:15px;}
+.neiGatherLeft span:NTH-CHILD(4){width:130px; height:14px;line-height:14px; font-size: 14px; color:#222; letter-spacing: -0.5px; 
+	position: absolute;left:110px; top:70px;}
+.neiGatherLeft span:NTH-CHILD(5){height:14px;line-height:14px; font-size: 12px;  letter-spacing: -0.5px; position: absolute;right:30px; top:70px;}
+.neiGatherLeft .profilePhoto40{position: absolute; right:50px; top:35px;}
+.btn70_70R,
+	.btn70_70Y, .btn70_70G{position: absolute; left:15px; top:15px; vertical-align:middle;}
+.btn70_70R b, 
+	.btn70_70G b{font-size:20px; display:inline-block; line-height:26px;height:22px; letter-spacing:1.1px; margin-top: 22px;}
+.btn70_70Y b{width:50px; font-size:20px; display:inline-block; line-height:26px;height:22px; letter-spacing:1.1px; margin-top: 10px;}
+.neiGatherLeft span:NTH-CHILD(8){height:16px;color: #999; line-height:14px; font-size: 14px;  letter-spacing: -0.5px; 
+	position: absolute;left:110px; top:47px;
+	/* 제목 글자 넘어가면 말줄임표... */width:450px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+	}
+
+
+/* 
+
+///////////// 우리동네 소모임 ///////////////////////
+.neiGatherWrap{display:block; width:660px; }
+
+.neiGather{display:block; width:650px; height:100px;margin-bottom: 40px; position: relative; background: gray; }
+.neiGather span, .neiGather a{display:block;}
+
+.neiGatherLeft{display:inline-block; width:380px; height:100px; border-radius:7px; position:absolute;top:0px;
+	box-shadow:5px 5px 10px 7px #E6E6E6; }
+.neiGatherLeft .neiGatherPic{display:inline-block; width:100px;height:100px; border-radius: 7px 0 0 7px;}	
+.neiGatherLeft a:NTH-CHILD(2){width:230px; height:16px;line-height:14px; font-size: 16px; color:#222; letter-spacing: -0.5px; padding-left: 10px; border-left: 3px solid #64B9FF;
+	position: absolute;left:115px; top:17px;}
+.neiGatherLeft span:NTH-CHILD(3){width:150px; height:14px;line-height:14px; font-size: 14px; color:#64B9FF; letter-spacing: -0.5px; position: absolute;left:163px; top:52px;}
+.neiGatherLeft span:NTH-CHILD(4){width:130px; height:14px;line-height:14px; font-size: 14px; color:#222; letter-spacing: -0.5px; position: absolute;left:163px; top:70px;}
+.neiGatherLeft span:NTH-CHILD(5){height:14px;line-height:14px; font-size: 12px;  letter-spacing: -0.5px; position: absolute;right:30px; top:70px;}
+.neiGatherLeft .profilePhoto40{position: absolute;left:115px; top:48px;}
+
+.neiGatherRight{display:inline-block; width:240px; height:100px; position:absolute;right: 0px; }
+.neiGatherRight span:First-CHILD{width:225px; height:14px;line-height:20px; font-size: 14px; color:#999; letter-spacing: -0.5px; position: absolute;left:0px; top:10px;}
+.neiGatherRight a{position: absolute;top:60px; background: #FF335F;}
+ */
+
+
+
+/*///////////////// 내가 가입한 소모임 ///////////////////////*/
+
+.myGatherWrap{width:320px;}
+.myGatherWrap .myGather{width:320px; height:90px; border-top: 1px solid #e2e2e2;}
+.myGatherWrap .myGather:LAST-CHILD{width:320px; height:90px; border-bottom: 1px solid #e2e2e2;}
+.myGatherWrap .myGather span{display: block; margin-left: 15px;}
+.myGatherWrap .myGather span:NTH-CHILD(1){height:18px;line-height:14px; font-size: 16px; font-weight:bold; color:#222; letter-spacing: -0.5px; padding-left: 10px; border-left: 3px solid #64B9FF; margin-top: 15px;
+	/* 제목 글자 넘어가면 말줄임표... */width: 280px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;}
+.myGatherWrap .myGather span:NTH-CHILD(2){font-size: 14px; height:14px; color:#222; letter-spacing: -0.5px; margin-top: 4px; padding-left: 13px;}
+.myGatherWrap .myGather span:NTH-CHILD(3){font-size: 14px; height:12px; color:#999; letter-spacing: -0.5px; margin-top: 8px; padding-left: 13px;}
+.gatherMake{margin-top:40px;}
+
+
+
+
+

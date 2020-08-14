@@ -1,0 +1,128 @@
+@CHARSET "UTF-8";
+
+
+.myPageWrap{width:900px; margin:0 auto;}
+
+/* ////////////////////마이페이지_프로파일부분//////////////////// */	
+.profileWrap{display:inline-block; width:900px; height:360px; background:#fff; margin:0 auto; box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;}
+
+	/* 개사진 부분 */
+.dogPicWrap{display:inline-block;  width:300px; height:300px; margin-left: 50px; position:relative; border-radius:0 0 50px 50px; overflow: hidden;
+	box-shadow:3px 5px 20px 5px #C9C9C9; background:#E6E6E6;}
+.dogPicWrap .dogImageInput{width:300px; height:300px; opacity:0; z-index:2000;position:absolute;top:0;left:0; }
+.dogPicWrap .existDogPic{width:300px; height:300px;}
+	
+	/* 회원사진, 닉네임부분 */
+.userPicWrap{display:inline-block; width:100px; height:100px; margin:0 0 180px 100px; border-radius:50px; overflow:hidden;position:relative;
+	background:#E6E6E6; }
+.userPicWrap .userImageInput{width:100px; height:100px; opacity:0; z-index:2000; position:absolute;top:0;left:0;}
+.userPicWrap .existUserPic{width:100px;height:100px;}
+
+.nameBox{display:inline-block; width:310px; /* background:red; */ position:absolute; top:0; right: 0;}
+.nameBox span{display:inline-block; font-size: 24px; color:#222; margin-top:35px; }
+.nameBox a{display:inline-block; width:55px; height:26px; border:1px solid #64B9FF;line-height:26px; text-align:center; font-size: 12px; font-weight:300;
+	color:#64B9FF; border-radius:5px;  }
+.nameBox .profileEdit{position:absolute;top:79px; left:0;}
+.nameBox .logout{position:absolute;top:79px;left:70px;}
+	
+.nameBox a:HOVER {color:#fff; background:#64B9FF;}
+	
+.dogCamera{display:inline-block;z-index: 1000; position: absolute; left:300px; bottom:80px;}
+.userCamera{display:inline-block;z-index: 1000; position: absolute; left:525px; bottom:243px;}
+
+	/* 회원 정보 게시 부분 */
+.userInfoWrap table{width:450px;position:absolute; right:0px; top:155px; border:none;}
+.userInfoWrap table tr:NTH-CHILD(1) td{font-size:16px; color:#999; vertical-align: top; height:27px; border:none;}
+.userInfoWrap table tr:NTH-CHILD(2) td{font-size:16px; color:#222; vertical-align: top; font-weight: 500; height:55px; border:none;}
+.userInfoWrap table tr:NTH-CHILD(3) td{font-size:16px; color:#999; vertical-align: top; height:27px; border:none;}
+.userInfoWrap table tr:NTH-CHILD(4) td{font-size:16px; color:#222; vertical-align: top; font-weight: 500; height:55px; border:none; padding-right:77px;
+	 letter-spacing:0.7px;}
+
+.userInfoWrap td{border:1px solid;width:150px;}	
+	
+	
+	
+/* 마이페이지_회원정보 수정부분*/	
+.myPageEditWrap{display:inline-block; width:710px; height:750px; background:#fff; margin:0 auto; box-shadow:5px 5px 10px 7px #E6E6E6;
+	padding-left:190px; position:relative;}
+
+.editNameBox{display:inline-block; width:460px; margin-bottom:70px; position: relative;}
+.editNameBox .editTit{display:inline-block; font-size: 24px; color:#222; margin-top:55px;font-weight:bold; }
+.editNameBox .editUserId{display:inline-block; font-size: 18px; color:#999; position:absolute;right: 0; bottom:-55px; }
+
+.myEditTable tr td {height:65px; vertical-align:top;}
+.myEditTable tr td:NTH-CHILD(2n-1) {width:100px;}
+.myEditTable tr td:NTH-CHILD(2n) {width:350px;}
+.myEditTable input,  
+	select{background:#fff;  height:40px; width:300px; font-size: 16px; color:#999; border:1px solid #E6E6E6; border-radius:5px; text-indent:20px; }
+select, option {text-indent:20px;}	
+select::-ms-expand{opacity:0; text-indent:20px;}
+
+select{appearance:none; -webkit-appearance:none; background:url(/vc/images/downArrow.png) no-repeat right 15px center; }
+	
+.myEditTable input:FOCUS, 	select:focus{border:2px solid #64B9FF;}
+.myEditTable span{display:inline-block; height:40px; line-height: 40px; font-size: 16px; color:#222; font-weight: bold;}
+
+.editSubmit{display:inline-block; width:60px; height:30px; border:1px solid #64B9FF;line-height:30px; text-align:center; font-size: 14px; font-weight:300;
+	color:#fff; border-radius:5px;background:#64B9FF;  margin-left: 170px;}
+
+
+/* 마이페이지_회원정보 필수 등록*/	
+.mandatoryInfoWrap{display:inline-block; width:710px; height:750px; background:#fff; margin:0 auto; box-shadow:5px 5px 10px 7px #E6E6E6;
+	padding-left:190px; position:relative;}
+
+.editNameBox{display:inline-block; width:460px; margin-bottom:70px; position: relative;}
+.editNameBox .editTit{display:inline-block; font-size: 24px; color:#222; margin-top:55px;font-weight:bold; }
+.editNameBox .editUserId{display:inline-block; font-size: 18px; color:#999; position:absolute;right: 0; bottom:-55px; }
+
+.myEditTable tr td {height:65px; vertical-align:top;}
+.myEditTable tr td:NTH-CHILD(2n-1) {width:100px;}
+.myEditTable tr td:NTH-CHILD(2n) {width:350px;}
+.myEditTable input,  
+	select{background:#fff;  height:40px; width:300px; font-size: 16px; color:#999; border:1px solid #E6E6E6; border-radius:5px; text-indent:20px; }
+select, option {text-indent:20px;}	
+select::-ms-expand{opacity:0; text-indent:20px;}
+
+select{appearance:none; -webkit-appearance:none; background:url(/vc/images/downArrow.png) no-repeat right 15px center; }
+	
+.myEditTable input:FOCUS, 	select:focus{border:2px solid #64B9FF;}
+.myEditTable span{display:inline-block; height:40px; line-height: 40px; font-size: 16px; color:#222; font-weight: bold;}
+
+.editSubmit{display:inline-block; width:60px; height:30px; border:1px solid #64B9FF;line-height:30px; text-align:center; font-size: 14px; font-weight:300;
+	color:#fff; border-radius:5px;background:#64B9FF;  margin-left: 170px;}
+
+
+
+/* ////////////////////마이페이지_마이쇼핑 부분//////////////////// */	
+.myShoppingWrap{display:inline-block; width:800px; background:#fff; margin:80px auto 0; box-shadow:5px 5px 10px 7px #E6E6E6;padding:50px;}
+
+.myShoppingTitle{height: 70px;}
+.myShoppingTitle h2{margin-top: 0px;}
+
+.myShoppingWrap th, .myShoppingWrap td{height: 50px; text-align: center; font-size: 14px;  border-bottom: 1px solid #e2e2e2;}
+.myShoppingWrap th{background: #ECECEC; border-top: 1px solid #e2e2e2;}
+.myShoppingWrap td{color:#222;}
+
+.myShoppingWrap td a{margin:0 4px; color:#64B9FF; }
+.myShoppingWrap td a:HOVER{font-weight: bold; color:#64B9FF; }
+
+
+
+
+/* ////////////////////마이페이지_마이갤러리 부분//////////////////// */	
+.myGalWrap{display:inline-block; width:800px; background:#fff; margin:80px auto 0; box-shadow:5px 5px 10px 7px #E6E6E6;padding:50px;}
+
+.myGalTitle{height: 70px;}
+.myGalTitle h2{margin-top:0; }
+
+.myGal{display:inline-block; width:263px; height: 263px;background:#B70D4B; overflow: hidden; border-right:1px solid #fff; position: relative;}
+.myGal p{width:263px; height: 263px;}
+
+.myGal span{display:inline-block; width:60px; height:28px; font-size:14px; background:#000; color:#fff; border-radius:7px; text-align:center; line-height:28px;
+	opacity:0.5; position: absolute;right: 15px; bottom:15px;}
+
+
+
+
+
+
