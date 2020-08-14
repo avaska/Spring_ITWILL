@@ -1,6 +1,7 @@
 package com.itwillbs.test;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,7 +72,7 @@ public class MemberController {
 	
 	// 회원 가입 처리 동작(POST)	
 	@RequestMapping(value = "/insert", method = RequestMethod.POST)
-	public void insertPOST(MemberVO vo) throws Exception{
+	public String insertPOST(MemberVO vo) throws Exception{
 		// 메서드 전달인자를 사용해서 페이지 이동 시 정보를 가져올 수 있음
 		// 입력 받는 페이지(view - jsp)에서 전달되는 데이터의 이름을 
 		// vo 객체의 변수명(DB의 컬럼명)으로 통일시켜서 이동시킨다.		
@@ -88,7 +89,84 @@ public class MemberController {
 		logger.info("회원 가입 완료!");
 		
 		
+		// 페이지 이동(로그인 페이지로 이동 : 컨트롤러 -> view)
+		//WEB-INF/views/member/login.jsp 로 이동
+		return "redirect:/member/login"; 	
+		//redirect -> 서버에 주소 직접 입력하는 것과 같은 결과
+		
 	}
+	
+	
+	// 로그인 처리 (GET) method
+	// http://localhost:8090/test/member/login
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginGET() throws Exception {
+		
+		logger.info("로그인 메서드 loginGET() 실행");
+		logger.info("view 페이지로 연결(/member/login.jsp)");
+		
+		logger.info("/member/login 주소 입력(get) ->  /member/login.jsp로 이동");
+		
+		
+		//WEB-INF/views/member/login.jsp
+		return "/member/login";
+	}
+	//서버 다시 실행 : 페이지 컴파일 목적
+	
+	// 405 error : 'http 상태 코드' 검색
+	// https://developer.mozilla.org/ko/docs/Web/HTTP/Status
+	
+	
+	
+	// login처리(POST)
+	// http://localhost:8090/test/member/login
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String loginPOST(MemberVO vo, HttpSession session) throws Exception{
+		// method에 매개변수를 정의만 했는데 값이 넘어오는 것은 스프링 프레임워크가 알아서 해주도록 구현이 되어있다고 함
+		// 레퍼런스 봐야할듯?
+		// login.jsp의 form태그에서 submit할 때 전달되는 parameter 값들의 name value와
+		// MemberVO에 정의되어 있는 클래스변수의 값이 동일하면, 
+		// MemberVO의 setter method를 통해서 
+		// loginPOST() 함수의 매개변수로 받아오는 MemberVO 객체에 자동적으로 값을 넣어주도록 프레임워크에 구현이 되어있다고 함.
+		
+		
+		
+		logger.info("/member/login.jsp -> loginPOST() 호출(아이디, 비밀번호) ");
+		// 1) 아이디,비밀번호 저장
+		logger.info("전달 정보 : "+vo);
+		// 2) 로그인여부 판별 -> service -> DB
+		MemberVO DBvo = service.loginCheck(vo);
+		logger.info("확인 결과 : "+DBvo);
+		
+		// 3) 로그인시 - 아이디값 (세션) -> main.jsp 이동
+		//    로그인 실패 - /test/member/login 이동
+		// DBvo객체가 null인지 아닌지 판별 
+		if(DBvo == null) {
+			logger.info("DBvo 값이 없습니다");
+			return "redirect:/member/login";
+		}
+		
+		// 로그인 성공		
+		// 세션객체 사용
+		// (login.jsp(get방식) 페이지에서 post방식으로 넘어올 때 JSP 내장객체를 가지고 온다.)
+		session.setAttribute("userid", DBvo.getUserid());
+		//session 내장객체 : jsp 페이지에서 쓸 수 있다		
+		
+		// 페이지 이동
+		// /member/main		
+		return "redirect:/member/main"; 
+	}
+	
+	// 메인페이지(/member/main (get))
+	// http://localhost:8090/test/member/main
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public void mainGET() throws Exception {
+		
+		logger.info("/member/main (get) -> /member/main.jsp");
+		
+		
+	}
+	
 	
 	
 	
