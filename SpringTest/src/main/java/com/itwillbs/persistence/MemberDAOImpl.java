@@ -118,19 +118,10 @@ public class MemberDAOImpl implements MemberDAO{
 		
 		return vo;
 	}
-
-	@Override
-	public void updateMember(MemberVO vo) {
-		
-		sqlSession.update(namespace + ".updateMember", vo);
-		
-	}
 	
 	
 	// 실무에서 시스템콜(sysout 등) 사용하지 말 것 -> 속도 저하 원인
 	// 대신  logger 사용
 	
 
-	
-	
 }

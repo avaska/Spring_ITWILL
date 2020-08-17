@@ -21,8 +21,6 @@ public interface MemberDAO {
 	// ID/PW를 사용해서 본인 회원 정보를 가져오는 메서드
 	public MemberVO getMemberWithIdPw(String id, String pw);
 	
-	public void updateMember(MemberVO vo);
-	
 	
 	
 	

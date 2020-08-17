@@ -10,11 +10,6 @@ public interface MemberService {
 	// 로그인 처리
 	public MemberVO loginCheck(MemberVO vo);
 	
-	// 회원정보를 가져오는 처리 (본인)
-	public MemberVO getMember(String id);
-	
-	// 회원 정보 수정
-	public void updateMember(MemberVO vo);
 	
 	
 	
