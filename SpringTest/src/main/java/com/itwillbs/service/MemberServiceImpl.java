@@ -41,12 +41,34 @@ public class MemberServiceImpl implements MemberService{
 		
 		System.out.println("@@@@ Service: DAO 처리 완료 후 정보 저장 완료");
 		System.out.println("@@@@ Service: " + DBvo);
-		System.out.println("@@@@ Service: + controller 페이지로 이동");
-		
-		
+		System.out.println("@@@@ Service: + controller 페이지로 이동");		
 
 		return DBvo;
 	}
+
+	@Override
+	public MemberVO getMember(String id) {
+		
+		System.out.println("@@@@ service : controller -> service 객체 호출");
+		System.out.println("@@@@ service : 회원 아이디 정보를 가지고와서 DAO 이동");
+        // DAO 객체 안에 있는 회원 정보를 가져오는 메서드 호출
+		
+		MemberVO vo = mdao.getMember(id);
+
+		System.out.println("@@@@ service : DAO 처리완료, 결과 리턴완료 ");
+		System.out.println("@@@@ service : controller (/member/info) 이동");
+		
+		return vo;
+	}
+
+	@Override
+	public void updateMember(MemberVO vo) {
+		
+		mdao.updateMember(vo);
+		
+	}
+	
+	
 	
 	
 	

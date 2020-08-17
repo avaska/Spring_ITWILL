@@ -25,6 +25,17 @@
     	values(#{userid},#{userpw},#{username},#{email})  
   	</insert>
   	
+  	<update id="updateMember">
+  		update tbl_member 
+  		set  
+  		userid = #{userid},
+  		userpw = #{userpw},
+  		username = #{username},
+  		email = #{email};
+  		
+  	</update>
+  	
+  	
   	<!-- ID에 해당하는 회원 정보 검색 SQL -->
   	<select id="getMember" resultType="com.itwillbs.domain.MemberVO">
   		<!-- select태그는 반환타입을 반드시 명시해야 한다!! -->
