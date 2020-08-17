@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -155,14 +156,71 @@ public class MemberController {
 		// 페이지 이동
 		// /member/main		
 		return "redirect:/member/main"; 
-	}
+	}	
 	
-	// 메인페이지(/member/main (get))
-	// http://localhost:8090/test/member/main
+	
+	// 메인페이지 (/member/main (get))
+	// http://localhost:8080/test/member/main(x)
+	// http://localhost:8080/member/main (o)
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public void mainGET() throws Exception {
-		
 		logger.info("/member/main (get) -> /member/main.jsp");
+	}
+
+
+	// 로그아웃(/member/logout)
+	@RequestMapping(value="/logout",method = RequestMethod.GET)
+	public String logoutGET(HttpSession session) throws Exception{
+		
+		logger.info("/member/logout  get  -> /member/main 이동 ");
+
+		// 세션값을 초기화
+		session.invalidate();
+		// main 페이지로 이동	
+		return "redirect:/member/main";
+	}
+	
+	// 회원 정보 보기 /member/info
+	@RequestMapping(value="/info",method = RequestMethod.GET)
+	public String infoGET(HttpSession session, Model model) throws Exception {
+		
+		logger.info("/member/info  get  ->  /member/info.jsp 이동");
+
+		// 세션값 (id) 가져오기 
+		String id = (String)session.getAttribute("userid");
+		
+		// 회원 정보를 가져오기 (service -> DAO -> Mysql)
+		MemberVO vo = service.getMember(id);
+		logger.info("찾아온 회원 정보 : " + vo);
+		
+		// 가져온 회원정보를 저장해서 -> view(.jsp) 이동
+		// Model 객체 사용(컨트롤러->뷰 이동시 정보저장 공간)
+		model.addAttribute("memberVO", vo);
+
+		// 해당 jsp 페이지로 이동(/member/info.jsp)
+		return "/member/info";
+	}
+	
+	// 회원 정보 수정(/member/update)
+	// http://localhost:8080/member/update
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public void updateGET(HttpSession session, Model model) throws Exception{
+		
+		logger.info("updateGET() 호출");
+		logger.info("/member/update  get -> /member/update.jsp 이동");
+		
+		// 세션 ID값 처리
+		String id = (String) session.getAttribute("userid");
+		
+		// 서비스 -> DAO -> DB 		
+		// 회원정보 모두를 가져오는 동작
+		MemberVO vo = service.getMember(id);
+		
+		// 회원정보를 Model 객체에 담아서 view 페이지로 전달		
+		model.addAttribute("memberVO", vo);
+		
+		// 페이지이동(void)
+		// /member/update.jsp 페이지이동		
 		
 		
 	}

@@ -72,6 +72,18 @@
 	
 	<!-- EL표현식에서 null값은 빈 공백으로 출력된다. -->
 	<h3>${ id } 님이 로그인 하셨습니다</h3>
+	
+	<hr>
+    
+    <input type="button" value="로그아웃" 
+           onclick="location.href='/member/logout'" 
+    >
+    
+    <hr>
+    <h3><a href="/member/info">회원 정보 보기 (select)</a></h3>
+    
+    <hr>
+    <h3><a href="/member/update">회원 정보 수정 (update)</a></h3>
 
 
 	

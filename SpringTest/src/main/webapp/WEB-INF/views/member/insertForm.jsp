@@ -13,7 +13,8 @@
 	
 	<fieldset>
 		<legend>회원가입</legend>
-		<form action="/test/member/insert" method="post">
+		<!-- <form action="/test/member/insert" method="post"> -->
+		<form action="/member/insert" method="post">
 			아이디 : <input type="text" name="userid"><Br>
 			비밀번호 : <input type="text" name="userpw"><Br>
 			이름 : <input type="text" name="username"><Br>
