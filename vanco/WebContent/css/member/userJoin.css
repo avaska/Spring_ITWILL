@@ -1,0 +1,62 @@
+@CHARSET "UTF-8";
+
+.loginSec{width:280px; height:100%; margin: 100px auto 0 auto;}
+.loginSec .vcLogo{margin: 0 auto 18px auto;}
+
+.agreeBox{width:240px; height:72px; border:1px solid #64b9ff; border-radius:5px; padding:17px 20px;}
+
+.checkBox:first-child{margin-bottom:10px;}
+.checkBox:nth-child(2){margin-bottom:5px;}
+
+.checkBox{position: relative;}
+.checkBox > input{position:absolute; top:5px; right:63px; }
+
+.checkBox > a, 
+.checkBox >label{font-size: 12px; color:#999; font-weight:300;} 
+.checkBox .agreeAll{font-size: 15px; color:#222; font-weight:500;}
+.checkBox > label{float: right;} 
+
+
+.insertBtn{margin:18px 0;}
+.insertBtn > label{display:inline-block; height:23px; font-size:15px;}
+
+
+
+.insertBox{width:280px; height:42px;  border:1px solid #e2e2e2; border-radius: 5px;}
+
+.clickBtn{display:inline-block; width:280px; height:42px; border-radius: 5px; background:#64b9ff; color:#fff; font-size:16px; font-weight: 300; letter-spacing: 1.0px;
+			margin:21px auto 16px auto; text-align:center; line-height: 42px;}
+.joinClick{margin-top: 50px;}
+			
+.kakao{background:#fae100; color:#222;}
+.naver{background:#00bd30; margin-top:0;}
+.idJoin{margin:0 auto 15px auto}
+
+.loginIntro{font-size:18px; color:#ff335f; text-align: center;}
+.center{display:block !important; margin:0 auto;}
+
+.snsLogTit{font-size:18px; color:#222; text-align: center; margin-top:39px; margin-bottom:24px;}
+.copyR{font-size:14px; color:#222; text-align: center;margin-top:20px;}
+.joinLink{font-size: 14px; color:#999; text-align:center; margin-top:30px;}
+
+.joinLink a{color:#64b9ff;}
+.joinLink a:hover{color:#64b9ff; font-weight: bold;}
+
+/* 남녀 선택 라디오 버튼 */
+input[type="radio"]{position:absolute; left:550px; width:10px; opacity:0;}
+.genderWrap{margin:18px 0;}
+.genderWrap > label{display:inline-block; height:23px; font-size:15px;}
+
+#labelM:before{content:"남"; position: relative; top:15px; color:#64B9FF;}
+#labelF:before{content:"여"; position: relative; top:15px; left:10px; color:#FF335F;}
+input[type="radio"] + label:before{display:inline-block; width:130px; height: 42px; border:1px solid #e2e2e2; border-radius: 3px;
+margin-right: 4px; transition:all 0.5s; text-align:center; line-height:42px; font-weight:bold;}
+
+#userGenderM:CHECKED + label:before{background:#64B9FF; color:#fff;}
+#userGenderF:CHECKED + label:before{background:#FF335F; color:#fff;}
+
+
+
+
+
+

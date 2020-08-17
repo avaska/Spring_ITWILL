@@ -28,6 +28,7 @@
 	</beans:bean>
 	
 	<!-- 해당 패키지의 내용을 읽어서 처리하겠다. -->
+	<!-- 지금은 com.itwillbs.test에 컨트롤러 샘플을 만들었지만 나중에 controller패키지를 따로 만들 것 -->
 	<context:component-scan base-package="com.itwillbs.test" />
 	
 	

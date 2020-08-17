@@ -1,0 +1,377 @@
+@CHARSET "UTF-8";
+
+ .moimContentWrap{width:800px; background:#fff; margin:0 auto; padding-bottom: 50px;}
+ 
+/*  모임 본문 상단 사진 */
+.moimTitPic{width:800px; height: 300px; overflow:hidden;}
+
+
+.moimContentMenu{width:800px; margin:0 auto; border-bottom: 1px solid #e2e2e2;}
+.moimContentMenu a{display:inline-block; width: 246px; height:60px; border:none; font-size:18px; color:#222; line-height:60px; text-align:center;}
+.moimContentMenu a:HOVER {color:#64B9FF; font-weight:bold;}
+
+.moimContentMenu a span{display:inline-block;height:50px; padding-bottom:3px;}
+
+
+/* 모임정보 페이지(moimInfo.jsp)/////////////////////// */
+.moimInfo{width:670px; padding:0 40px; margin: 0 auto 20px auto;}
+.moimInfo span{display:inline-block;}
+
+.moimInfo .midTitle{display:block; font-size: 22px; font-weight:bold; color:#222; margin-top:20px; margin-bottom:10px;}
+.moimInfo .forPadd{padding-left:20px;}
+
+.moimInfo .moimTitle{margin-top:30px; font-size: 26px; color:#222; margin-bottom: 20px;}
+.moimInfo .moimIntroduce{font-size: 16px; color:#222; margin-bottom: 50px; margin-left: 20px;}
+
+.moimInfo .leaderProf{height:70px; border-bottom: 1px solid #e2e2e2; position:relative; padding-left: 20px;}
+.leaderProf p:NTH-CHILD(2){font-size:14px; color:#999; position:absolute;top:0px; left:70px;}
+.leaderProf p:NTH-CHILD(3){font-size:14px; color:#222; font-weight:bold; position:absolute;top:20px; left:70px;}
+.leaderProf .joinBtn{position:absolute; top:0px; right:0px;}
+.leaderProf .joinWait{background-color:#e2e2e2;}
+	/* 모임 메인 가입한 회원 현황 프로필 사진 */
+
+.joinMember{width:640px;padding-left:20px; padding-bottom:15px; border-top: 1px solid #e2e2e2;}
+.joinMember p{margin:5px 10px 5px 0;}
+
+	/* 번개 만들기 */
+.thunderMaking{width:660px; margin:0 auto; border-top: 1px solid #e2e2e2; position:relative;}
+.thunderMaking .midTitle{display:inline-block; font-size: 22px; font-weight:bold; color:#222; margin:20px 0 20px 20px;}
+.thunderMaking >span:NTH-CHILD(2){position:absolute;right: 0px; top:20px;}
+
+.thunderToggle{display:none; width:640px; box-shadow:5px 5px 10px 7px #E6E6E6; padding:20px 10px; border-radius: 7px; margin-bottom:40px;}
+
+.thunderToggle input, 
+		.thunderToggle select{width: 250px;height:43px; background-color:#fff; border:1px solid #e6e6e6; margin: 5px 0 15px; 
+		border-radius: 5px; display:inline-block;} 
+
+.thunderToggle span{display:inline-block; width:45px; height:45px; line-height:45px;font-size: 14px; font-weight:bold;
+text-align:right; margin: 2px 5px 15px 0;}
+
+.thunderConfirm{text-align: center;}
+.thunderConfirm button{margin:8px 8px 0 8px;}
+input[type="date"]{appearance:none; -webkit-appearance:none; background:url(/vc/images/downArrow.png) no-repeat right 15px center;
+	width:240px; padding-right:10px;}
+
+	
+
+	/*번개 리스트*/
+.thunderMoim{width:660px; height:100px; margin: 0 auto;position:relative;}
+.thunderMoim span{display:inline-block;}
+
+.calendarBox{display:inline-block; width:60px; height: 60px; box-shadow:3px 3px 10px 3px #E6E6E6; border-radius:15px;
+	position:absolute; top:25px; left:15px;}
+.calendarBox span:FIRST-CHILD{display:inline-block; width:60px; height:20px; background:#64b9ff; border-radius:15px 15px 0 0;
+	text-align:center; line-height:22px;font-size:12px; color:#fff;}
+.calendarBox span:last-CHILD{display:inline-block; width:60px; text-align: center; line-height:35px; font-size:28px; color:#222;}
+
+.thunderMoim> span{display:inline-block;}
+.thunderMoim> span:NTH-CHILD(2){font-size:16px; color:#222;position:absolute; top:20px; left:97px;}
+	.thunderMoim> span:NTH-CHILD(2) .replyIcon{margin-left: 5px;}
+	.thunderMoim> span:NTH-CHILD(2) .reCount{color:#64b9ff; font-size:14px;}
+.thunderMoim> span:NTH-CHILD(3){position:absolute; top:50px; left:97px;}
+.thunderMoim> span:NTH-CHILD(4){position:absolute; top:48px; left:115px;}
+.thunderMoim> span:NTH-CHILD(5){position:absolute; top:75px; left:97px;}
+.thunderMoim> span:NTH-CHILD(6){position:absolute; top:73px; left:115px;}
+.thunderMoim> span:NTH-CHILD(7){position:absolute; top:75px; left:220px;}
+.thunderMoim> span:NTH-CHILD(8){position:absolute; top:73px; left:238px;}
+
+.thunderUser{width:660px; margin: 0 auto;}
+
+.thunderUser .profileWrap{padding:3px 25px 15px 15px;}
+.thunderUser .profileWrap img{margin:7px 10px 0 0;}
+.thunderUser .profileWrap p{display:inline-block; margin:7px 10px 0 0;}
+.thunderUser .profileWrap >div{display: inline-block;}
+
+.buttons{width:660px; margin: 0 auto; border-bottom: 1px solid #e2e2e2;}
+.buttons:LAST-CHILD{margin-bottom: 20px;}
+.buttons .thunderJoin{display:inline-block; margin:0px 0px 20px 0px; font-size:14px; width:80px; float: right;}
+.buttons .checked{background-color:#FF335F;}
+.buttons .thunderDel{display:inline-block; margin:10px 0 0 20px; font-size:14px; color:#FF335F; }
+.buttons .thunderDel:HOVER{color:#FF335F; font-weight:bold;}
+
+
+
+
+
+/* 모임정보 수정(moimModify.jsp)/////////////////////// */
+.moimModifyPic{width:800px; height: 300px; overflow:hidden; margin: 0 auto;}
+
+	/* 정보수정 사진 업로드 버튼 */
+.moimModifyPicWrap{position: relative;}
+.picUploadedWrap .imgBtnWrap{display:block; position:relative; width:300px !important; height:150px; border-radius:5px; 
+	border:1px solid #e2e2e2; margin-bottom:25px;}
+.moimModifyPicWrap .upMoimModifyPic{width:800px; height:300px; opacity:0; z-index:100; position:absolute;left:0px; top:0px; }
+.moimModifyPicWrap .upMoimModifyPicWrap{width:800px; height:300px; position:absolute; left:0px; top:0px; overflow:hidden;border-radius:5px;}
+.moimModifyPicWrap img{width:100%; height:auto; position:absolute; left:0px; top:0px;}
+.moimModifyPicWrap span:NTH-CHILD(4){ position:absolute; right:30px; bottom:30px;}
+
+.moimModify{width:670px; padding:0 40px; margin: 0 auto 20px auto;}
+.moimModify input{display:inline-block;}
+
+.moimModify .midTitle{display:block; font-size: 22px; font-weight:bold; color:#222; margin:20px 0;}
+
+.moimModify .moimTitle{width :660px; height:40px; line-height:40px; margin-top:0px; font-size: 16px; color:#222; 
+	border:1px solid #e2e2e2; border-radius:5px; margin-bottom: 20px; background: #fff;}
+.moimModify .moimIntroduce{width :660px; height:250px; margin-top:0px; font-size: 16px; color:#222; 
+	border:1px solid #e2e2e2; border-radius:5px; margin-bottom: 20px; background: #fff; text-indent:0; padding-left:20px;}
+	
+.moimModifyConfirm{text-align: center;}
+.moimModifyConfirm input{margin:8px 8px 0 8px;}
+
+	/* 수정페이지 모임 카테고리 선택 라디오 버튼 */
+.modifyCateWrap{margin:0; height:50px; position:relative;}
+.modifyCateWrap input[type="radio"]{position:absolute; left:0px;top:0px; width:10px; opacity:0;}
+.modifyCateWrap  > label{display:inline-block; height:23px; font-size:15px;}
+.modifyCateWrap #label1:before{content:"덕질"; position: relative; top:0px; color:#999;}
+.modifyCateWrap #label2:before{content:"덕품교환"; position: relative; top:0px; left:20px; color:#999;}
+.modifyCateWrap #label3:before{content:"친목"; position: relative; top:0px; left:40px; color:#999;}
+.modifyCateWrap input[type="radio"] + label:before{display:inline-block; width:80px; height: 42px; border:1px solid #e2e2e2; border-radius: 3px;
+margin-right: 4px; transition:all 0.5s; text-align:center; line-height:42px; font-weight:bold;}
+.modifyCateWrap input[type="radio"]:CHECKED + label:before{background:#FF335F; color:#fff!important;}
+
+
+
+
+
+
+/* 모임 만들기.jsp//////////////////////////////////// */
+.moimMakingWrap{display:inline-block; width:710px; height:1000px; background:#fff; margin:0 auto; box-shadow:5px 5px 10px 7px #E6E6E6;
+	padding-left:190px; position:relative;}
+
+.makingNameBox{display:inline-block; width:460px; margin-bottom:70px; position: relative;}
+.makingNameBox .makingTit{display:inline-block; font-size: 24px; color:#222; margin-top:55px;font-weight:bold; }
+.makingNameBox .userDistrict{display:inline-block; font-size: 18px; color:#999; position:absolute;right: 0; bottom:-55px; }
+
+.moimTable tr td {height:65px; vertical-align:top;}
+.moimTable tr td:NTH-CHILD(2n-1) {width:100px;}
+.moimTable tr td:NTH-CHILD(2n) {width:350px;}
+.moimTable input, .moimTable textarea, 
+	.moimTable select{background:#fff;  height:40px; width:300px; font-size: 14px; color:#999; border:1px solid #E6E6E6; border-radius:5px; text-indent:20px; }
+
+.moimTable input:FOCUS, .moimTable textarea:FOCUS,
+ 	select:focus{border:2px solid #64B9FF;}
+.moimTable span{display:inline-block; height:40px; line-height: 40px; font-size: 16px; color:#222; font-weight: bold;}
+
+.moimTable textarea{width: 280px; padding:10px 0 0 20px; text-indent:0px;} 
+.moimTable textarea::placeholder, 
+	.moimTable input::placeholder{font-size:14px; color:#999; }
+
+.moimTable select, .moimTable option, .moimTable input {text-indent:20px;}	
+.moimTable select::-ms-expand{opacity:0; text-indent:20px;}
+	/* select박스, date선택 아래 세모 파란색으로 교체 */
+.moimTable select{appearance:none; -webkit-appearance:none; background:url(/vc/images/downArrow.png) no-repeat right 15px center;}
+
+
+	/* 모임 카테고리 선택 라디오 버튼 */
+.cateWrap{margin:0; position:relative;}
+input[type="radio"]{position:absolute; left:0px;top:0px; width:10px; opacity:0;}
+.cateWrap > label{display:inline-block; height:23px; font-size:15px;}
+
+.moimTable #label1:before{content:"덕질"; position: relative; top:0px; color:#999;}
+.moimTable #label2:before{content:"덕품교환"; position: relative; top:0px; left:20px; color:#999;}
+.moimTable #label3:before{content:"친목"; position: relative; top:0px; left:40px; color:#999;}
+
+.moimTable input[type="radio"] + label:before{display:inline-block; width:80px; height: 42px; border:1px solid #e2e2e2; border-radius: 3px;
+margin-right: 4px; transition:all 0.5s; text-align:center; line-height:42px; font-weight:bold;}
+
+.moimTable input[type="radio"]:CHECKED + label:before{background:#FF335F; color:#fff!important;}
+
+	/* 사진 업로드 버튼 */
+.picUploadedWrap .imgBtnWrap{display:block; position:relative; width:300px !important; height:150px; border-radius:5px; 
+	border:1px solid #e2e2e2; margin-bottom:25px;}
+.picUploadedWrap .imageInput{width:295px; height:145px; opacity:0; z-index:100; position:absolute;left:0px; top:0px; }
+.picUploadedWrap img{width:100%; height:auto; position:absolute; left:0px; top:0px; border-radius:5px;}
+.picUploadedWrap .moimPicUploaded{width:300px; height:150px; position:absolute; overflow:hidden;border-radius:5px;}
+
+	/* 소모임 소개 textarea */
+.moimIntroWrap{margin-top:15px;}
+.moimIntro{height: 300px !important;}
+.makingSubmit{margin:25px 0 0 157px;}
+
+
+
+/* 모임보드 페이지(moimBoard.jsp)/////////////////////// */
+.moimBoardWrap{width:670px; margin: 0 auto;}
+
+.moimBoardWrap>span{display:inline-block; font-size: 20px; font-weight:bold; color:#222; margin-bottom:15px; }
+.moimBoardWrap .writeBtn{display:inline-block; width:80px; height:40px;line-height:40px; margin-left:490px; margin-top:50px;
+	border:1px solid #e2e2e2; text-align:center; font-size:14px; background:#e2e2e2; }
+.moimBoardWrap .writeBtn:HOVER{background:#222; color:#FFF;}
+
+.moimBoardWrap .boardContWrap{width:670px;height:50px; line-height:50px; font-size: 16px; border-bottom:1px solid #e2e2e2; position:relative;}
+.moimBoardWrap .boardContWrap:NTH-CHILD(3){border-top:1px solid #e2e2e2;}
+
+.boardContWrap span{display:inline-block; font-size: 15px; color:#222;}
+.boardContWrap p{position:absolute; top:15px; left:5px;}
+.boardContWrap .span1{max-width:380px; margin-left:50px;
+	/* 말줄임표  */overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;} 
+.boardContWrap .span2{margin-bottom: 18px; margin-left:3px;}
+.boardContWrap .span3{width:85px; position:absolute; left:480px;}
+.boardContWrap .span4{width:115px; position:absolute; left:585px; }
+
+
+/* 모임 회원정보 페이지(moimMemberInfo.jsp)/////////////////////// */
+.moimMemberInfo{width:670px; padding:0 40px; margin: 0 auto 20px auto;}
+.moimMember{width:640px;padding-left:20px; padding-bottom:15px;}
+.moimMemberInfo span{display:inline-block;}
+
+.moimMemberInfo .midTitle{display:block; font-size: 20px; font-weight:bold; color:#222; margin-top:50px; margin-bottom:10px;}
+
+	/* 모임멤버 정보 리스트 */
+.moimMemberInfoWrap{height:100px; border-bottom: 1px solid #e2e2e2; position:relative; padding-left: 20px;}
+.moimMemberInfoWrap:FIRST-CHILD{border-top: 1px solid #e2e2e2;}
+
+.moimMemberInfoWrap p{display: inline-block;}
+.moimMemberInfoWrap p:NTH-CHILD(1){margin:25px 0 0 10px;}
+.moimMemberInfoWrap p:NTH-CHILD(2){font-size:14px; color:#64b9ff; font-weight:bold; position:absolute;top:30px; left:95px;}
+.moimMemberInfoWrap p:NTH-CHILD(3){font-size:14px; color:#222; position:absolute;top:52px; left:95px;}
+.moimMemberInfoWrap p:NTH-CHILD(4){font-size:14px; color:#FF335F; font-weight:bold; position:absolute;top:40px; right:25px;}
+
+.moimMemberInfoWrap .memberCtrlBtn{display:inline-block; position:absolute;top:0px; left:320px;}
+.moimMemberInfoWrap .memberCtrlBtn a{margin:35px 0 0 10px;}
+.moimMemberInfoWrap .memberCtrlBtn .lvCancel{color:#fff; background-color:#64b9ff;}
+
+	/* 승인대기 회원 리스트 */
+.moimMemberInfoWrap .memberCtrlBtn2{display:inline-block; position:absolute;top:0px; right:25px;}
+.moimMemberInfoWrap .memberCtrlBtn2 a{margin:35px 0 0 10px;}
+.noMemComment{display:inline-block; font-size:16px; color:#999; margin-top: 20px;}
+
+
+
+/* 모임 게시판 글읽기(moimBoardContent.jsp)/////////////////////// */
+.moimBoardContentWrap{width:670px; margin:0 auto;}
+.contentHead{width:670px; padding-bottom:20px;; border-bottom:1px solid #ECECEC; position:relative;}	
+
+.contentHead .moimContentTit{display:block; width: 670px; font-size:22px; margin:40px 0 35px 0;; }
+
+.contentHead .moimContentProf{position:relative;}
+.contentHead .profilePhoto40{}
+
+.contentHead .moimContentNick{display:inline-block; font-size: 14px; font-weight:bold;; 
+	position:absolute;top:0px; left:50px;}
+.contentHead .moimContentInfo{display:inline-block; letter-spacing::-0.5px; position:absolute; top:20px;left:50px; font-size:14px; color:#9e9e9f;font-weight:200px;}
+.contentHead .moimContentBtn{position:absolute;right:0px; bottom:0px;}
+.contentHead .moimContentBtn >a{display:inline-block; font-size:14px; color:#9e9e9f; margin:0 0 15px 15px; }
+.contentHead .moimContentBtn >a:hover{color:#64B9FF; font-weight: bold;}
+
+.contentBody{text-align: center;}
+.contentBody >span{display:block; width:670px; font-size:16px; color:#222;margin-top:40px; line-height:30px; font-weight:350;letter-spacing:-0.25px;}
+.contentBody img{display:block; width:500px; height:100%; margin:30px auto 0 auto; border-radius:5px; box-shadow:5px 5px 10px 7px #E6E6E6;}
+.contentBody div{width:600px; margin:0 auto; text-align: center;}
+
+	/* 댓글쓰기*/
+.writeReplyWrap{width:670px; height:300px; border-top: 1px solid #ececec;border-bottom: 1px solid #ececec; margin-top:70px;}
+
+.writeReplyWrap .writeReply{width:630px; height:87px; padding:18px 20px 15px 26px; margin-top:80px;box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;}
+
+.writeReplyWrap .writeReply >span:NTH-CHILD(1){display:block;font-size:14px;font-weight:bold; }
+.writeReplyWrap .writeReply >span:NTH-CHILD(2){display:block;color:#999999 ;font-size:12px;font-weight:lighter; margin-top:4px; }
+.writeReplyWrap .writeReply >span:NTH-CHILD(3){display:inline-block;font-size:12px;font-weight:lighter; position:absolute; bottom:18px; right:123px;}
+
+
+.writeReplyWrap .writeReply .reTyping{display:inline-block; width:535px; height:25px; border-bottom: 1px solid #ececec; margin-top:20px; text-indent:0;
+	letter-spacing:1.2px; font-size:14px; background:#f7f7f7;}
+.writeReplyWrap .writeReply .reTyping:placeholder{color:#999 }
+.writeReplyWrap .writeReply	.btn60_35{margin: 10px 0 0 30px; text-align:center;}
+
+	/* 대댓글쓰기*/
+.writeReply2{width:630px; height:87px; padding:18px 20px 15px 26px; margin-top:0px;box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;z-index:200;}
+
+.writeReply2 >span:NTH-CHILD(1){display:block;font-size:14px;font-weight:bold; }
+.writeReply2 >span:NTH-CHILD(2){display:block;color:#999999 ;font-size:12px;font-weight:lighter; margin-top:4px; }
+.writeReply2 >span:NTH-CHILD(3){display:inline-block;font-size:12px;font-weight:lighter; position:absolute; bottom:18px; right:123px;}
+.writeReply2 >span:NTH-CHILD(4){position:absolute; top:15px; right:27px;}
+
+.writeReply2 .reTyping{display:inline-block; width:535px; height:25px; border-bottom: 1px solid #ececec; margin-top:20px; text-indent:0;
+	letter-spacing:1.2px; font-size:14px; background:#f7f7f7;}
+.writeReply2 .reTyping:placeholder{color:#999; }
+.writeReply2	.btn60_35{margin: 10px 0 0 30px; text-align:center;}
+
+	/* 댓글보기*/
+.replyWrap{}
+.replyContent{width:670px; padding-bottom:20px;  border-bottom:1px solid #e2e2e2;position:relative;}
+
+.replyContent .seeReply >img{position: absolute; top:15px;left:0;}
+.replyContent .seeReply >span{display:inline-block;}
+.replyContent .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:50px; font-size:14px;}
+.replyContent .seeReply >span:NTH-CHILD(3){display:inline-block;  margin:40px 0 0 50px; line-height:20px; width:400px; height:auto; /* position: absolute;top:20px;left:50px; */font-size:14px;}
+.replyContent .seeReply >span:NTH-CHILD(3)>b{color:#FF335F;}
+
+.replyContent .seeReply .deleteBin{display: inline-block; margin-left:7px;}
+
+.replyContent .replyInfo{width:120px; height:auto; position:absolute;top:0; right:0;}
+.replyContent .replyInfo >span:FIRST-CHILD {display:inline-block; width:100px; height:12px; margin:18px 0 12px 20px;; color:#999; font-weight: 300px;}
+.replyContent .replyInfo >span:NTH-CHILD(2), 
+	.replyContent .replyInfo >span:NTH-CHILD(3)>a{display:inline-block; height:14px; font-size:14px; color:#999; font-weight: 300px;margin:3px 0 0 30px; }
+
+.replyContent .replyInfo >span:NTH-CHILD(2):hover,
+	.replyContent .replyInfo >span:NTH-CHILD(3):hover>a{color:#64B9FF; font-weight: bold;}
+
+	/* 대댓글 들여쓰기용 CSS */
+.replyContent2{width:670px; padding-bottom:20px;  border-bottom:1px solid #e2e2e2;position:relative;}
+.replyContent2 .replyAngle{position:absolute; top:18px; left:18px;}
+.replyContent2 .seeReply >img{position: absolute; top:15px;left:0;}
+.replyContent2 .seeReply >span{display:inline-block;}
+.replyContent2 .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:50px; font-size:14px;}
+.replyContent2 .seeReply >span:NTH-CHILD(3){display:inline-block; margin:40px 0 0 50px; line-height:20px; width:400px; height:auto; /* position: absolute;top:20px;left:50px; */font-size:14px;}
+.replyContent2 .seeReply >span:NTH-CHILD(3)>b{color:#FF335F;}
+
+.replyContent2 .seeReply .deleteBin{display: inline-block; margin-left:7px;}
+
+.replyContent2 .replyInfo{width:120px; height:100%; position:absolute;top:0; right:0;}
+
+.replyContent2 .replyInfo span:FIRST-CHILD {display:inline-block; width:100px; height:12px; margin:18px 0 12px 20px;; color:#999; font-weight: 300px;}
+.replyContent2 .replyInfo span:NTH-CHILD(2),
+	.replyContent2 .replyInfo span:NTH-CHILD(3) >a {display:inline-block; height:14px; font-size:14px; color:#999; font-weight: 300px;margin-left:10px;margin:3px 0 0 30px;}
+
+.replyContent2 .replyInfo span:NTH-CHILD(2):hover,
+	.replyContent2 .replyInfo span:NTH-CHILD(3) >a:hover{color:#64B9FF; font-weight: bold;}
+
+.replyContent2 .seeReply >img{position: absolute; top:15px;left:50px;}
+.replyContent2 .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:100px; font-size:14px;}
+.replyContent2 .seeReply {margin-left:50px;}
+
+
+/* 모임 게시판 글쓰기 페이지(moimBoardWrite.jsp)/////////////////////// */	
+.writeBackground{width:670px; margin:0 auto;}
+.writeTop{width:670px; height:80px; background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2; position:relative;}
+
+	/* 사진 업로드 박스 */
+.writeTop .picUpBtnWrap{position:absolute; right:10px;}	
+.writeTop .picUpBtnWrap span{display:inline-block; margin-top:7px;}
+.writeTop .picUpBtnWrap .imageInput{width:70px; height:70px; opacity:0; z-index:100;position:absolute; right:10px;}
+
+	/* 공지사항 체크박스 버튼 커스텀*/
+.noitceWrap{display:inline-block; margin:20px 0 0 25px; position:relative;}
+input[type="checkbox"]{position:absolute; left:0px;top:0px; width:10px; opacity:0;}
+.noitceWrap > label{display:inline-block; height:23px; font-size:15px;}
+
+.noitceWrap label:before{content:"공지등록"; position: relative; top:0px; color:#999;}
+.noitceWrap input[type="checkbox"] + label:before{display:inline-block; width:80px; height: 42px; border:1px solid #e2e2e2; border-radius: 3px;
+margin-right: 4px; transition:all 0.5s; text-align:center; line-height:42px; font-weight:bold;}
+.noitceWrap input[type="checkbox"]:CHECKED + label:before{background:#64b9ff; color:#fff!important;}
+	
+
+	/* 글쓰기 본문 */
+.writeBody{width:670; height:800px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2;}
+.writeBody .titleInput{display:inline-block; width:620px; height:80px;margin:0 auto; border:0px; border-bottom:1px solid #f2f2f2; font-size:22px; color:#999; 
+	line-height:80px;text-indent:0;padding-left:30px;background:#fff;}
+.writeBody .titleInput::placeholder{font-size:22px; color:#999;}
+
+/* .writeBody textarea{display:block; width:620px; height:500px;margin:0 auto; border:0px; padding-top:42px; padding-left:30px;
+	font-size:16px; color:#999; text-indent:0; line-height:34px; background:#fff;}
+.writeBody textarea::placeholder{font-size:16px; color:#999; }
+ */
+ 
+.writeBody textarea{display: none;} 
+
+.writeBody iframe{display:block; width:700px; height:600px; margin:0 auto; border:0px; padding-top:42px; padding-left:30px;
+	font-size:16px; color:#999; text-indent:0; line-height:34px; background:#fff;}
+.writeBody iframe::placeholder{font-size:16px; color:#999; }
+
+.summitBtn{display:block; margin:15px auto;}
+
+
+
+
+

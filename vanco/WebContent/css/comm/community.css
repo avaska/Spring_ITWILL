@@ -1,0 +1,247 @@
+@CHARSET "UTF-8";
+
+.commTitPic{width:670px; height: 200px; overflow:hidden;}
+.commTnPic{width:100%; height: 70px; overflow:hidden;}
+/* 게시판 생성 (boardRequest.jsp) */
+
+.commSec{width:280px; height:100%; margin: 100px auto 0 auto;}
+.commSec{margin: 0 auto 18px auto;}
+
+.insertBtn{margin:18px 0;}
+.insertBtn > label{display:inline-block; height:23px; font-size:15px;}
+
+.insertBox{width:280px; height:42px;  border:1px solid #e2e2e2; border-radius: 5px;}
+
+.clickBtn{display:inline-block; width:280px; height:42px; border-radius: 5px; background:#64b9ff; color:#fff; font-size:16px; font-weight: 300; letter-spacing: 1.0px;
+			margin:21px auto 16px auto; text-align:center; line-height: 42px;}
+.requestClick{margin-top: 50px;}		
+
+/* 게시판 목록 (boardList.jsp) */
+
+.commContentWrap{width:800px; background:#fff; margin:0 auto; padding-bottom: 50px; overflow:auto;}
+.commContentMenu{width:800px; margin:0 auto; border-bottom: 1px solid #e2e2e2;}
+.commContentMenu a{display:inline-block; width: 246px; height:60px; border:none; font-size:18px; color:#222; line-height:60px; text-align:center;}
+.commContentMenu a:HOVER {color:#64B9FF; font-weight:bold;}
+.commContentMenu a span{display:inline-block;height:50px; padding-bottom:3px;}
+
+.commRow {width: 100%; text-align: center;}
+.commColumn {width: 30%; float: left; padding: 10px; vertical-align: middle;}
+.commCard {margin: 10px; box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); transition: 0.3s; width: 30%; height: 130px; border-radius: 5px; text-align: center; float:left;}
+.commCard:hover {box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);}
+.commContainer {padding: 2px 16px;}
+
+/* 게시판 페이지 (commBoard.jsp) */
+
+.commBoardWrap{width:670px; margin: 0 auto;}
+
+.commBoardWrap>span{display:inline-block; font-size: 20px; font-weight:bold; color:#222; margin-bottom:15px; }
+.commBoardWrap .writeBtn{display:inline-block; width:80px; height:40px;line-height:40px; margin-left:490px; margin-top:50px;
+	border:1px solid #e2e2e2; text-align:center; font-size:14px; background:#e2e2e2; }
+.commBoardWrap .writeBtn:HOVER{background:#222; color:#FFF;}
+
+.commBoardWrap .boardContWrap{width:670px;height:50px; line-height:50px; font-size: 16px; border-bottom:1px solid #e2e2e2; position:relative;}
+.commBoardWrap .boardContWrap:NTH-CHILD(3){border-top:1px solid #e2e2e2;}
+
+.boardContWrap span{display:inline-block; font-size: 15px; color:#222;}
+.boardContWrap p{position:absolute; top:15px; left:5px;}
+.boardContWrap .span1{max-width:380px; margin-left:50px;
+	/* 말줄임표  */overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display:inline-block;} 
+.boardContWrap .span2{margin-bottom: 18px; margin-left:3px;}
+.boardContWrap .span3{width:85px; position:absolute; left:480px;}
+.boardContWrap .span4{width:115px; position:absolute; left:585px; }
+
+/* 커뮤니티 게시판 글쓰기 페이지(commBoardWrite.jsp) */	
+
+.writeBackground{width:670px; margin:0 auto;}
+.writeTop{width:670px; height:80px; background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2; position:relative;}
+
+	/* 사진 업로드 박스 */
+.writeTop .picUpBtnWrap{position:absolute; right:10px;}	
+.writeTop .picUpBtnWrap span{display:inline-block; margin-top:7px;}
+.writeTop .picUpBtnWrap .imageInput{width:70px; height:70px; opacity:0; z-index:100;position:absolute; right:10px;}
+
+	/* 공지사항 체크박스 버튼 커스텀*/
+.noitceWrap{display:inline-block; margin:20px 0 0 25px; position:relative;}
+input[type="checkbox"]{position:absolute; left:0px;top:0px; width:10px; opacity:0;}
+.noitceWrap > label{display:inline-block; height:23px; font-size:15px;}
+
+.noitceWrap label:before{content:"공지등록"; position: relative; top:0px; color:#999;}
+.noitceWrap input[type="checkbox"] + label:before{display:inline-block; width:80px; height: 42px; border:1px solid #e2e2e2; border-radius: 3px;
+margin-right: 4px; transition:all 0.5s; text-align:center; line-height:42px; font-weight:bold;}
+.noitceWrap input[type="checkbox"]:CHECKED + label:before{background:#64b9ff; color:#fff!important;}
+	
+
+/* 글쓰기 본문(commBoardWrite.jsp) */
+
+.writeBody{width:670; height:800px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2;}
+.writeBody .titleInput{display:inline-block; width:520px; height:80px;margin:0 auto; border:0px; border-bottom:1px solid #f2f2f2; font-size:22px; color:#999; 
+	line-height:80px;text-indent:0;padding-left:30px;background:#fff;}
+.writeBody .titleInput::placeholder{font-size:26px; color:#999;}
+
+/* .writeBody textarea{display:block; width:620px; height:500px;margin:0 auto; border:0px; padding-top:42px; padding-left:30px;
+	font-size:16px; color:#999; text-indent:0; line-height:34px; background:#fff;}
+.writeBody textarea::placeholder{font-size:16px; color:#999; }
+ */
+ 
+.writeBody textarea{display: none;} 
+
+.writeBody iframe{display:block; width:620px; height:500px;margin:0 auto; border:0px; padding-top:42px; padding-left:30px;
+	font-size:16px; color:#999; text-indent:0; line-height:34px; background:#fff;}
+.writeBody iframe::placeholder{font-size:16px; color:#999; }
+
+.summitBtn{display:block; margin:15px auto;}
+
+/* 게시판 본문 (commBoardContent.jsp) */
+/* 모임 게시판 글읽기(moimBoardContent.jsp)/////////////////////// */
+.commBoardContentWrap{width:670px; margin:0 auto;}
+.contentHead{width:670px; padding-bottom:20px;; border-bottom:1px solid #ECECEC; position:relative;}	
+
+.contentHead .commContentTit{display:block; width: 670px; font-size:20px; margin:40px 0 35px 0;; }
+
+.contentHead .commContentProf{position:relative;}
+.contentHead .profilePhoto40{}
+
+.contentHead .commContentNick{display:inline-block; font-size: 14px; font-weight:bold;; 
+	position:absolute;top:0px; left:50px;}
+.contentHead .commContentInfo{display:inline-block; letter-spacing::-0.5px; position:absolute; top:20px;left:50px; font-size:14px; color:#9e9e9f;font-weight:200px;}
+.contentHead .commContentBtn{position:absolute;right:0px; bottom:0px;}
+.contentHead .commContentBtn >a{display:inline-block; font-size:14px; color:#9e9e9f; margin:0 0 15px 15px; }
+.contentHead .commContentBtn >a:hover{color:#64B9FF; font-weight: bold;}
+
+.contentBody{text-align: center;}
+.contentBody >span{display:block; width:670px; font-size:16px; color:#222;margin-top:40px; line-height:30px; font-weight:350;letter-spacing:-0.25px;}
+.contentBody img{display:block; width:500px; height:100%; margin:30px auto 0 auto; border-radius:5px; box-shadow:5px 5px 10px 7px #E6E6E6;}
+.contentBody .divImg{width:600px; margin:0 auto; text-align: center; }
+
+
+	/* 댓글쓰기*/
+.writeReplyWrap{width:670px; height:300px; border-top: 1px solid #ececec;border-bottom: 1px solid #ececec; margin-top:70px;}
+
+.writeReplyWrap .writeReply{width:630px; height:87px; padding:18px 20px 15px 26px; margin-top:80px;box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;}
+
+.writeReplyWrap .writeReply >span:NTH-CHILD(1){display:block;font-size:14px;font-weight:bold; }
+.writeReplyWrap .writeReply >span:NTH-CHILD(2){display:block;color:#999999 ;font-size:12px;font-weight:lighter; margin-top:4px; }
+.writeReplyWrap .writeReply >span:NTH-CHILD(3){display:inline-block;font-size:12px;font-weight:lighter; position:absolute; bottom:18px; right:123px;}
+
+
+.writeReplyWrap .writeReply .reTyping{display:inline-block; width:535px; height:25px; border-bottom: 1px solid #ececec; margin-top:20px; text-indent:0;
+	letter-spacing:1.2px; font-size:14px; background:#f7f7f7;}
+.writeReplyWrap .writeReply .reTyping:placeholder{color:#999 }
+.writeReplyWrap .writeReply	.btn60_35{margin: 10px 0 0 30px; text-align:center;}
+
+	/* 대댓글쓰기*/
+.writeReply2{width:630px; height:87px; padding:18px 20px 15px 26px; margin-top:0px;box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;z-index:200;}
+
+.writeReply2 >span:NTH-CHILD(1){display:block;font-size:14px;font-weight:bold; }
+.writeReply2 >span:NTH-CHILD(2){display:block;color:#999999 ;font-size:12px;font-weight:lighter; margin-top:4px; }
+.writeReply2 >span:NTH-CHILD(3){display:inline-block;font-size:12px;font-weight:lighter; position:absolute; bottom:18px; right:123px;}
+.writeReply2 >span:NTH-CHILD(4){position:absolute; top:15px; right:27px;}
+
+.writeReply2 .reTyping{display:inline-block; width:535px; height:25px; border-bottom: 1px solid #ececec; margin-top:20px; text-indent:0;
+	letter-spacing:1.2px; font-size:14px; background:#f7f7f7;}
+.writeReply2 .reTyping:placeholder{color:#999; }
+.writeReply2	.btn60_35{margin: 10px 0 0 30px; text-align:center;}
+
+	/* 댓글보기*/
+.replyWrap{}
+.replyContent{width:670px; padding-bottom:20px;  border-bottom:1px solid #e2e2e2;position:relative;}
+
+.replyContent .seeReply >img{position: absolute; top:15px;left:0;}
+.replyContent .seeReply >span{display:inline-block;}
+.replyContent .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:50px; font-size:14px;}
+.replyContent .seeReply >span:NTH-CHILD(3){display:inline-block;  margin:40px 0 0 50px; line-height:20px; width:400px; height:auto; /* position: absolute;top:20px;left:50px; */font-size:14px;}
+.replyContent .seeReply >span:NTH-CHILD(3)>b{color:#FF335F;}
+
+.replyContent .seeReply .deleteBin{display: inline-block; margin-left:7px;}
+
+.replyContent .replyInfo{width:120px; height:auto; position:absolute;top:0; right:0;}
+.replyContent .replyInfo >span:FIRST-CHILD {display:inline-block; width:100px; height:12px; margin:18px 0 12px 20px;; color:#999; font-weight: 300px;}
+.replyContent .replyInfo >span:NTH-CHILD(2), 
+	.replyContent .replyInfo >span:NTH-CHILD(3)>a{display:inline-block; height:14px; font-size:14px; color:#999; font-weight: 300px;margin:3px 0 0 30px; }
+
+.replyContent .replyInfo >span:NTH-CHILD(2):hover,
+	.replyContent .replyInfo >span:NTH-CHILD(3):hover>a{color:#64B9FF; font-weight: bold;}
+
+	/* 대댓글 들여쓰기용 CSS */
+.replyContent2{width:670px; padding-bottom:20px;  border-bottom:1px solid #e2e2e2;position:relative;}
+.replyContent2 .replyAngle{position:absolute; top:18px; left:18px;}
+.replyContent2 .seeReply >img{position: absolute; top:15px;left:0;}
+.replyContent2 .seeReply >span{display:inline-block;}
+.replyContent2 .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:50px; font-size:14px;}
+.replyContent2 .seeReply >span:NTH-CHILD(3){display:inline-block; margin:40px 0 0 50px; line-height:20px; width:400px; height:auto; /* position: absolute;top:20px;left:50px; */font-size:14px;}
+.replyContent2 .seeReply >span:NTH-CHILD(3)>b{color:#FF335F;}
+
+.replyContent2 .seeReply .deleteBin{display: inline-block; margin-left:7px;}
+
+.replyContent2 .replyInfo{width:120px; height:100%; position:absolute;top:0; right:0;}
+
+.replyContent2 .replyInfo span:FIRST-CHILD {display:inline-block; width:100px; height:12px; margin:18px 0 12px 20px;; color:#999; font-weight: 300px;}
+.replyContent2 .replyInfo span:NTH-CHILD(2),
+	.replyContent2 .replyInfo span:NTH-CHILD(3) >a {display:inline-block; height:14px; font-size:14px; color:#999; font-weight: 300px;margin-left:10px;margin:3px 0 0 30px;}
+
+.replyContent2 .replyInfo span:NTH-CHILD(2):hover,
+	.replyContent2 .replyInfo span:NTH-CHILD(3) >a:hover{color:#64B9FF; font-weight: bold;}
+
+.replyContent2 .seeReply >img{position: absolute; top:15px;left:50px;}
+.replyContent2 .seeReply >span:NTH-CHILD(2){font-weight:bold; position: absolute; top:18px;left:100px; font-size:14px;}
+.replyContent2 .seeReply {margin-left:50px;}
+
+
+.loading-layer {
+	display: block;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(68, 68, 68, 0.3);
+	z-index: 11111;
+}
+
+.loading-layer .loading-wrap {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.loading-layer .loading-wrap .loading-text {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: #fff;
+	text-shadow: 2px 3px 2.6px #a2a2a2;
+	font-size: 3.8em;
+	position: relative;
+	top: -20px;
+}
+
+.loading-layer.active-loading .loading-wrap .loading-text span:nth-child(1)
+	{
+	animation: loading-01 0.82s infinite;
+}
+
+.loading-layer.active-loading .loading-wrap .loading-text span:nth-child(2)
+	{
+	animation: loading-02 0.82s infinite;
+}
+
+.loading-layer.active-loading .loading-wrap .loading-text span:nth-child(3)
+	{
+	animation: loading-03 0.82s infinite;
+}
+
+@keyframes loading-01 { 25% {color: #000;}
+						50% {color: #fff;}}
+						
+@keyframes loading-02 { 50% {color: #000;}
+						75% {color: #fff;}}
+						
+@keyframes loading-03 { 75% {color: #000;}
+						100% {color: #fff;}}
+						
+							/* 사진 업로드 버튼 */
+.picUploadedWrap .imgBtnWrap{display:block; position:relative; width:300px !important; height:150px; border-radius:5px; 
+	border:1px solid #e2e2e2; margin-bottom:25px;}
+.picUploadedWrap .imageInput{width:295px; height:145px; opacity:0; z-index:100; position:absolute;left:0px; top:0px; }
+.picUploadedWrap img{width:100%; height:auto; position:absolute; left:0px; top:0px; border-radius:5px;}
+.picUploadedWrap .moimPicUploaded{width:300px; height:150px; position:absolute; overflow:hidden;border-radius:5px;}

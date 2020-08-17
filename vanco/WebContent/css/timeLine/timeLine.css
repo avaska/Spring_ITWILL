@@ -1,0 +1,144 @@
+@CHARSET "UTF-8";
+
+
+.timeLineWrap{width:800px; margin:80px auto 0;}
+.timeContentWrap{display:block; width:600px; background:#fff; margin:30px auto; border-radius:10px;
+	box-shadow:5px 5px 10px 7px #E6E6E6;}
+
+/* ////////////////////타임라인_프로파일부분//////////////////// */	
+.profileWrap{height: 90px; position:relative;}
+.profileWrap>span:NTH-CHILD(1){position: absolute; left:50px; top:35px;}
+.profileWrap>span:NTH-CHILD(2){font-size:16px; font-weight:bold; color:#222; position: absolute; left:110px; top:40px;}
+.profileWrap>div:NTH-CHILD(3){font-size:12px; color:#999; position: absolute; left:110px; top:65px; letter-spacing:0.7;}
+	/* 점3개 버튼 부분 */
+.profileWrap .dotBtnWrap{display:inline-block; position: absolute; right:55px; top:35px; z-index:1000;}
+.profileWrap .dotBtnWrap .dotMenu{display:none; width: 160px; padding:10px 10px 20px 20px; box-shadow:5px 5px 10px 7px #E6E6E6;
+	 border-radius:5px; background-color:#fff; position:absolute;top:40px;left:-10px; font-size:16px; color:#222; }
+.profileWrap .dotBtnWrap .dotMenu >a{display:block; margin-top:10px;}
+.profileWrap .dotBtnWrap .dotMenu >a:HOVER{font-weight:bold; color:#64b9ff;}
+
+
+/* ////////////////////타임라인_글내용 부분//////////////////// */	
+.txtWrap{width:500px; margin:15px auto;}
+.txtWrap p:NTH-CHILD(1){font-size: 16px; color:#222; font-weight:bold;}
+.txtWrap p:NTH-CHILD(2){font-size: 16px; color:#222; margin-top: 5px;}
+
+
+/* ////////////////////타임라인_이미지 부분//////////////////// */	
+.imgWrap{position:relative;}
+.imgWrap span {display:block;width:500px; height:500px; margin:15px auto; border-radius: 10px;}
+
+.imgWrap >p {display:inline-block; width:150px; height:150px; line-height:150px; position:absolute; top:347px; right:50px; background-color:black;
+	border-radius:0 0 10px 0; border-top:3px solid #fff; border-left:3px solid #fff; opacity:0.4; text-align:center; }
+.imgWrap >p >span{display:inline; color:#fff; font-size:24px;}
+.imgWrap .tpHide{width:80px; height:80px; line-height:80px; position:absolute; top:417px; right:50px;}
+.imgWrap .tpHide >span{font-size:16px;}
+
+/* ////////////////////타임라인_이미지 부분(개인사진 클릭시 보이는 1개 페이지)//////////////////// */	
+.imgWrapIn{position:relative;}
+.imgWrapIn> span{display:block;width:500px; height:500px; margin:15px auto; border-radius: 10px;}
+
+.imgWrapIn >p {display:inline-block; width:150px; height:150px; line-height:150px; position:absolute; top:347px; right:50px; background-color:black;
+	border-radius:0 0 10px 0; border-top:3px solid #fff; border-left:3px solid #fff; opacity:0.4; text-align:center; }
+.imgWrapIn >p >span{display:inline; color:#fff; font-size:24px;}
+.imgWrapIn .tpHide{width:80px; height:80px; line-height:80px; position:absolute; top:417px; right:50px;}
+.imgWrapIn .tpHide >span{font-size:16px;}
+
+
+/* ////////////////////타임라인_댓글 쓰기 부분//////////////////// */
+.reWriteWrap {width:500px; height: 80px; margin:0 auto; position:relative;}
+.reWriteWrap span:NTH-CHILD(1){margin:20px 5px 0 0;}
+
+.reInputWrap{display:inline-block; width:450px; height:50px; position:absolute; right:0; top:15px; border:1px solid #e2e2e2;
+	border-radius:50px;}	
+.reInputWrap> input{width:340px; height:30px; line-height: 30px; font-size:13px; color:#222; background-color:#FFF; margin:10px 0 0 5px; }	
+.reInputWrap> span{position:absolute;top:7.5px; right:15px;}
+
+
+/* ////////////////////타임라인_대댓글 쓰기 부분//////////////////// */
+.reReWriteWrap {width:440px; height: 80px; margin:0 auto; position:relative;}
+.reReWriteWrap span:NTH-CHILD(1){margin:20px 5px 0 0;}
+
+.reReInputWrap{display:inline-block; width:390px; height:50px; position:absolute; right:0; top:15px; border:1px solid #e2e2e2;
+	border-radius:50px;}	
+.reReInputWrap> input{width:280px; height:30px; line-height: 30px; font-size:13px; color:#222; background-color:#FFF; margin:10px 0 0 5px; }	
+.reReInputWrap> span{position:absolute;top:7.5px; right:15px;}
+
+
+/* ////////////////////타임라인_댓글 보기 부분//////////////////// */	
+.replyWrap{width:500px; margin:22px auto 5px; }
+.replyWrap> .reply{margin-top:15px; position:relative;}
+
+.replyWrap> .reply .replyProWrap{display:inline-block; position: absolute; left:50px; top:3px}
+.replyWrap> .reply>span:NTH-CHILD(1){position: absolute; left:0px; top:0px}
+.replyWrap> .reply> .replyProWrap >span:NTH-CHILD(1){font-size:14px; font-weight:bold; color:#222;}
+.replyWrap> .reply> .replyProWrap >span:NTH-CHILD(2){font-size:12px; color:#999; margin-left: 5px;}
+.replyWrap> .reply>span:NTH-CHILD(3){display:inline-block; width:440px; font-size:13px; color:#222; margin:25px 0 0 50px;}
+
+.writeReBtn{display:inline-block; font-size:13px; color:#64b9ff; margin:3px 0 0 5px;}
+
+/* ////////////////////타임라인_대댓글 보기 부분//////////////////// */	
+.reReplyWrap{width:500px; margin:15px auto 5px; position:relative; }
+.reReplyWrap .replyAngle{/* margin:0 0 20px 15px; */ position: absolute;top:0px; left:15px;}
+
+.reReplyWrap> .reReply{display:inline-block; width:430px; margin-left: 45px; /* position:absolute; top:0px; left:45px; */}
+
+.reReplyWrap> .reReply .reReplyProWrap{display:inline-block; position: absolute; left:90px; top:5px }
+.reReplyWrap> .reReply>span:NTH-CHILD(1){margin-left: 5px; position: absolute; left:40px; top:0px }
+.reReplyWrap> .reReply> .reReplyProWrap >span:NTH-CHILD(1){font-size:14px; font-weight:bold; color:#222;}
+.reReplyWrap> .reReply> .reReplyProWrap >span:NTH-CHILD(2){font-size:12px; color:#999; margin-left: 5px;}
+.reReplyWrap> .reReply>span:NTH-CHILD(3){display:inline-block; width:380px; font-size:13px; color:#222; margin:25px 0 0 43px;}
+.reReplyWrap .toId{color:#FF335F}
+
+.timeContentWrap .reToggle:NTH-CHILD(n+3){display:none;}
+
+
+/* ////////////////////타임라인_좋아요 부분//////////////////// */	
+
+.favoriteWrap{width:500px; height:70px; margin:20px auto 0; border-top: 1px solid #e2e2e2; position:relative;}
+.favoriteWrap> span{margin-top: 20px; display: inline-block;}
+.favoriteWrap> .countNums{margin:1px 20px 0 5px; padding-bottom: 15px; height:22px;vertical-align: middle; font-size: 14px}
+
+.favoriteWrap .replyToggle {font-size:14px; position:absolute; top:0px; font-weight:bold; color:#FF335F;}
+.favoriteWrap .opened{color:#222;}
+
+/* 글쓰기 버튼 */
+.upPhoto{position:fixed; bottom:30px; right:300px; z-index:9999;}
+
+
+/*글쓰기 페이지*/	
+.writeBackground{display:block; width:600px; height:650px; background:#fff; margin:80px auto; border-radius:10px;
+	box-shadow:5px 5px 10px 7px #E6E6E6;}
+	
+.writeTop{width:500px; height:120px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2; position:relative;}
+.writeTop .picUploadedWrap{position:absolute; left:0px;}
+
+	/* 사진 나오는 박스 */
+.writeTop .picUploadedWrap span{display:inline-block;}
+.writeTop .picUploadedWrap .imageInput{width:70px; height:70px; opacity:0; z-index:100;}
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(1){position:absolute;left:20px; top:30px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(2){position:absolute;left:20px; top:30px;}  
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(3){position:absolute;left:105px; top:30px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(4){position:absolute;left:105px; top:30px;}  
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(5){position:absolute;left:190px; top:30px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(6){position:absolute;left:190px; top:30px;}  
+
+.writeTop .picUploadedWrap .imageInput:NTH-CHILD(7){position:absolute;left:275px; top:30px;}
+.writeTop .picUploadedWrap span:NTH-CHILD(8){position:absolute;left:275px; top:30px;}  
+
+.writeTop span img{ width:70px; height:70px; border-radius:7px;}
+
+
+.writeTop .wordCount{font-size:12px; font-weight:300; position:absolute;right:145px; bottom:22px;}
+
+.writeBody{width:500px; height:500px;background:#fff; margin:0 auto; border-bottom:1px solid #f2f2f2;}
+.writeBody textarea{display:block; width:470px; height:380px;margin:0 auto; border:0px; padding-top:42px; padding-left:30px;
+	font-size:16px; color:#999; text-indent:0; line-height:34px; background:#fff;}
+.writeBody textarea::placeholder{font-size:16px; color:#e2e2e2; }
+
+.summitBtn{display:block; margin:15px auto; }
+
+

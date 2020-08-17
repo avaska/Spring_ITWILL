@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+
+/* **************스토어 메인페이지 */
+.storeSubMenu{width:100%; height:50px; position:fixed;top:70px;background:#f7f7f7;z-index:500;border-bottom:1px solid #e2e2e2; }
+.storeSubMenuWrap{width:1100px; height:50px; margin:0 auto;}
+.storeSubMenuWrap a{margin-right: 30px; font-size: 14px; color:#222; line-height: 50px;}
+.storeSubMenuWrap a:hover{font-weight:bold;}
+.storeSubMenuWrap a:FIRST-CHILD{margin-left:495px; }
+.storeSubMenuWrap a:LAST-CHILD{margin-left:100px; }
+
+.storeSlide{width:100%; height: 310px;background:#FF6666; margin-top: 120px;}
+.storeSlide >div {width:1100px; height: 310px; margin:0 auto; overflow: hidden;}
+.storeSlide img{display:inline-block; margin:0 auto; height: 310px; width: auto;}
+
+.storeWrap{width:1000px; margin:0 auto;}
+
+.storeCateMenu{height: 40px; padding-top: 30px;}
+.storeCateMenu a{font-size:14px; font-weight: bold; margin-right:20px;}
+.storeCateMenu a:hover{color:#64B9FF;}
+
+	/* 상품부분 인덱스 부분 */
+.productIndexWrap{width:1000px;}
+.productIndex{display:inline-block; width:220px; height:370px; margin:0 0 10px 34px;}
+.productIndex:NTH-CHILD(4n+1){margin-left:0;}
+
+.productIndex .productIndexPic{width:220px; height:270px; background: red; overflow:hidden; border-radius:7px;}
+.productIndex .productIndexPic img{display:inline-block; width:auto; height:270px; background: black;}
+
+.productIndex .productIndexInfo{position:relative;}
+.productIndex .productIndexInfo span{display:inline-block; position:absolute;}
+.productIndex .productIndexInfo span:NTH-CHILD(1){top:12px; font-size:14px; color:#64b9ff;}
+.productIndex .productIndexInfo span:NTH-CHILD(2){top:12px; right:0; font-size:14px; color:#222; text-decoration:underline;}
+.productIndex .productIndexInfo span:NTH-CHILD(3){top:36px; font-size:14px; font-weight:bold; color:#222;}
+.productIndex .productIndexInfo span:NTH-CHILD(4){top:62px; right:0; font-size:12px; color:#FFF; background:#FF335F; width:40px; height:20px; line-height:20px; text-align:center;}
+
+
+/* **************스토어상품상세 */
+.productWrap{width:1000px; margin:120px auto;}
+	
+	/* 상단 결제 박스 */
+.productInfoBox{width:900px; height: 600px; margin:0 auto; padding-top:50px; position:relative; border-bottom:1px solid #e2e2e2;}
+.productInfoBox .donationInfo{display:block; height: 20px; margin-top:15px; font-size: 16px; color:#999;}
+.productInfoBox .donationInfo b{color:#FF335F;}
+
+.productWrap .productPicBox{display:inline-block; width:400px; height: 495px;overflow: hidden;}
+.productWrap .productPicBox img{display:inline-block; width:auto; height:100%}
+
+.productSelectBox{display:inline-block; width:450px; height: 495px; position:absolute;top:50px;left:450px;}
+.productSelectBox span{display:inline-block; width:400px; font-size: 28px; color:#222; font-weight: bold; margin-bottom: 50px;}
+.productSelectBox table{width:300px;}
+.productSelectBox td{width:140px; height:40px; font-size: 16px; color:#222;}
+
+.productSelectBox a{display:inline-block; font-size: 20px; text-align:center; height:60px; line-height:60px;}
+.productSelectBox a:NTH-CHILD(3){width:385px;background: #222; color:#fff; margin:65px 0 15px 0;}
+.productSelectBox a:NTH-CHILD(3):HOVER{background:#64b9ff;}
+.productSelectBox a:NTH-CHILD(4),
+	.productSelectBox a:NTH-CHILD(5){width:190px;border:1px solid #e2e2e2;}
+.productSelectBox a:NTH-CHILD(4):hover,
+	.productSelectBox a:NTH-CHILD(5):hover{background:#e2e2e2;}
+	
+	/* 상품 본문 내용 */
+.productContentWrap{width:900px; margin: 0 auto; background:red;}
+.productContentWrap img{width:900px; height: auto;}
+
+	/* 배송 및 환불 안내 */
+.deliveryInfo span{display:block; margin-left:50px; height:18px; margin-top:15px; font-size: 16px; color:#999;}
+.deliveryInfo .infoTitle{font-size: 18px; font-weight:bold; color:#222; margin-top:40px;}
+
+	/* 후기 */
+.userComment{margin:100px 0 0 50px;}
+.userComment>span{display:inline-block; font-size: 20px; font-weight:bold; color:#222; margin-bottom:15px;}
+
+.userComment .replyContWrap{width:870px;padding-left:30px; height:50px; line-height:50px; font-size: 16px; border-bottom:1px solid #e2e2e2; position:relative;}
+.userComment .replyContWrap:NTH-CHILD(3){border-top:1px solid #e2e2e2;}
+
+.userComment .starBox{display:inline-block;width:130px; height:50px; position:relative; right:230px; margin-left:240px;}
+.userComment .starBox span{display:inline-block; position:absolute; top:32px; }
+.userComment .starBox span:NTH-CHILD(1){left:0;}
+.userComment .starBox span:NTH-CHILD(2){left:22px;}
+.userComment .starBox span:NTH-CHILD(3){left:44px;}
+.userComment .starBox span:NTH-CHILD(4){left:66px;}
+.userComment .starBox span:NTH-CHILD(5){left:88px;}
+
+.userComment .replyContWrap span{display:inline-block; font-size: 16px; color:#222;}
+.userComment .replyContWrap .span1{margin:0 5px;}
+.userComment .replyContWrap .span2{width:600px;}
+.userComment .replyContWrap .span3{width:150px; position:absolute; right:120px;}
+.userComment .replyContWrap .span4{width:100px; position:absolute; right:30px;}
+
+.userComment .replyContWrap .commentPicWrap{display:inline-block; width:150px; height:150px; overflow:hidden;}
+.userComment .replyContWrap .commentPicWrap img{width:100%; display:inline-block;}
+
+
+	/* 문의 */
+
+.userQuestion{margin:100px 0 0 50px; position: relative;}
+.userQuestion>span{display:inline-block; font-size: 20px; font-weight:bold; color:#222; margin-bottom:15px;}
+.userQuestion .questionBtn{display:inline-block; width:80px; height:40px;line-height:40px;  position:absolute; right:100px; top:-10px;
+	border:1px solid #e2e2e2; text-align:center; font-size:14px; background:#e2e2e2; }
+.userQuestion .questionBtn:HOVER{background:#222; color:#FFF;}
+
+.userQuestion .replyContWrap{width:870px;padding-left:30px; height:50px; line-height:50px; font-size: 16px; border-bottom:1px solid #e2e2e2; position:relative;}
+.userQuestion .replyContWrap:NTH-CHILD(3){border-top:1px solid #e2e2e2;}
+
+.userQuestion .replyContWrap span{display:inline-block; font-size: 16px; color:#222;}
+.userQuestion .replyContWrap .span1{margin:0 5px;}
+.userQuestion .replyContWrap .span2{width:600px;}
+.userQuestion .replyContWrap .span3{width:150px; position:absolute; right:120px;}
+.userQuestion .replyContWrap .span4{width:100px; position:absolute; right:30px;}
+
+.userQuestion .replyContWrap .commentPicWrap{display:inline-block; width:150px; height:150px; overflow:hidden;}
+.userQuestion .replyContWrap .commentPicWrap img{width:100%; display:inline-block;}
+

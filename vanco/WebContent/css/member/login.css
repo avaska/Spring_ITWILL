@@ -1,0 +1,20 @@
+@CHARSET "UTF-8";
+
+.loginSec{width:280px; height:100%; margin: 100px auto 0 auto;}
+.loginSec .vcLogo{margin: 0 auto 18px auto;}
+
+.insertBtn{margin:20px 0;}
+.insertBox{width:280px; height:42px; border:1px solid #e2e2e2; border-radius: 5px;}
+.clickBtn{width:280px; height:42px; border-radius: 5px; background:#64b9ff; color:#fff; font-size:16px; font-weight: 300; letter-spacing: 1.0px;
+			margin:21px auto 33px auto; display:inline-block; line-height: 42px; text-align:center;}
+.kakao{background:#fae100; color:#222;margin-bottom:16px;}
+.naver{background:#00bd30; margin-top:0; position:relative;}
+
+
+.loginIntro{font-size:18px; color:#ff335f; text-align: center;}
+.center{display:block !important; margin:0 auto;}
+
+.snsLogTit{font-size:18px; color:#222; text-align: center; margin-top:39px}
+.copyR{font-size:14px; color:#222; text-align: center;}
+.joinLink{font-size: 12px; color:#999; text-align:center; margin-top:34px;}
+.joinLink a:hover{color:#64b9ff; font-weight: bold;}

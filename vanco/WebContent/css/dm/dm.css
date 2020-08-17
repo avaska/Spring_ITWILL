@@ -1,0 +1,44 @@
+@CHARSET "UTF-8";
+
+/* DM페이지 공통 */
+.dmWrapTitle{margin-left:75px;}
+.dmWrap{width:850px; margin:30px auto; height:200px;}
+
+/* 받은쪽지함 */
+.dmBoxWrap{width:850px; margin:0 auto;}
+
+.dmBox{width:640px; margin: 0 auto 10px; padding:20px 20px 15px 40px ; box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;}
+
+.dmBox span{display:block;}
+.dmBox span:NTH-CHILD(1){font-size:12px; color:#999;}
+.dmBox span:NTH-CHILD(1) b{font-size:16px; color:#64B9FF;}
+.dmBox span:NTH-CHILD(2){width:610px; margin-top:8px; font-size:14px; color:#222;}
+.dmBox span:NTH-CHILD(3){display:inline-block; font-size:14px;  letter-spacing:-0.5px; color:#999; position:absolute;right:50px; bottom:18px;}
+.dmBox div a{display:inline-block; margin-top:10px; width:45px; font-size:14px; font-weight:bold; }
+.dmBox div a:HOVER{font-weight:bold; color:#FF335F;}
+
+.dmBox p {margin:0 0 12px 4px;}
+
+/* dmBox페이징 */
+.dmPaging{width:640px; height:100px; margin: 0 auto; padding-top:20px; text-align: center; }
+.dmPaging a{display:inline-block; width:35px; font-size: 16px; color:#999;}
+
+/* 쪽지 보내기 */
+
+.dmSendWrap{width:850px; margin:0 auto;}
+
+.dmSendBox{width:674px; height:150px; padding:18px 20px 15px 26px; margin:0px 0 0 75px; box-shadow:5px 5px 10px 7px #E6E6E6; position:relative;}
+
+.dmSendBox >span:NTH-CHILD(1){display:block;font-size:16px;font-weight:bold; }
+.dmSendBox >span:NTH-CHILD(2){display:block;color:#999999 ;font-size:14px;font-weight:lighter; margin-top:4px; }
+.dmSendBox >span:NTH-CHILD(3){display:inline-block;font-size:12px;font-weight:lighter; position:absolute; bottom:18px; right:123px;}
+/* .dmSendBox >span:NTH-CHILD(4){position:absolute; top:15px; right:27px;} */
+
+.dmSendBox .dmTyping{display:inline-block; width:500px; height:60px; border-bottom: 1px solid #ececec; margin-top:20px; text-indent:0;
+	padding:10px 15px; letter-spacing:1.2px; font-size:14px; background:#f7f7f7; border-radius:5px;}
+.dmSendBox .dmTyping:placeholder{color:#999; }
+.dmSendBox	.btn60_35{position:absolute;right:40px;bottom:20px; text-align:center;}
+
+
+
+

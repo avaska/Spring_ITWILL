@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<!-- comments table SQL 쿼리문 저장소 -->
+
+<sqlMap namespace="Comments">
+	<typeAlias alias="str" type="java.lang.String" />
+	<typeAlias alias="hmap" type="java.util.HashMap" />
+	<typeAlias alias="int" type="java.lang.Integer" />
+	<typeAlias alias="comment" type="com.comments.db.Comments" />
+	
+	<select id="getCommentsList" parameterClass="hmap" resultClass="comment" remapResults="true">
+		<![CDATA[
+			SELECT * FROM comments WHERE idx = #idx# and moimNum = #moimNum# ORDER BY reNum ASC, reOdr ASC, reDep ASC
+		]]>
+	</select>
+	
+	<select id="getCommentsCount" parameterClass="hmap" resultClass="int" remapResults="true">
+		<![CDATA[
+			SELECT count(1) FROM comments WHERE idx = #idx# and moimNum = #moimNum#
+		]]>
+	</select>
+	
+	<select id="bringComment" parameterClass="hmap" resultClass="comment" remapResults="true">
+		<![CDATA[
+			SELECT * FROM comments where idx = #idx# and num = #num# and moimNum = #moimNum#
+		]]>
+	</select>
+	
+	<insert id="insertComment" parameterClass="comment">
+		<![CDATA[
+			INSERT INTO comments
+				(moimNum, idx, num, writer, content, regdate, reNum, reDep, reOdr)
+			SELECT 
+				#moimNum#, #idx#, (select ifnull(max(num),0)+1 num from comments where moimNum=#moimNum# and idx=#idx#), #writer#, #content#, now(), 0, 0, 0
+			FROM dual
+		]]>
+	</insert>
+	
+	<select id="maxComment" parameterClass="comment" resultClass="int" remapResults="true">
+		<![CDATA[
+			SELECT (ifnull(max(num),0)) max FROM comments where idx = #idx# and moimNum = #moimNum#
+		]]>
+	</select>
+	
+	<update id="updateComment" parameterClass="comment">
+		<![CDATA[
+			UPDATE comments
+			SET reNum = #num#
+			WHERE num = #num#
+			AND idx = #idx#
+			AND moimNum = #moimNum#
+		]]>
+	</update>
+	
+	<update id="modifyComment" parameterClass="comment">
+		<![CDATA[
+			UPDATE comments
+			SET content = #content#
+			WHERE num = #num#
+			AND moimNum = #moimNum#
+			AND idx = #idx#
+		]]>
+	</update>
+
+	<insert id="insertReComment" parameterClass="comment">
+		<![CDATA[
+			INSERT INTO comments
+				(moimNum, idx, num, writer, content, regdate, reNum, reDep, reOdr)
+			SELECT
+				#moimNum#, #idx#, (select ifnull(max(num),0)+1 num from comments where moimNum=#moimNum# and idx=#idx#), #writer#, #content#, now(), #reNum#, 0, 0
+			FROM dual
+			]]>
+	</insert>
+	
+	<select id="selectReDepOdr" parameterClass="comment" resultClass="int" remapResults="true">
+		<![CDATA[
+			select reDep from comments where num = #reNum# and moimNum = #moimNum# and idx = #idx#
+		]]>
+	</select>
+	
+	<update id="updateReComment" parameterClass="comment">
+		<![CDATA[
+			UPDATE	comments
+			SET		reDep = #reDep#+1
+					, reOdr = #reNum#
+			WHERE	num = #num#
+			AND moimNum = #moimNum#
+			AND idx = #idx#
+			]]>
+	</update>
+	
+	<delete id="deleteComment" parameterClass="hmap">
+		<![CDATA[
+			DELETE FROM comments WHERE num = #num# AND idx = #idx# AND moimNum = #moimNum#
+		]]>
+	</delete>
+	
+	<delete id="deleteComments" parameterClass="hmap">
+		<![CDATA[
+			DELETE FROM comments WHERE idx = #idx# AND moimNum = #moimNum#
+		]]>
+	</delete>
+	
+	<select id="getCommentUser" parameterClass="hmap" resultClass="str" remapResults="true">
+		<![CDATA[
+			SELECT writer FROM comments WHERE num = #reNum# and idx = #idx# and moimNum = #moimNum#
+		]]>
+	</select>
+	
+	<select id="reReGetReNum" parameterClass="comment" resultClass="int" remapResults="true">
+		<![CDATA[
+			SELECT reNum FROM comments WHERE num = #reNum# AND idx = #idx# AND moimNum = #moimNum#
+		]]>
+	</select>
+</sqlMap>

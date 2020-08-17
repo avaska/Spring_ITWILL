@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<!-- board table SQL 쿼리문 저장소 -->
+
+<sqlMap namespace="Board">
+	<typeAlias alias="str" type="java.lang.String" />
+	<typeAlias alias="hmap" type="java.util.HashMap" />
+	<typeAlias alias="int" type="java.lang.Integer" />
+	<typeAlias alias="board" type="com.board.db.Board" />
+	<typeAlias alias="file" type="com.board.db.Files" />
+	
+	<select id="getArticleList" remapResults="true" resultClass="board">
+		<![CDATA[
+			SELECT moimNum, idx, title, pin, writer, regdate, 
+			(select ifnull(count(num),0) from comments where idx = b.idx and moimNum = b.moimNum) countcomm,
+			(select ifnull(count(num),0) from files where idx = b.idx and moimNum = b.moimNum) countfile
+			FROM board b WHERE moimNum = #moimNum# ORDER BY pin DESC, idx DESC
+		]]>
+	</select>
+	
+	<select id="getArticleNum" parameterClass="int" remapResults="true" resultClass="int">
+		<![CDATA[
+			SELECT ifnull(max(idx),0) FROM board WHERE moimNum = #moimNum#
+		]]>
+	</select>
+	
+	<select id="getArticle" parameterClass="hmap" resultClass="board">
+		<![CDATA[
+			select * from board where idx = #idx# and moimNum = #moimNum#
+		]]>
+	</select>
+	
+	<insert id="insertArticle" parameterClass="board">
+		<![CDATA[
+		INSERT INTO board
+			(moimNum, idx, title, writer, regdate, count, content, regip, filename, pin)
+		SELECT
+			#moimNum#, (select (ifnull(max(idx),0)+1) idx from board where moimNum=#moimNum#), #title#, #writer#, now(), #count#, #content#, #regip#, #filename#, #pin#
+			 FROM dual
+			]]>
+	</insert>
+	
+	<update id="updateArticle" parameterClass="board">
+		<![CDATA[
+			UPDATE board
+			SET title = #title#, 
+				content = #content#,
+				pin = #pin#
+			WHERE idx = #idx#
+			AND moimNum = #moimNum#
+		]]>
+	</update>
+	
+	<update id="updateFile" parameterClass="hmap">
+		<![CDATA[
+			UPDATE files
+			SET		idx = #idx#
+			WHERE	num = #file#
+		]]>
+	</update>
+	
+	<insert id="insertFile" parameterClass="file">
+		<![CDATA[
+		INSERT INTO files
+			(writer, filename, moimNum)
+		VALUES
+			(#writer#, #filename#, #moimNum#)
+		]]>
+	</insert>
+	
+	<select id="getFile" parameterClass="str" resultClass="int">
+		<![CDATA[
+			select num from files where filename = #filename#
+		]]>
+	</select>
+	
+	<select id="downFile" parameterClass="int" resultClass="file">
+		<![CDATA[
+			select * from files where num = #num#
+		]]>
+	</select>
+	
+	<select id="getFiles" parameterClass="hmap" resultClass="file">
+		<![CDATA[
+			select * from files where idx = #idx# and moimNum = #moimNum#
+		]]>
+	</select>
+	
+	<select id="sequence" resultClass="int">
+		<![CDATA[
+			select LAST_INSERT_ID() from dual
+		]]>
+	</select>
+	
+	<update id="setArticleCount" parameterClass="board">
+		<![CDATA[
+			update board set count = #count# where idx = #idx# and moimNum = #moimNum#
+		]]>
+	</update>
+	
+	<delete id="deleteArticle" parameterClass="hmap">
+		<![CDATA[
+			delete from board where idx = #idx# and moimNum = #moimNum#
+		]]>
+	</delete>
+	
+	<delete id="deleteFile" parameterClass="int">
+		<![CDATA[
+		delete from files where num = #num#
+		]]>
+	</delete>
+
+</sqlMap>

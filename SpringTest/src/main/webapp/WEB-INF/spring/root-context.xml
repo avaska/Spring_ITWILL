@@ -19,11 +19,21 @@
 		  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		  	
 		<!-- 드라이버 -->
-		<property name="driverClassName">
+		<!-- <property name="driverClassName">
 			<value>com.mysql.jdbc.Driver</value>
+		</property> -->
+		<!-- 주소 -->
+		<!-- <property name="url" value="jdbc:mysql://localhost:3306/springdb?userSSL=false"></property> -->
+		
+		<!-- log4jdbc 적용 -->
+		<!-- 드라이버 -->
+		<property name="driverClassName">
+			<value>net.sf.log4jdbc.sql.jdbcapi.DriverSpy</value>
 		</property>
 		<!-- 주소 -->
-		<property name="url" value="jdbc:mysql://localhost:3306/springdb?userSSL=false"></property>
+		<property name="url" 
+			value="jdbc:log4jdbc:mysql://localhost:3306/springdb?userSSL=false"></property>
+		
 		<!-- 아이디 -->
 		<property name="username" value="root"></property>
 		<!-- 비밀번호 -->
@@ -49,6 +59,72 @@
 				  <!-- main/resources에 접근하는 경로 -->
 		</property>
 		
+		<!-- mapper의 정보를 연결(SQL 구문) -->
+		<!-- mappers폴더 안에서 ~~~Mapper.xml로 끝나는 파일을 만들어서 추가해라 -->
+		<property name="mapperLocations"
+				  value="classpath:mappers/**/*Mapper.xml"
+		></property>
+		
 	</bean>
+	
+	<!-- 		 
+		 SqlSession 인터페이스를 구현한 객체
+		 => SqlSessionTemplate 객체 생성
+		 (DB 연결, 자원 해제 처리 객체) mybatis-spring 라이브러리 안에 포함
+	 -->
+	 <!--  sqlSession과  위에서 만든 sqlSessionFactory의 차이 : 자원 자동해제-->
+	 <bean id="sqlSession" 
+	 	   class="org.mybatis.spring.SqlSessionTemplate"
+	 	   destroy-method="clearCache"
+	 >
+	 <!-- destroy-method="clearCache": 자원해제 메서드  -->
+	 
+	 	<!-- 생성자 -->
+	 	<constructor-arg name="sqlSessionFactory"
+	 					 ref="sqlSessionFactory"
+	 	></constructor-arg>
+	 
+	 </bean>
+	 <!-- 소스코드 아래쪽 beans탭에서 bean graph 확인 -->
+	
+	
+	
+	 <!-- root-context파일과 com.itwillbs.persistence 패키지를 연결
+	         스프링에 등록
+	  -->
+	 <context:component-scan base-package="com.itwillbs.persistence" />
+	 
+	 <!-- root-context파일과 com.itwillbs.service 패키지를 연결
+	         스프링에 등록
+	  -->
+	 <context:component-scan base-package="com.itwillbs.service" />
+	 
+	<!-- 
+		persistence, service : root-context.xml에 연결되어 있음
+		controller : servlet-context.xml에 연결되어 있음 
+	
+		root-context.xml과 servlet-context.xml은 서로 연결되어 있음
+		 => 설정파일들을 통해 모든 파일을 연결시킴
+
+
+		 root-context.xml파일과 com.itwillbs.persistence 패키지를 연결하겠다 
+		 root-context.xml은 스프링 전반적인 설정 제어 
+		 -> 다른 곳에서 root-context.xml를 찾아오면 com.itwillbs.persistence로 이동하게 함
+		 
+		 dataSource 
+		 -> sqlSessionFactory의 속성으로 주입
+		 -> sqlSessionFactory를 상속하는 SqlSessionTemplate 타입의 sqlSession이라는 이름의 객체 생성(생성자)
+		 
+		 persistence 계층의 Implement(구현)객체에서  (ex : MemberDAOImpl.java)
+		 @Inject 어노테이션이 붙은 변수의 이름과 일치하는 bean객체를 root-context.xml로부터 찾아서 의존 주입
+		 
+		 sqlSession 객체는 sqlSessionFactory를 상속하므로, mapper로부터 정보를 찾을 때 
+		 sqlSessionFactory의 속성으로 추가된 mapper.xml 정보로부터 mapper의 데이터를 가져온다.		 
+		 
+	-->
+	
+
+	 
+	 
 	
 </beans>

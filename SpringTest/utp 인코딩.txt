@@ -1,0 +1,22 @@
+<!-- utf-8 인코딩 
+    web.xml 파일에 web-app 닫는 태그 바로 위에 작성
+-->
+
+
+
+	<filter>
+	 <filter-name>encoding</filter-name>
+	 <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+	 
+	 <!-- 데이터 초기화 -->
+	 <init-param>
+	   <param-name>encoding</param-name>
+	   <param-value>UTF-8</param-value>
+	 </init-param>	 
+	</filter>
+
+	<!-- /* :  모든 주소에 대한 처리를 하겠다--> 
+	<filter-mapping>
+	  <filter-name>encoding</filter-name>
+	  <url-pattern>/*</url-pattern>
+	</filter-mapping>
