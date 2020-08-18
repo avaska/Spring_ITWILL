@@ -1,6 +1,7 @@
 package com.itwillbs.persistence;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -30,6 +31,8 @@ public class MemberDAOImpl implements MemberDAO{
 	// mapper주소는 내가 지정하는 이름이다.
 	// memberMapper.xml에 있는 namespace와 같아야 한다.		
 	
+	// 실무에서 시스템콜(sysout 등) 사용하지 말 것 -> 속도 저하 원인
+	// 대신  logger 사용	
 	
 	//추상메서드 구현
 	@Override
@@ -121,16 +124,63 @@ public class MemberDAOImpl implements MemberDAO{
 
 	@Override
 	public void updateMember(MemberVO vo) {
+		System.out.println("@@@@ DAO : service에서 해당 동작을 호출");
+		System.out.println("@@@@ DAO : 수정할 정보를 받아옴");
+		System.out.println("@@@@ DAO : vo -> " + vo);
+		System.out.println("@@@@ DAO : mapper 이동해서 쿼리 작동");			
 		
+		// sqlSession.update(statement, parameter) 
+		//   -> 매개변수 : 쿼리 + mapper로 가지고 갈 데이터
+		
+		// sqlSession 객체(의존 주입) 사용
+		//namespace + mapper id
 		sqlSession.update(namespace + ".updateMember", vo);
 		
+		System.out.println("@@@@ DAO : mapper 사용 쿼리 실행 완료");
+		System.out.println("@@@@ DAO : service 객체로 이동");
+		
 	}
-	
-	
-	// 실무에서 시스템콜(sysout 등) 사용하지 말 것 -> 속도 저하 원인
-	// 대신  logger 사용
-	
 
+	@Override
+	public int deleteMember(MemberVO vo) {
+		//DB에서 처리하고 올때 결과를 정수값으로 가져와서 서비스로 전달
+		
+		System.out.println("@@@@ DAO : service -> DAO 호출");
+		System.out.println("@@@@ DAO : 삭제할 정보를 가지고옴 ");
+		System.out.println("@@@@ DAO : vo -> "+vo);
+		System.out.println("@@@@ DAO : mapper이동후 sql 실행");
+		
+		//mapper의 delete : pstmt.executeUpdate(); 와 같다
+		// -> 쿼리가 실행된 rows 반환
+		
+		int values = sqlSession.delete(namespace + ".deleteMember", vo);
+		
+		System.out.println("@@@@ DAO : 삭제 완료. 삭제된 회원 수 -> " + values);
+		System.out.println("@@@@ DAO : DAO -> service 이동(삭제된 회원수 가지고 이동)");
+		
+		return values;
+		
+	}
+
+	@Override
+	public List<MemberVO> getMemberList() {
+		
+		System.out.println("@@@@ DAO : service -> DAO ");
+		System.out.println("@@@@ DAO : DAO -> mapper ");
+		
+		
+		List<MemberVO> memberList = 
+				sqlSession.selectList(namespace + ".getMemberList");
+		// selectList() : DB의 SELECT 결과를 리스트로 저장하는 메서드
+		// mapper에서는 List를 리턴x, List에 저장되는 타입을 리턴해야 한다.
+		// => 스프링이 알아서 리스트에 저장
+		
+		System.out.println("@@@@ DAO : mapper의 결과를 List에 저장");
+		System.out.println("@@@@ DAO : List -> "+memberList);
+		System.out.println("@@@@ DAO : list 리턴해서 service 페이지로 이동");		
+		
+		return memberList;
+	}
 	
 	
 }

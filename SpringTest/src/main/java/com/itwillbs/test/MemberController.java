@@ -1,5 +1,7 @@
 package com.itwillbs.test;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -29,7 +31,7 @@ public class MemberController {
 	// 서비스 계층 필요함 -> 의존 주입
 	@Inject
 	private MemberService service; //부모타입 인터페이스 타입의 레퍼런스여야 의존주입됨
-	
+	// 스프링이 서비스 객체를 대신 만들어서 주입해줌
 	
 	
 	// 동작 구현
@@ -42,7 +44,7 @@ public class MemberController {
 		
 		//회원 정보 생성(나중에는 View페이지에서 전달 받음 -> form태그 submit)
 		MemberVO vo = new MemberVO();
-		vo.setUserid("itwill3");
+		vo.setUserid("itwill4");
 		vo.setUserpw("1234");
 		vo.setUsername("사용자3");
 		vo.setEmail("user3@google.com");		
@@ -99,7 +101,8 @@ public class MemberController {
 	
 	
 	// 로그인 처리 (GET) method
-	// http://localhost:8090/test/member/login
+	//http://localhost:8080/test/member/login(x)
+	//http://localhost:8080/member/login
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginGET() throws Exception {
 		
@@ -120,7 +123,8 @@ public class MemberController {
 	
 	
 	// login처리(POST)
-	// http://localhost:8090/test/member/login
+	// http://localhost:8090/test/member/login (x)
+	//http://localhost:8080/member/login (o)
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String loginPOST(MemberVO vo, HttpSession session) throws Exception{
 		// method에 매개변수를 정의만 했는데 값이 넘어오는 것은 스프링 프레임워크가 알아서 해주도록 구현이 되어있다고 함
@@ -165,6 +169,11 @@ public class MemberController {
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public void mainGET() throws Exception {
 		logger.info("/member/main (get) -> /member/main.jsp");
+		
+		// 파라미터값 저장
+		
+		
+		
 	}
 
 
@@ -181,6 +190,7 @@ public class MemberController {
 	}
 	
 	// 회원 정보 보기 /member/info
+	// http://localhost:8080/member/info
 	@RequestMapping(value="/info",method = RequestMethod.GET)
 	public String infoGET(HttpSession session, Model model) throws Exception {
 		
@@ -205,6 +215,7 @@ public class MemberController {
 	// http://localhost:8080/member/update
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public void updateGET(HttpSession session, Model model) throws Exception{
+							// Session 내장객체(jsp) 전달받음
 		
 		logger.info("updateGET() 호출");
 		logger.info("/member/update  get -> /member/update.jsp 이동");
@@ -220,10 +231,107 @@ public class MemberController {
 		model.addAttribute("memberVO", vo);
 		
 		// 페이지이동(void)
-		// /member/update.jsp 페이지이동		
-		
+		// /member/update.jsp 페이지이동			
 		
 	}
+	// 회원 정보 수정 처리    /member/update
+	@RequestMapping(value = "/member/update", method = RequestMethod.POST)
+	//@RequestMapping(value = "/update", method = RequestMethod.POST)
+	public String updatePOST(MemberVO vo) {
+		
+		// /member/update.jsp 에서 입력받은 수정할 정보를 가져와서 
+		// DB로 이동(service -> DAO -> Mapper -> MySQL)
+		logger.info("/member/update.jsp  submit -> /member/update POST ");
+		logger.info("vo(수정할 정보) : "+vo);
+		
+		// 서비스 객체에 있는 정보 수정 메서드 호출
+		service.updateMember(vo);
+		
+		logger.info("service 처리 완료 (회원정보 수정 완료)");		
+		
+		// 수정완료 후 페이지 이동(main)		
+		return "redirect:/member/main";		
+	}
+	
+	// /member/delete
+	// http://localhost:8080/member/delete
+	@RequestMapping(value = "/delete", method = RequestMethod.GET) //컨트롤러에 접근하는 주소
+	public String deleteGET() throws Exception{  //만약에 발생할 예외를 대비하여 던지기		
+		
+		// /member/delete -> delete.jsp로 이동
+		// deleteForm.jsp처럼 mapping정보와 다른 페이지로 이동하려면 String을 만들어 반환
+		
+		logger.info("/member/delete  get  -> /member/deleteForm.jsp");
+		
+		// /WEB-INF/views/member/deleteForm.jsp 페이지 이동
+		//  -> servlet-context.xml에 접두사,접미사로 경로 및 파일명 설정정보가 연결되어 있다
+		return "/member/deleteForm";
+	}
+	
+	// /member/delete   post
+	// 회원 탈퇴 처리 
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
+	public String deletePOST(MemberVO vo, HttpSession session, Model model) throws Exception {
+		// RequestMapping된 함수의 매개변수에 parameter 타입을 넣으면 
+		// request.getParameter() 역할을 스프링 프레임워크가 대신해준다.
+		// 단, 받아올 수 있는 타입이어야한다.
+		
+		logger.info("/member/deleteForm.jsp -> /member/delete POST");
+		
+		// jsp 페이지에서 전달한(submit) 정보를 저장 (userid,userpw)
+		// + session 내장객체의 정보를 저장
+		logger.info("view에서 전달받은 정보 : "+vo);
+		
+		// DAO 이동해서 삭제  (service -> DAO -> mapper -> Mysql)
+		
+		// 의존 주입 받은 서비스 객체를 사용
+		service.deleteMember(vo);		
+		
+        // 세션값 초기화 	
+		session.invalidate();
+		
+		// 삭제 완료 시 메시지 역할
+		// -> view 페이지로 데이터 전달(parameter)
+		// -> http://localhost:8090/member/main?result=delOK 
+		model.addAttribute("result", "delOK");	
+		
+		// 페이지 이동(main)		
+		return "redirect:/member/main";
+	}
+	
+	
+	// /member/list
+	// 회원 목록 처리 
+	// http://localhost:8080/member/list
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public String listGET(HttpSession session, Model model) throws Exception {
+		
+		logger.info(" /member/list  get -> /member/memberList.jsp 이동");
+		
+		// 세션값 (id) 사용해서 관리자 판별
+		String id = (String)session.getAttribute("userid");
+		
+		if(id == null || !id.equals("admin")) {
+			return "redirect:/member/login";
+		}
+		
+		// 관리자일 때 서비스를 통해서 회원 목록을 전부 가져오기
+		List<MemberVO> memberList = service.getMemberList();
+		logger.info(memberList+""); //공백문자 이용해서 객체정보 출력
+		
+		// Model 객체 사용(컨트롤러 -> 뷰 데이터 이동 컨테이너)
+		// 회원 정보를 모두 저장 후 /member/memberList.jsp 페이지에서 출력		
+		model.addAttribute("memberList", memberList);		
+		
+		return "/member/memberList";
+	}
+	
+	
+	
+	// 서버 동기화 도중에 페이지 요청 
+	//  -> 동기화되는 시점에 문법이 완벽하지 않으면 exception 메시지가 발생
+	//  -> 동기화 끝나고 요청하거나, 서버 꺼놓고 작업하면 문제X
+	
 	
 	
 	

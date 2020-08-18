@@ -1,5 +1,7 @@
 package com.itwillbs.persistence;
 
+import java.util.List;
+
 import com.itwillbs.domain.MemberVO;
 
 //persistence(영속) 계층 : DAO를 포괄하는 계층
@@ -21,7 +23,14 @@ public interface MemberDAO {
 	// ID/PW를 사용해서 본인 회원 정보를 가져오는 메서드
 	public MemberVO getMemberWithIdPw(String id, String pw);
 	
+	// 회원 정보 수정 처리 메서드
 	public void updateMember(MemberVO vo);
+	
+	// 회원 정보 삭제 처리 메서드 (서비스로 처리결과를 리턴)
+	public int deleteMember(MemberVO vo);
+	
+	// 회원 목록 처리 메서드
+	public List<MemberVO> getMemberList();
 	
 	
 	

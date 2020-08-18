@@ -24,17 +24,7 @@
     	insert into tbl_member(userid,userpw,username,email) 
     	values(#{userid},#{userpw},#{username},#{email})  
   	</insert>
-  	
-  	<update id="updateMember">
-  		update tbl_member 
-  		set  
-  		userid = #{userid},
-  		userpw = #{userpw},
-  		username = #{username},
-  		email = #{email};
-  		
-  	</update>
-  	
+  	  	
   	
   	<!-- ID에 해당하는 회원 정보 검색 SQL -->
   	<select id="getMember" resultType="com.itwillbs.domain.MemberVO">
@@ -53,15 +43,33 @@
   	
   		select * from tbl_member  
   		where userid = #{userid} and userpw = #{userpw}
-  	</select>
-	
+  	</select>	
 	
 	<!-- 
 		#{ } 
 		- get(), set() 역할
 		- 전달되는 파라미터가 하나인 경우 그대로 처리(기본형, 문자열)
 		- PreparedStatement 객체 역할을 처리	
-	 -->
+	 -->	 
+	 
+	<!-- 회원정보를 받아와서 수정 --> 	
+  	<update id="updateMember">
+  		update tbl_member set username = #{username}, email = #{email}, updatedate=now()
+  		where userid=#{userid} and userpw=#{userpw}  		
+  	</update>  	
+  	
+  	
+  	<!-- 회원정보를 받아와서 삭제 -->
+	<delete id="deleteMember">
+		delete from tbl_member where userid=#{userid} and userpw=#{userpw}	
+	</delete>
 	
+	
+	<!-- 회원정보 리스트 검색 -->
+	<!-- 아래 쿼리에서는 DB로부터 VO형태로 데이터를 담아옴
+		 DAO의 selectList() 메서드가 VO들을 list형태로 알아서 담아옴 -->
+	<select id="getMemberList" resultType="com.itwillbs.domain.MemberVO">
+		select * from tbl_member
+	</select>
 	
 </mapper>

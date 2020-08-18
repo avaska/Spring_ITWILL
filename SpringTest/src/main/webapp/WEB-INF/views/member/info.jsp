@@ -28,6 +28,7 @@
    <h3>이름 : ${memberVO.username }</h3>
    <h3>이메일 : ${memberVO.email }</h3>
    <h3>회원 가입일 : ${memberVO.regdate }</h3>
+   <h3>회원 정보 수정일 : ${memberVO.updatedate }</h3>
    
    <h2><a href="/member/main">Main 페이지 이동</a></h2>
 
