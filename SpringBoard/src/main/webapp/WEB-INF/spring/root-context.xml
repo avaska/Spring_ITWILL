@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+	<!--  
+	  root-context.xml : 
+	    웹과 관련된 설정을 제외한 모든 설정을 처리하는 파일
+	-->	
+	
+	<!-- bean : 자바의 객체와 같음 -->
+	<!-- 디비연결 객체 생성 -->
+	<bean id="dataSource" 
+	      class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+	>
+	 	<!-- 드라이버 -->
+		<!--  <property name="driverClassName">
+	          <value>com.mysql.jdbc.Driver</value>	 
+		 </property> -->
+		 <!-- 주소 -->
+		<!--  <property name="url" value="jdbc:mysql://localhost:3306/springdb?useSSL=false"></property>
+		 -->
+		 
+		<!-- log4jdbc 적용 -->
+		<!-- 드라이버 -->
+		 <property name="driverClassName">
+	          <value>net.sf.log4jdbc.sql.jdbcapi.DriverSpy</value>	 
+		 </property>
+		 <!-- 주소 -->
+		 <property name="url" 
+		 value="jdbc:log4jdbc:mysql://localhost:3306/springdb?useSSL=false"></property>
+		
+		
+		
+		 <!-- 아이디 -->
+		 <property name="username" value="root"></property>
+	  	 <!-- 비밀번호 -->	
+	  	 <property name="password" value="1234"></property>
+	
+	</bean>
+	
+	<!-- MyBatis 연결 객체-SqlSessionFactory객체 -->
+	<!--
+	   Connection 객체 생성, 디비연결처리, SQL 실행  
+	-->
+	<!--
+	 SqlSessionFactoryBean sqlSessionFactory
+	     = new SqlSessionFactoryBean();
+	  -->
+	<bean id="sqlSessionFactory" 
+	      class="org.mybatis.spring.SqlSessionFactoryBean"
+	>
+	  <!-- 위에 만들어 놓은 디비 연결 객체 정보를 주입 -->
+	  <property name="dataSource" ref="dataSource" />
+	  
+	  <!-- mybatis 설정값을 추가 -->
+	  <property name="configLocation" 
+	            value="classpath:/mybatis-config.xml"
+	  ></property>
+	  
+	  <!-- mapper의 정보를 연결(SQL구문) -->
+	  <property name="mapperLocations" 
+	            value="classpath:mappers/**/*Mapper.xml"
+	  ></property>
+	  
+	
+	</bean>
+	
+	<!-- 
+	      SqlSession 인터페이스를 구현한 객체
+	      => SqlSessionTemplate객체 생성
+	     (디비연결, 자원해제 처리 객체) mybatis-spring라이브러리 안에 포함
+	 -->
+	 <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
+	       destroy-method="clearCache"
+	 >
+	 
+	   <constructor-arg name="sqlSessionFactory"
+	                    ref="sqlSessionFactory"
+	   ></constructor-arg>
+	 
+	 </bean>
+	 
+	 
+	
+	
+	<!-- root-context파일과 com.itwillbs.persistence 패키지를 연결
+	         스프링에 등록
+	  -->
+	<context:component-scan base-package="com.itwillbs.persistence" />
+    <!-- root-context파일과 com.itwillbs.service 패키지를 연결
+	         스프링에 등록
+	  -->
+	<context:component-scan base-package="com.itwillbs.service" />
+	
+		
+</beans>

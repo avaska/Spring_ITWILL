@@ -1,0 +1,99 @@
+springboard.txt
+
+* pom.xml에서 파일을 못 가져올때
+  C:\Users\ITWILL\.m2\repository 폴더에서 파일 모두 삭제후 재시작
+  (STS 종료된후에 실행)
+  
+
+
+
+게시판 (CRUD)
+
+등록 (Create)
+조회 (Read)
+수정 (Update)
+삭제 (Delete)
+
+
+* 일반적인 개발순서
+  DB -> 컨트롤러 -> 비지니스 영역 -> 화면
+  
+  * 개발 준비 
+  데이터베이스 영역 
+    - 디비생성, 계정 생성
+    - 테이블 설계 생성(ERD)
+    - (선택) 더미데이터 추가
+  스프링 MVC 영역
+    - 패키지 구조를 결정
+    - 개별 역활 분담(팀플)
+    - 테스트 방법 수립(선택사항- 권장)
+  화면 영역
+    - 화면방식 결정(JSP/Html-Js)
+    - 경로 설정(절대경로, 상대경로)
+    
+
+* 계층    
+	- domain : DTO
+	- persistence : DAO
+	- service : Action
+         
+         
+---------------------------------------------------------
+
+CREATE TABLE `springdb`.`tbl_board` (
+  `bno` INT NOT NULL AUTO_INCREMENT,
+  `title` VARCHAR(500) NOT NULL,
+  `content` TEXT NULL,
+  `writer` VARCHAR(45) NOT NULL,
+  `regdate` TIMESTAMP NOT NULL DEFAULT now(),
+  `viewcnt` INT NULL DEFAULT 0,
+  PRIMARY KEY (`bno`));
+         
+  
+  * 화면(JSP 페이지)에서 외부 파일 추가
+   => 외부 파일 경로 미인식(패스 오류)
+  
+  1) EL 표현식 사용 프로젝트 경로 지정
+  변경전 : /resources/bootstrap/~~
+   
+  변경후 : ${pageContext.request.contextPath}/resources/bootstrap/~~
+
+  2) JSTL (core 라이브러리 사용) ( servlet 2.4 이하 )
+  
+  <c:out value='${pageContext.request.contextPath}/resources/bootstrap/~~'/>
+
+--------------------------------------------------------
+
+AdminLTE 템플릿으로 실습할 것
+https://adminlte.io/themes/AdminLTE/index2.html
+ -> documentation
+ -> github 소스코드 다운로드
+ 
+ -> 수업용으로 정리된 파일 사용할 경우
+ -> /src/main/webapp/resources에 bootstrap, dist, plugins 폴더 복사
+ -> /src/main/webapp/WEB-INF/views에 include 폴더 복사
+
+ header,footer.jsp에서 리소스 경로 찾지 못 하므로 
+ src="경로"에 ${pageContext.request.contextPath } 추가
+ 
+ home.jsp에 header,footer 파일 읽어들이도록 코드 추가
+ <%@ include file="include/header.jsp" %>,
+ <%@ include file="include/footer.jsp" %>
+ 
+ HomeController.java 파일 실행(테스트) 
+  -> http://localhost:8090/controller/ (기존)
+  -> http://localhost:8090/             (프로젝트 경로 수정함)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
