@@ -23,8 +23,8 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	
-	// http://localhost:8080/controller/   (기존)
-	// http://localhost:8080/             (서버 path 변경)
+	// http://localhost:8090/controller/   (기존)
+	// http://localhost:8090/             (서버 path 변경)
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);

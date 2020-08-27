@@ -65,6 +65,7 @@
 	  ></property>
 	  
 	  <!-- mapper의 정보를 연결(SQL구문) -->
+	  <!-- ~~~Mapper.xml 형태의 이름을 가지는 모든 mapper를 연결 -->
 	  <property name="mapperLocations" 
 	            value="classpath:mappers/**/*Mapper.xml"
 	  ></property>

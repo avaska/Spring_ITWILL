@@ -33,9 +33,17 @@ springboard.txt
     
 
 * 계층    
+    - controller
 	- domain : DTO
 	- persistence : DAO
-	- service : Action
+	- service : Action  => 컨트롤러 - DAO 연결 , 컨트롤러에 기능이 집중되는 것을 분산시키려는 목적
+
+* 계층의 연결
+	- servlet-context.xml : controller 연결
+	- root-context.xml : service, persistence 연결
+	
+	- root-context.xml, servlet-context.xml은 연결되어 있다
+	=> controller, service, persistence 계층이 모두 연결됨
          
          
 ---------------------------------------------------------
@@ -80,11 +88,21 @@ https://adminlte.io/themes/AdminLTE/index2.html
  <%@ include file="include/header.jsp" %>,
  <%@ include file="include/footer.jsp" %>
  
+ 
  HomeController.java 파일 실행(테스트) 
+  -> HomeController에서 서버 실행해야 함(ctrl+f11)
   -> http://localhost:8090/controller/ (기존)
   -> http://localhost:8090/             (프로젝트 경로 수정함)
+  
+  
+  --------------------------------------------------------------------------
+  
+  서버 실행 시 톰캣 오류 
+  : 프로젝트 properties - deployment assembly에서 maven dependencies가 누락되어서 발생한 오류
+    -> 추가하면 됨
+    -> git pull했을 때 날라간 듯
 
-
+https://jaeu0608.tistory.com/155
 
 
 

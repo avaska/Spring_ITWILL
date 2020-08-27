@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- configuration은 mybatis-config.xml에서 설정할 것이므로 mapper에서 사용X -->  
+<!-- <!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">   -->
+  
+<!-- namespace : 외부에서(DAO) 해당 매퍼를 찾을 수 있는 구분 값(실제 경로X, 임의의 값) -->  
+<mapper namespace="com.itwillbs.mapper.BoardMapper">
+	<insert id="create">
+		insert into tbl_board (title, content, writer)  
+		values(#{title}, #{content}, #{writer})
+		<!-- 이름만 맞춰주면 필요에 따라 setter/getter로 알아서 동작함(by Spring) -->
+	</insert>
+	
+	<select id="read" resultType="com.itwillbs.domain.BoardVO">
+		select * from tbl_board  
+		where bno = #{bno}
+	</select>	
+	
+	<!-- #위치 주의!!, 띄어쓰기, 개행 많이하면 인식 못해서 sql 구문 오류 발생 -->
+	<update id="update">
+	     update tbl_board set title=#{title},content=#{content},writer=#{writer} 
+	     where bno = #{bno}    
+	</update>
+	
+	<!-- id : delboard, dboard 등 구분 가능하게 쓰면 됨-->
+	<delete id="delete">
+		delete from tbl_board 
+		where bno = #{bno}
+	</delete>	
+	
+	
+	<!-- 글 목록 전체를 가져오는 SQL -->
+	<!-- CDATA를 붙이면 항상 쿼리형태로 처리 가능 -->
+	
+	<!-- <select id="listAll" resultType="com.itwillbs.domain.BoardVO">
+	 <![CDATA[
+		select * from tbl_board 
+		where bno > 0
+		order by bno desc, regdate desc
+	 ]]>
+	</select> -->
+	<select id="listAll" resultType="BoardVO">
+	 <![CDATA[
+		select * from tbl_board 
+		where bno > 0
+		order by bno desc, regdate desc
+	 ]]>
+	</select>
+	<!-- 
+		(UnParsed)Character DATA : 파싱을 하지 않는 문자 데이터
+		=> 문자 그대로 처리하겠다.(잘못 파싱될 가능성 방지)
+		
+		PCDATA : 파싱을 해서 처리하는 문자 데이터		
+		
+		- 파싱 : 문자 데이터를 잘라내는 것		
+		- 태그 단위로 파싱하여 쿼리를 읽어들이는데 부등호 (where bno > 0)가 있으면 태그로 읽힐 수 있음
+		  => CDATA로 처리하면 문제X
+		
+	 -->
+	
+</mapper>
