@@ -109,6 +109,7 @@ public class BoardDAOImpl implements BoardDAO{
 		// session.selectList(statement, parameter)
 		List<BoardVO> boardList 
 		  = session.selectList(NAMESPACE+".listAll");
+		//프레임워크가 알아서 List 객체에 BoardVO들을 넣어서 가져옴
 
 		logger.info("DAO-SQL 실행완료");
 		

@@ -2,6 +2,13 @@
 	pageEncoding="UTF-8"%>
 <%@ page session="false"%>
 
+<!--  
+	jstl 라이브러리는 maven dependencies에 들어 있음. 
+	프로젝트에 사용할 수 있게 선언문으로 연결만 해주면 됨. 
+-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <%@ include file="../include/header.jsp" %>
 
 
@@ -26,8 +33,33 @@
 						<th>날짜</th>
 						<th style="width: 60px">조회수</th>
 					</tr>
-
-
+					<c:forEach var="boardVO" items="${boardList}">
+						<tr>	
+							<td style="width: 60px">${boardVO.bno}</td>
+							<td>
+								<a href="/board/read?bno=${boardVO.bno}">${boardVO.title}</a>
+							</td>
+							<td>${boardVO.writer}</td>
+							<td>
+								<%-- <fmt:formatDate 									
+									value="${boardVO.regdate}"
+									dateStyle="short"   
+									timeStyle="short"								
+								/> --%>
+								
+								<!-- mm : 분(시간), MM(월) -->
+								<fmt:formatDate 									
+									value="${boardVO.regdate}"																		
+									pattern="yy-MM-dd HH:mm"
+								/> 
+							</td>
+							<td style="width: 60px">
+								<span class="badge bg-red">
+									${boardVO.viewcnt}
+								</span>								
+							</td>
+						</tr>
+					</c:forEach>
 				</table>
 
 				</div>

@@ -16,6 +16,8 @@
 		<!-- 이름만 맞춰주면 필요에 따라 setter/getter로 알아서 동작함(by Spring) -->
 	</insert>
 	
+	<!-- 변수명만 일치하면 mybatis에서 쿼리를 보고  알아서 setter/getter 메서드를 통해 데이터를 입력해준다 -->
+	<!-- 쿼리가 실행된 결과물인 레코드셋(rs)의 행을 컬럼별로 잘라내어 BoardVO 객체에 알아서 넣어준다 -->
 	<select id="read" resultType="com.itwillbs.domain.BoardVO">
 		select * from tbl_board  
 		where bno = #{bno}

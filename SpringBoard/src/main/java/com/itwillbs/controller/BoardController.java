@@ -1,5 +1,7 @@
 package com.itwillbs.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.slf4j.Logger;
@@ -9,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
@@ -105,7 +108,7 @@ public class BoardController {
 	// 글목록 동작 (/board/listAll)
 	// http://localhost:8080/board/listAll?result=SUCCESS%21%21
 	@RequestMapping(value = "/listAll",method = RequestMethod.GET)
-	public void listAllGET(@ModelAttribute("result") String result) throws Exception{
+	public void listAllGET(@ModelAttribute("result") String result, Model model) throws Exception{
 
 		// @ModelAttribute("result") String result
 		// => model 객체에 있는 속성값을 가져오는 어노테이션
@@ -126,9 +129,47 @@ public class BoardController {
 			logger.info(" /listALL GET 호출 ");
 		}
 		
+		// DB 글 목록을 가져와서 -> view(jsp) 전달 출력
+		// model 객체 사용해서 전달
+		// /board/listAll.jsp (표에 데이터 채우기)
+		
+		// 서비스에서 전달된 글 목록 확인(출력)
+		List<BoardVO> boardList = service.listAll();
+		
+		//logger.info(boardList + "");
+		
+		// model 객체 사용 데이터 저장
+		model.addAttribute("boardList", boardList);		
 		
 	}
 	
+	// 글 본문 보기(/board/read)
+	@RequestMapping(value="/read", method=RequestMethod.GET)
+	public void readGET(@RequestParam("bno") int bno, Model model) throws Exception{
+		
+		// @RequestParam("bno")
+		// => request.getParameter() (문자열 타입) 처럼 작동하는 어노테이션
+		// => 문자열, 숫자, 날짜 등의 형변환 가능
+		
+		//@RequestParam("bno") int bno
+		// -> 받아온 parameter 값을 변수 bno에 담아줌
+		
+		
+		logger.info(" /listAll -> /read GET 페이지 호출 ");
+		logger.info("전달된 글 번호 : " + bno);
+		
+		// 글 번호에 해당하는 글 정보 모두를 가져오기
+		// DB에 접근하기 위해 서비스 객체를 통한 접근 시도
+		BoardVO vo = service.read(bno);
+		logger.info(bno+"번 글 정보 :"+ vo);
+		
+		// 글 정보를 전달 받아서 view 페이지(/board/read.jsp)로 이동
+		// Model 객체 사용 전달 
+		model.addAttribute("boardVO", vo);
+		
+		
+		
+	}
 	
 	
 	
