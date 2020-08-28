@@ -69,6 +69,37 @@ CREATE TABLE `springdb`.`tbl_board` (
   2) JSTL (core 라이브러리 사용) ( servlet 2.4 이하 )
   
   <c:out value='${pageContext.request.contextPath}/resources/bootstrap/~~'/>
+  
+  
+-----------------------------------------------------------------------------------
+  
+  * 컨트롤러 (+프리젠테이션 계층)
+  
+  - 같은 동작의 경우 하나의 주소만 사용해서 구분(페이지 전달방식get/post)
+   **Form.jsp -> ** Pro.jsp (model1)
+   **.me -> **Action.me (model2 - MVC)
+   **/register -> **/register (Spring MVC)
+   
+  - 공통적인 URI, 기능별 URI 결정 => 설계단계
+  - 주소별  URI 호출방식 결정
+  - 결과페이지 처리방식, 리다이렉트 이동방식 처리 
+  - 예외처리  
+  
+  - URI 결정시 사용되는 규칙
+  1) 외부입력, 정보를 전달, 입력을 하는 페이지의 경우 GET방식처리 (필수)
+  2) 페이지 조회가 필요한경우 GET방식 처리 
+  3) 데이터를 처리하는 페이지 POST방식 처리 (외부 입력X)
+  4) 내부처리 로직, DAO 처리필요한경우 POST 방식처리 
+  
+      방식 / URI / 설명
+   GET / /board/register / 회원가입 페이지 보여주기
+   POST / /board/register / 회원가입  처리하기 
+      ....
+      
+    Ajax => REST API    
+  
+
+  
 
 --------------------------------------------------------
 
@@ -95,7 +126,7 @@ https://adminlte.io/themes/AdminLTE/index2.html
   -> http://localhost:8090/             (프로젝트 경로 수정함)
   
   
-  --------------------------------------------------------------------------
+--------------------------------------------------------------------------
   
   서버 실행 시 톰캣 오류 
   : 프로젝트 properties - deployment assembly에서 maven dependencies가 누락되어서 발생한 오류

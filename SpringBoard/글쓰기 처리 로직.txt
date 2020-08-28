@@ -1,0 +1,21 @@
+1) 톰캣 서버 실행
+
+2) http://localhost:8080/board/register 주소 요청
+
+3) 글 정보를 입력 -> submit()
+
+4) 컨트롤러 POST방식 처리 
+
+5) 서비스 regist() 호출
+
+6) DAO create() 호출
+
+7) sqlsession 객체 사용 Mapper이동
+
+8) 해당 SQL 실행
+
+9) DAO 이동
+
+10) 서비스 이동
+
+11) 컨트롤러 

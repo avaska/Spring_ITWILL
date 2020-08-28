@@ -27,8 +27,12 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void regist(BoardVO board) throws Exception {
 		// 컨트롤러 <-> 서비스 <-> DAO <-> MyBatis(Mysql)
+		logger.info("컨트롤러에서 서비스 요청(regist)");
+		logger.info("DAO 정보 전달해서 DB저장");
 		
+		bdao.create(board);
 		
+		logger.info(" 글쓰기 완료! 컨트롤러로 페이지 이동 ");		
 		
 	}
 
