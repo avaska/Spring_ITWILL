@@ -67,6 +67,20 @@ public class BoardServiceImpl implements BoardService {
 	
 		return vo;
 	}
+
+
+	@Override
+	public void remove(Integer bno) throws Exception {
+		
+		logger.info("컨트롤러에서 서비스 객체 호출");		
+		logger.info("서비스에서 DAO 객체로 이동");
+		
+		bdao.delete(bno);
+		
+		logger.info("회원 정보 삭제 완료! 컨트롤러 이동");
+		
+		
+	}
 	
 	
 	

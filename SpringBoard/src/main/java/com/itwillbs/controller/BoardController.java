@@ -149,7 +149,7 @@ public class BoardController {
 		
 		// @RequestParam("bno")
 		// => request.getParameter() (문자열 타입) 처럼 작동하는 어노테이션
-		// => 문자열, 숫자, 날짜 등의 형변환 가능
+		// => 문자열, 숫자, 날짜 등의 형변환 가능 (view 페이지의 parameter type과 같은 타입으로 받아온다)
 		
 		//@RequestParam("bno") int bno
 		// -> 받아온 parameter 값을 변수 bno에 담아줌
@@ -165,10 +165,58 @@ public class BoardController {
 		
 		// 글 정보를 전달 받아서 view 페이지(/board/read.jsp)로 이동
 		// Model 객체 사용 전달 
+		model.addAttribute("boardVO", vo);		
+		
+	}
+	
+	// http://localhost:8090/board/remove
+	// 글 삭제 동작
+	@RequestMapping(value="/remove", method=RequestMethod.POST)
+	public String removePOST(@RequestParam("bno") int bno, RedirectAttributes rttr) throws Exception{
+	//public String removePOST(int bno) throws Exception{
+	//@RequestParam("bno") 어노테이션을 생략해도 가능하다.
+		
+		logger.info("/remove 호출(삭제 처리)" );
+		
+		// 삭제 -> 서비스 -> DAO -> DB 삭제
+		// 삭제할 글 번호
+		logger.info("삭제할 글 번호 : " + bno );
+		
+		// 서비스에 삭제 처리하는 메서드 호출
+		service.remove(bno);
+		
+		// 삭제처리 확인값 사용(1회성)
+		rttr.addFlashAttribute("result", "delOK");
+		
+		//페이지 이동
+		return "redirect:/board/listAll";
+	}
+	
+	
+	// 글 수정하기 (modify) => (수정정보 입력+정보수정)
+	// http://localhost:8090/board/modify?bno=54
+	@RequestMapping(value="/modify", method=RequestMethod.GET)
+	public void modifyGET(@RequestParam("bno") int bno, Model model) throws Exception{
+		// @RequestParam("bno") : Request로부터 bno라는 이름의 파라미터 값을 받아옴
+		// int bno : 받아온 파라미터를 bno라는 이름의 변수에 저장해서 사용하겠다
+		
+		// 메서드의 리턴 타입이 void : mapping값과 동일한 이름의 jsp 페이지로 이동 
+		logger.info(" /board/modify -> /board/modify.jsp 이동 ");
+		// 전달 받은 파라미터값 저장 bno
+		logger.info(" 수정할 글 번호 : " + bno + " 번글 ");
+		
+		// DB에서 수정할 정보를 가지고 와야 함(Model 객체 사용)
+		// 정보 저장 -> View 페이지로 이동	
+		
+		// DB에서 글 정보를 가져오기(글 번호) -> 서비스 기능 호출
+		BoardVO vo = service.read(bno);
+		logger.info("수정할 글 정보 : " + vo);
+		
+		// DB -> 컨트롤러 정보 전달 완료
+		// 저장된 정보 가지고 View 페이지 이동
 		model.addAttribute("boardVO", vo);
 		
-		
-		
+		//컨트롤러 메서드의 리턴 타입에 따라 어떤방식으로, 어디로 이동될지 결정됨
 	}
 	
 	

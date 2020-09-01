@@ -19,6 +19,9 @@ public interface BoardService {
 	// Java 버전에 따라 int 타입으로 autoboxing되지 않는 문제가 생길 수 있으므로 Integer타입으로 지정
 	public BoardVO read(Integer bno) throws Exception;
 	
+	// 글 삭제하기
+	public void remove(Integer bno) throws Exception;
+	
 	
 	
 }
