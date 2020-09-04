@@ -16,13 +16,13 @@
 				<!-- /.box-header -->
 				
 				<form role="form" action="" method="post">
-					<input type="hidden" name="bno" value="${boardVO.bno}">
-				</form>
+					<%-- <input type="hidden" name="bno" value="${boardVO.bno}"> --%>
+				
 				
 				<div class="box-body">
 					<div class="form-group">
 						<label for="boardNum">글 번호</label> 
-						<input type="text" name='boardNum' 
+						<input type="text" name='bno' 
 						       class="form-control" 
 							   value="${boardVO.bno}" 
 							   readonly>
@@ -54,8 +54,8 @@
 					<button type="button" class="btn btn-warning">수정하기</button>
 					<button type="button" class="btn btn-danger">취소하기</button>
 				</div>
-
-
+				
+				</form>
 			</div>
 			<!-- /.box -->
 		</div>
@@ -71,12 +71,15 @@
 <script src="${pageContext.request.contextPath}/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function(){	
-		
-		// 수정하기 클릭
-		$(".btn-warning").click(function(){
-			
-			
-			});
+
+		var formObj = $("form[role='form']");
+
+	 	// 수정하기 클릭
+        $(".btn-warning").click(function(){
+           // 폼태그의 정보를 저장해서 전달(처리페이지)=>submit
+           formObj.submit();
+    	  
+         });
 		
 		// 취소하기 클릭
 		$(".btn-danger").on("click", function(){

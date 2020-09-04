@@ -92,11 +92,14 @@
 	 var result = '${result}';
 
 	 if(result == 'SUCCESS@@'){
-		 //글을 쓰고 리스트 페이지에 왔을 때만 출력
+		 // 글을 쓰고 리스트 페이지에 왔을 때만 출력
 		 alert("글쓰기 완료!" + result);
 	 }else if(result == 'delOK'){
-		 //삭제 완료 처리
+		 // 삭제 완료 처리
 		 alert("글 삭제 완료! " + result);
+	 }else if(result == 'modifyOK'){
+		 // 수정 완료 처리
+		 alert("글 수정 완료! " + result);
 	 }  
   
   </script>

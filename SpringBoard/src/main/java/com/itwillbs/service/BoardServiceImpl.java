@@ -81,6 +81,20 @@ public class BoardServiceImpl implements BoardService {
 		
 		
 	}
+
+
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		//modify.jsp -> 컨트롤러 -> 서비스로 데이터가 전달된 상황
+		System.out.println(" 컨트롤러에서 서비스 요청 ");
+		System.out.println(" DAO 객체를 주입 받아서 처리 ");
+		bdao.update(vo);
+		
+		System.out.println(" 정보 수정완료 ");
+		System.out.println(" 컨트롤러로 페이지 이동 ");
+	}
+	
+	
 	
 	
 	

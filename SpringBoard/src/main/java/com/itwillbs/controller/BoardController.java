@@ -220,6 +220,23 @@ public class BoardController {
 	}
 	
 	
+	// http://localhost:8070/board/modify?bno=54
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public String modifyPOST(/* @RequestParam("boardVO") */ BoardVO vo, RedirectAttributes rttr) throws Exception{
+		//객체타입을 지정해주면 프레임워크가 SET메서드를 통하여 자동적으로 받아온다
+		
+		logger.info("/modify (get) -> /modify (post) 호출");
+		logger.info("vo : "+vo);
+		
+		// 수정할 정보를 받아서 (저장) -> 서비스 -> DAO -> Mapper
+		service.modify(vo);
+		
+		rttr.addFlashAttribute("result", "modifyOK");
+		
+		//가상 주소로 redirect -> 실제 주소 list.jsp로 이동
+		return "redirect:/board/listAll";
+	}
+	
 	
 	
 	
