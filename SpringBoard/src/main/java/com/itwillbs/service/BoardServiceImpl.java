@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 import com.itwillbs.persistence.BoardDAO;
 
 // @Service 어노테이션 추가
@@ -92,6 +93,15 @@ public class BoardServiceImpl implements BoardService {
 		
 		System.out.println(" 정보 수정완료 ");
 		System.out.println(" 컨트롤러로 페이지 이동 ");
+	}
+
+
+	@Override
+	public List<BoardVO> listCri(Criteria cri) throws Exception {
+		
+		System.out.println("Service : listCri(cri) 호출 ");
+		
+		return bdao.listPage(cri);
 	}
 	
 	

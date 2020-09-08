@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 import com.itwillbs.service.BoardService;
 
 // @RequestMapping("/board/*")
@@ -238,6 +239,27 @@ public class BoardController {
 	}
 	
 	
+	
+	// http://localhost:8080/board/listCri
+	// http://localhost:8080/board/listCri?page=2
+	// http://localhost:8080/board/listCri?pageSize=5
+	// http://localhost:8080/board/listCri?pageSize=5&page=3
+		
+	// 전달되는 파라미터값들이 메서드 전달인자에(Criteria) 저장 후  처리 
+	
+	// 자동으로 page,pageSize의 값이 Criteria 객체로 전달되어 페이징이 수행됨
+	@RequestMapping(value="/listCri",method = RequestMethod.GET)
+	public void listCri(Model model,Criteria cri) throws Exception{
+		// 전달인자 Criteria객체를 사용해서 기본값으로 페이징 처리 
+		logger.info("C : /listCri 호출");
+		
+		// 서비스 호출 -> DAO -> Mapper -> DB 처리후
+		List<BoardVO> boardList = service.listCri(cri);
+
+		// => 정보를 저장해서 view 페이지 이동 Model
+		model.addAttribute("boardList",boardList);		
+		
+	}
 	
 	
 	

@@ -1,6 +1,5 @@
 package com.itwillbs.persistence;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -11,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 
 //@Repository : BoardDAO 역할을 할 수 있도록 지정
 // -> 스프링이 BoardDAO 인터페이스를 찾아갔을 때 이 어노테이션이 붙은 subclass가 그 역할을 할 수 있도록 하게 만들겠다.
@@ -116,6 +116,33 @@ public class BoardDAOImpl implements BoardDAO{
 		return boardList;
 	}
 
+
+	@Override
+	public List<BoardVO> listPage(int page) throws Exception {
+		
+		System.out.println("DAO : listPage(page) 호출");
+		System.out.println("Test를 통해서 sql 구문 확인");
+		
+		//잘못된 페이지 처리의 경우
+		if(page <= 0) {
+			page = 1;
+		}
+		
+		// 0, 10, 20, 30,.....
+		//페이지별로 보이는 개수 미리 지정
+		page = (page -1) * 10;
+		
+		return session.selectList(NAMESPACE+".listPage", page);
+	}
+
+	@Override
+	public List<BoardVO> listPage(Criteria cri) throws Exception {
+
+		System.out.println("DAO : listPage(Criteria cri)");
+		
+		return session.selectList(NAMESPACE+".listCri", cri);
+	}
+	
 	
 	
 }

@@ -12,6 +12,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 import com.itwillbs.persistence.BoardDAO;
 
 //스프링 테스트용 설정
@@ -132,6 +133,37 @@ public class BoardDAOTest {
 		
 	}
 	
+	// 글목록 10개씩 처리 동작
+	//@Test
+	public void TestListPage() throws Exception{
+		// test 파일 -> DAO -> Mapper -> DB
+		
+		// DI를 사용해서 DAO객체 호출
+		List<BoardVO> boardList = bdao.listPage(2);
+		
+		for(BoardVO vo :boardList) {
+			System.out.println(vo.getBno()+"----"+vo.getTitle());
+		}
+		
+	}
 	
+	// 객체를 사용해서 페이징 처리 
+	@Test
+	public void TestListCri() throws Exception{
+		// 페이징처리 객체 생성 초기화
+		Criteria cri = new Criteria();
+		cri.setPage(2);
+		cri.setPageSize(5);
+		
+		// DAO이동후 정보를 처리 
+		List<BoardVO> list = bdao.listPage(cri);
+				
+		// 정보 출력	
+		for(BoardVO vo : list) {
+			System.out.println(vo.getBno()+"-----"+vo.getTitle());
+		}
+		
+	}
+
 	
 }

@@ -3,6 +3,7 @@ package com.itwillbs.service;
 import java.util.List;
 
 import com.itwillbs.domain.BoardVO;
+import com.itwillbs.domain.Criteria;
 
 public interface BoardService {
 	// 사용자의 요구사항을 처리하는 비지니스 계층
@@ -25,5 +26,7 @@ public interface BoardService {
 	// 글 수정하기
 	public void modify(BoardVO vo) throws Exception;
 	
+	// 글 페이징 처리(Criteria 객체 사용)
+	public List<BoardVO> listCri(Criteria cri) throws Exception;
 	
 }
