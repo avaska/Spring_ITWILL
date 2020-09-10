@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.BoardVO;
 import com.itwillbs.domain.Criteria;
+import com.itwillbs.domain.PageMaker;
 import com.itwillbs.service.BoardService;
 
 // @RequestMapping("/board/*")
@@ -248,16 +249,54 @@ public class BoardController {
 	// 전달되는 파라미터값들이 메서드 전달인자에(Criteria) 저장 후  처리 
 	
 	// 자동으로 page,pageSize의 값이 Criteria 객체로 전달되어 페이징이 수행됨
+	// http://localhost:8080/board/listCri 호출 -> new Criteria(); 객체 생성
+	// -> Criteria 객체의 변수인 page, pageSize가 파라미터로 전달될 수 있게 된다.
+	// -> page,pageSize 값을 입력하지 않으면 기본 생성자의 값인 (1,10)이 전달됨
 	@RequestMapping(value="/listCri",method = RequestMethod.GET)
-	public void listCri(Model model,Criteria cri) throws Exception{
+	public void listCri(Model model, Criteria cri) throws Exception{
 		// 전달인자 Criteria객체를 사용해서 기본값으로 페이징 처리 
+		// 기본값 : [page=1, pageSize=10]
 		logger.info("C : /listCri 호출");
+		logger.info(" cri " + cri); 
 		
 		// 서비스 호출 -> DAO -> Mapper -> DB 처리후
 		List<BoardVO> boardList = service.listCri(cri);
 
 		// => 정보를 저장해서 view 페이지 이동 Model
 		model.addAttribute("boardList",boardList);		
+		
+	}
+	
+	//http://localhost:8070/board/listPage
+	// 위 주소 요청하면 Criteria 객체 생성(new Criteria();)
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void listPage(Criteria cri, Model model) throws Exception{
+		//기본값 : [page=1, pageSize=10]
+		logger.info(" C : /listPage 호출 ");
+		logger.info(" cri " + cri); 
+		
+		//기존 방식(list를 변수로 따로 받아서 model에 넣어줌)
+		//List<BoardVO> boardList = service.listCri(cri);
+		//model.addAttribute("boardList", boardList );
+		
+		// 1) 페이징 처리 (본문)
+		// 컨트롤러 -> 서비스 -> DAO -> Mapper -> .... -> 컨트롤러 -> view
+		model.addAttribute("boardList", service.listCri(cri));
+		
+		
+		// 2) 페이징 처리 (하단)
+		PageMaker pm = new PageMaker();
+		
+		pm.setCri(cri); //외부에서 전달되는 정보 (파라미터값 page, pageSize)
+		
+		// 테이블에 있는 글의 수
+		// SELECT count(*) FROM tbl_board; 사용 계산
+		// -> DB 쿼리 사용 변경 예정
+		pm.setTotalCount(41);
+		
+		// 페이징 처리 정보를 model 객체에 저장 -> view 페이지 이동
+		model.addAttribute("pm", pm);
+		 
 		
 	}
 	

@@ -42,15 +42,20 @@ public class Criteria {
 		
 	}
 	
+	// (* mapper에서 호출  #{pageSize} )
 	public int getPageSize() {
 		return pageSize;
 	}
 	
+	
 	// 0, 10, 20, 30,.....
 	// 시작 데이터 번호 = (페이지 번호 - 1)*페이지에서 보여질 개수;
 	// ex)page = (page - 1)*10;	
+	// 1페이지 : 0,1,2...9번 글
+	// 2페이지 : 10,11,12,....,19번 글
+	// 3페이지 : 20,21,22,....,20번 글
 	
-	// limit - 시작값 계산 (* mapper에서 호출)
+	// limit - 시작값 계산 (* mapper에서 호출  #{pageStart})
 	public int getPageStart() {
 		return (this.page - 1)*pageSize;
 	}

@@ -19,7 +19,7 @@ public class CommonExceptionAdvice {
 	
 	// 예외 처리하는 동작 구현 => 메서드를 만들겠다
 	//@ExceptionHandler(Exception.class)
-	// @ExceptionHandler 어노테이션 주석 걸어야 에러페이지 출력됨 why????
+	// 아래 메서드와 이 메서드 중 하나만 @ExceptionHandler 어노테이션 걸어서 실행해야 오류X
 	public String common(Exception e) {
 		
 		logger.info(e.toString());

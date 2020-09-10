@@ -1,0 +1,38 @@
+
+ REST (Representational State Transfer)
+ - WWW 와 같은 분산 하이퍼미디어 시스템 구축을 위한 SW 아키텍처 스타일
+ - 데이터(리소스)를 하나의 주소(URI)에 저장해서 처리하는 동작
+ - HTTP에 추가적인 전송계층 없이 처리하기 위한 방법
+ 
+ 기존 웹 -> 서버에서 정보 처리후 데이터를 생성후 브라우저에서 View 사용 출력
+ 
+ 요즘 웹 -> 서버에서  브라우저에 필요한 데이터만 전달해서 사용 (필요한곳에서 사용)
+ => 모바일 / 태블릿 => xml,json
+ => 서버에서 처리한 결과(리소스)를 다양한 기기에서 공통적으로 처리하기위한 방식
+ 
+  REST API? 외부에서 동일한 방식으로 특정 주소(URI)가 사용자가 원하는 정보를 
+  제공해주는 API.
+  => 공공데이터 (Open API) 
+  => REST API 사용한 처리 방식(서비스) -> Restful 하다라고 표현함.
+  
+  
+  설계 제약사항
+  - Client-Server : 요청,응답(처리) 표준  인터페이스 사용 구분해야함(상호독립적)
+  - stateless : 클라이언트의 컨텍스트가 서버에 저장없이 사용(클라이언트에 저장)
+  - Cacheable : 서버의 응답은 캐싱 가능해야하며, 성능을 향상
+  - Layered System :클라이언트와 서버의 부하를 분산 
+  - Code and Demand : 자바 / Script 사용해서 클라이언트가 처리가능한 코드 제공
+  - Uniform Interface : 표준 인터페이스 사용 클라이언트,서버 구현
+  
+  https://docs.microsoft.com/ko-kr/azure/architecture/best-practices/api-design
+  
+  
+  
+ 
+ 
+ 
+ 
+ 
+  
+
+

@@ -74,9 +74,9 @@
 	 
 	 <!-- 페이지 처리 객체 사용(Criteria) -->
 	 <select id="listCri" resultType="BoardVO">
-	 select * from tbl_board 
-	 order by bno desc,regdate desc 
-	 limit #{pageStart},#{pageSize}    
+		 select * from tbl_board 
+		 order by bno desc,regdate desc 
+		 limit #{pageStart},#{pageSize}    
 	 </select>
 	
 </mapper>

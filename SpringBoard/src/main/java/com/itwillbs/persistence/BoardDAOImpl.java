@@ -130,7 +130,7 @@ public class BoardDAOImpl implements BoardDAO{
 		
 		// 0, 10, 20, 30,.....
 		//페이지별로 보이는 개수 미리 지정
-		page = (page -1) * 10;
+		page = (page -1) * 10; // 테이블에서 가져올 글 리스트의 첫번째 글 번호 설정(pageStart)
 		
 		return session.selectList(NAMESPACE+".listPage", page);
 	}
@@ -138,8 +138,11 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public List<BoardVO> listPage(Criteria cri) throws Exception {
 
-		System.out.println("DAO : listPage(Criteria cri)");
+		System.out.println("DAO : listPage(Criteria cri)");		
 		
+		// mapper로 Criteria 객체(cri 변수)를 넘겨주면
+		// Criteria의 getPageStart(), getPageSize() 함수가 자동으로 호출되어 
+		// 쿼리의 #{pageStart},#{pageSize}  부분에 값을 넘겨준다.
 		return session.selectList(NAMESPACE+".listCri", cri);
 	}
 	
